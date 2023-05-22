@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Form.module.css";
-import validation from "./validation.jxs";
+import validation from "./validation"
 
 
 export default function Form(props) {
@@ -11,8 +11,7 @@ export default function Form(props) {
     })
 
     const [errors, setErrors] = React.useState({});
-    // errors = {}
-    // errors = { email: tiene...., password: tiene...}
+    
 
     const handleChange = event => {
         const {name, value} = event.target; // { name:-, value:- }
@@ -20,7 +19,7 @@ export default function Form(props) {
             ...userData,
             [name]: value
         })
-        // console.log(userData);
+        
         setErrors(validation({
             ...userData,
             [name]: value
@@ -30,6 +29,7 @@ export default function Form(props) {
     const handleSubmit = event => {
         event.preventDefault();
         props.login(userData);
+        
     }
 
     return(

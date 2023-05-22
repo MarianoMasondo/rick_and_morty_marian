@@ -8,15 +8,3 @@ export default function Nav(props) {
         </div>
     )
 }
-
-// import SearchBar from "../searchBar/SearchBar.jsx";
-// import styles from './Nav.module.css';
-
-// export default function Nav(props) {
-   
-//    return (
-//       <div className = {styles.container}>
-//          <SearchBar onSearch = {props.onSearch} />
-//       </div>
-//    );
-// }
