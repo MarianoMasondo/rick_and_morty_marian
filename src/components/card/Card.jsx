@@ -42,7 +42,6 @@ function Card(props) {
          <Link to={`/detail/${props.id}`}>
          <div className={styles.dataContainer}>
             <h2>Name: {props.name}</h2>
-            <hr/>
             <h3>ID: {props.id}</h3>
             <h4>Status: {props.status}</h4>
             <h4>Species: {props.species}</h4>

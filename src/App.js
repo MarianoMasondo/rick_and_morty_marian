@@ -34,6 +34,10 @@ function App() {
       axios (`https://rickandmortyapi.com/api/character/${id}`)
          .then(({ data }) => {
             if (data.name) {
+               const isDuplicate = characters.some((char) => char.id === data.id);
+             if (isDuplicate) {
+              window.alert('¡Este personaje ya está en pantalla!');
+             } else                
                setCharacters((oldChars) => [...oldChars, data]);
             } else {
                window.alert('¡No hay personajes con este ID!');
@@ -46,13 +50,18 @@ function App() {
          caracter.id !== Number(id)))
    }
 
+   function generarRandomId () {
+      const randomId = Math.floor(Math.random() * 826) + 1;
+      onSearch(randomId)
+   }
+
    const location = useLocation();
    
    return (
       <div className='App'>
          {
             location.pathname !== "/"
-            ? <Nav onSearch={onSearch}/>
+            ? <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
             : null
          }
          <hr />
