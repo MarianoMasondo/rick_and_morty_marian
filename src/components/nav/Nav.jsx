@@ -4,8 +4,6 @@ import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
 
 export default function Nav(props) {
-
-
     
     return(
         <div className={styles.container}>
@@ -16,16 +14,14 @@ export default function Nav(props) {
                <NavLink to="/favorites">
                 <button>Favorites</button>
                </NavLink>
+                <button onClick={props.randomCharacter}>Ramdom</button>
                <NavLink to="/about">
                 <button>About</button>
-                </NavLink>
-                
+                </NavLink>               
             </div>
             <div>
-                <SearchBar onSearch={props.onSearch} />
-                <button onClick={props.randomCharacter}>Ramdom</button>
-            </div>
-                
+                <SearchBar onSearch={props.onSearch} />                
+            </div>                
         </div>        
     )
 }

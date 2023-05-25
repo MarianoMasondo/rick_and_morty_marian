@@ -1,0 +1,17 @@
+.container {    
+    background-color: transparent;
+    backdrop-filter: blur(5px); 
+    padding-top: 20px;
+    padding-bottom: 15px;
+    margin: auto;
+  }
+
+  .container button {
+    border-radius: 5px;
+    height: 25px;    
+    background-color: whitesmoke;
+    &:hover{
+        color: whitesmoke;
+        background-color: grey;
+    }
+  }

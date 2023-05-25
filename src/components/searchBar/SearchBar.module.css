@@ -11,9 +11,9 @@
 }
 
 .container button {
-    border-radius: 3px;
+    border-radius: 5px;
     height: 25px;
-    color: whitesmoke;
+    color: whitesmoke(227, 13, 13);
     background-color: darkslategray;
     box-shadow: 0 5px 5px black;
     &:hover {

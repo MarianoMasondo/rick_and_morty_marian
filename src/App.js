@@ -34,7 +34,7 @@ function App() {
       axios (`https://rickandmortyapi.com/api/character/${id}`)
          .then(({ data }) => {
             if (data.name) {
-               const isDuplicate = characters.some((char) => char.id === data.id);
+            const isDuplicate = characters.some((char) => char.id === data.id);
              if (isDuplicate) {
               window.alert('¡Este personaje ya está en pantalla!');
              } else                
