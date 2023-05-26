@@ -28,8 +28,7 @@ export default function Form(props) {
 
     const handleSubmit = event => {
         event.preventDefault();
-        props.login(userData);
-        
+        props.login(userData);        
     }
 
     return(
@@ -39,6 +38,7 @@ export default function Form(props) {
                 <input
                     type="text"
                     name="email"
+                    placeholder="Email"
                     value={userData.email}
                     onChange={handleChange}
                 />
@@ -48,11 +48,12 @@ export default function Form(props) {
                 <input
                     type="password"
                     name="password"
+                    placeholder="Contraseña"
                     value={userData.password}
                     onChange={handleChange}
                 />
                 <p className={styles.error}>{errors.password ? errors.password : null}</p>
-                <hr />
+                
 
                 <button type="submit">Submit</button>
 

@@ -21,7 +21,9 @@ export default function Nav(props) {
             </div>
             <div>
                 <SearchBar onSearch={props.onSearch} />                
-            </div>                
-        </div>        
+            </div> 
+                    
+        </div>       
+         
     )
 }

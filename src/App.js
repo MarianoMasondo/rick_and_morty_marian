@@ -12,7 +12,7 @@ import Favorites from './components/favorites/Favorites';
 
 function App() {
    const [characters, setCharacters] = useState([]);
-
+   
    const [access, setAccess] = useState(false);
    const EMAIL = "ejemplo@gmail.com";
    const PASSWORD = "123456";

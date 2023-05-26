@@ -19,7 +19,7 @@ export default function Detail(props) {
 
      console.log("character desde Detail: ", character);
     return (
-        <div style={{backgroundColor: "lightgray"}}>
+        <div style={{backgroundColor: "lightseagreen"}}>
             <h1>DETAIL</h1>
             <h2>{character.name}</h2>
             <img src={character.image} alt={character.name} />

@@ -2,7 +2,8 @@ import { ADD_FAV } from "./types"
 import { REMOVE_FAV } from "./types"
 
 const initialState = {
-    myFavorites: []
+    myFavorites: [],
+    allCharacters: [],
 }
 
 export default function reducer(
