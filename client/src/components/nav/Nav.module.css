@@ -12,6 +12,6 @@
     background-color: whitesmoke;
     &:hover{
         color: whitesmoke;
-        background-color: grey;
+        background-color: lightslategrey; 
     }
   }

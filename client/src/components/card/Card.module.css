@@ -2,25 +2,28 @@
     border: 0px solid grey;
     background-color: darkgray;
     border-radius: 10px;
-    width: 140px;
-    height: 280px;
+    width: fit-content;
+    height: fit-content;
     margin: 20px;
     padding: 10px;
     box-shadow: 0 0 10px black;
     &:hover {
         box-shadow: 0 0 5px grey;
     }
+    
 }
 
-.container img {
-    width: 130px;
+ .container img {    
+    width: 200px;
     box-shadow: 0 5px 5px black;
-    margin-top: 15px;
+    margin-top: 1px;
+    
+    
 }
 
 .buttonContainer {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .buttonContainer button {
