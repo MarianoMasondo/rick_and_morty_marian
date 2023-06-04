@@ -10,7 +10,7 @@
     margin-right: 2px;
 }
 
-.container button {
+/* .container button {
     border-radius: 5px;
     height: 25px;
     color: whitesmoke;
@@ -21,7 +21,7 @@
         background-color: whitesmoke;
         box-shadow: 0 5px 5px white;
     }
-}
+} */
 
 .container img {
    float: left;

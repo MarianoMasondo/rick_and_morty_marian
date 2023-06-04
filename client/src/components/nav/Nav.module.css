@@ -6,12 +6,50 @@
     margin: auto;
   }
 
-  .container button {
+  /* .container button {
     border-radius: 5px;
     height: 25px;    
     background-color: whitesmoke;
     &:hover{
         color: whitesmoke;
         background-color: lightslategrey; 
+    }
+  } */
+
+  button {
+    padding: 12px 17px;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+    background: #27374D;
+    color: #DDE6ED;
+    box-shadow: 0 0 10px #526D82, inset 0 0 10px #526D82;
+  }
+  
+  button:hover {
+    animation: a 0.5s 1 linear;
+  }
+  
+  @keyframes a {
+    0% {
+      transform: scale(0.7, 1.3);
+    }
+  
+    25% {
+      transform: scale(1.3, 0.7);
+    }
+  
+    50% {
+      transform: scale(0.7, 1.3);
+    }
+  
+    75% {
+      transform: scale(1.3, 0.7);
+    }
+  
+    100% {
+      transform: scale(1, 1);
     }
   }
