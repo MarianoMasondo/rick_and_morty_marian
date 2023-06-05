@@ -1,6 +1,6 @@
 .container {
-    border: 0px solid grey;
-    background-color: darkgray;
+    border: 13px solid black;
+    background-image: url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
     border-radius: 10px;
     width: fit-content;
     height: fit-content;
@@ -9,21 +9,19 @@
     box-shadow: 0 0 10px black;
     &:hover {
         box-shadow: 0 0 5px grey;
-    }
-    
+    }    
 }
 
- .container img {    
-    width: 180px;
+ .container img {
+    border: 5px solid green;    
+    width:min-content;
     box-shadow: 0 5px 5px black;
-    margin-top: 1px;
-    
-    
+    margin-top: 1px;    
 }
 
 .buttonContainer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end;    
 }
 
 .buttonContainer button {
@@ -45,13 +43,24 @@
 }
 
 .dataContainer h2 {
+    background-color: beige;
+    border: 5px solid beige;
     margin: 2px;
-    font-size: 15px;
+    font-size: 20px;
     color: darkslategray
 }
 
+.dataContainer h3{    
+    margin-bottom: auto;
+    font-size: small;
+}
+
 .dataContainer h4 {
-    margin: 2px;
-    font-size: 10px;
+    text-align: left;
+    background-color: beige;
+    border: 5px solid beige;
+    padding: 0px;
+    margin: 0px;
+    font-size: 15px;
     color: darkslategray
 }

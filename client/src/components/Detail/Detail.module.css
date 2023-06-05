@@ -1,0 +1,24 @@
+.backgroundImageContainer {
+    background-image: url('https://images5.alphacoders.com/876/876590.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 470px;
+    width: 100%;
+    padding-top: 1em;
+  }
+
+  .characterImage {
+    padding-top: 5em;
+    padding-left: 3em;
+    padding-right: 1em;
+    float: left;
+    position: relative;
+    margin-right: 20px;
+  }
+
+  .textContainer {
+    color:rgb(13, 236, 236);
+    padding-top: 3em;    
+    text-align: left;
+  }

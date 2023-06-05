@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import styles from"./Detail.module.css";
 
 export default function Detail(props) {
     const { id } = useParams();
@@ -19,13 +20,15 @@ export default function Detail(props) {
 
      console.log("character desde Detail: ", character);
     return (
-        <div style={{backgroundColor: "lightseagreen"}}>
+        <div className={`${styles.container} ${styles.backgroundImageContainer}`}>
+            <img className={styles.characterImage} src={character.image} alt={character.name} />
+            <div className={styles.textContainer}>
             <h1>DETAIL</h1>
-            <h2>{character.name}</h2>
-            <img src={character.image} alt={character.name} />
+            <h2>Name   | {character.name}</h2>
             <h3>Origin | {character.origin?.name}</h3>
             <h3>Specie | {character.species}</h3>
             <h3>Gender | {character.gender}</h3>
+            </div>
         </div>
     )
 }
