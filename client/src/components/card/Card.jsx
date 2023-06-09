@@ -1,32 +1,33 @@
 import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
-import { addFav, removeFav } from '../redux/actions'
+import { addFav, removeFav } from "../../redux/actions"; 
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
  
 
 function Card(props) {
+   const { myFavorites, addFav, removeFav } = props;
 
    const [isFav, setIsFav] = useState(false);
 
    useEffect(() => {
-      props.myFavorites.forEach((fav) => {
+      myFavorites.forEach((fav) => {
          if (fav.id === props.id) {
             setIsFav(true);
          }
       });
-   }, [props.myFavorites, props.id]);
+   }, [myFavorites]);
 
    const handleFavorite = () => {
       if(isFav){
          setIsFav(false);
-         props.removeFav(props.id)
+        removeFav(props.id)
       }else{
          setIsFav(true);
-         props.addFav(props)
+         addFav(props)
       }
    };
-
+   
    return (
       <div className={styles.container}>
          <div className={styles.buttonContainer}>

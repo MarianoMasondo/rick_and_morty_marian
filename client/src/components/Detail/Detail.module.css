@@ -1,11 +1,11 @@
-.backgroundImageContainer {
+  .backgroundImageContainer {
     background-image: url('https://images5.alphacoders.com/876/876590.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     height: 470px;
     width: 100%;
-    padding-top: 1em;
+    padding-top: 1em;    
   }
 
   .characterImage {
