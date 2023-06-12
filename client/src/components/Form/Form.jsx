@@ -38,7 +38,7 @@ export default function Form(props) {
                 <input
                     type="text"
                     name="email"
-                    placeholder="Email"
+                    placeholder="Email..."
                     value={userData.email}
                     onChange={handleChange}
                 />
@@ -48,7 +48,7 @@ export default function Form(props) {
                 <input
                     type="password"
                     name="password"
-                    placeholder="Contraseña"
+                    placeholder="Contraseña..."
                     value={userData.password}
                     onChange={handleChange}
                 />

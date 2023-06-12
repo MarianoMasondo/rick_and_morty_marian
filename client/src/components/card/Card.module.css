@@ -1,66 +1,90 @@
 .container {
-    border: 13px solid black;
+    position: relative;
+    border: 10px solid black;
     background-image: url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
     border-radius: 10px;
     width: fit-content;
     height: fit-content;
-    margin: 20px;
-    padding: 10px;
+    margin: 7px;
+    padding: 7px;
     box-shadow: 0 0 10px black;
-    &:hover {
-        box-shadow: 0 0 5px grey;
-    }    
-}
-
- .container img {
-    border: 5px solid green;    
-    width:min-content;
-    box-shadow: 0 5px 5px black;
-    margin-top: 1px;    
-}
-
-.buttonContainer {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .container:hover {
+    box-shadow: 0 0 5px grey;
+    transform: scale(1.05);
+  }
+  
+  .container .buttonContainer {
     display: flex;
-    justify-content: flex-end;    
-}
-
-.buttonContainer button {
+    justify-content: flex-end;
+  }
+  
+  .container .buttonContainer button {
     margin: 2px 2px 0 0;
     border-radius: 3px;
     background-color: pink;
     color: red;
     box-shadow: 0 2px 2px black;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  
     &:hover {
-        background-color: red;
-        color: pink;
-        box-shadow: 0 2px 2px white;
+      background-color: red;
+      color: pink;
+      box-shadow: 0 2px 2px white;
     }
-}
-
-.dataContainer {
+  }
+  
+  .container .dataContainer {
     text-align: center;
     padding: 5px;
-}
-
-.dataContainer h2 {
+  }
+  
+  .container .dataContainer h2 {
     background-color: beige;
     border: 5px solid beige;
     margin: 2px;
     font-size: 20px;
-    color: darkslategray
-}
-
-.dataContainer h3{    
-    margin-bottom: auto;
-    font-size: small;
-}
-
-.dataContainer h4 {
+    color: darkslategray;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .container .dataContainer h4 {
     text-align: left;
     background-color: beige;
     border: 5px solid beige;
     padding: 0px;
     margin: 0px;
     font-size: 15px;
-    color: darkslategray
-}
+    color: darkslategray;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .container img {
+    border: 4px solid green;
+    width: min-content;
+    box-shadow: 0 5px 5px lightgrey;
+    margin-top: 1px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .container:hover .buttonContainer button {
+    box-shadow: 0 2px 2px white;
+  }
+  
+  .container:hover .dataContainer h2 {
+    background-color: lightgray;
+    border-color: lightgray;
+  }
+  
+  .container:hover .dataContainer h4 {
+    background-color: lightgray;
+    border-color: lightgray;
+  }
+  
+  .container:hover img {
+    border-color: rgb(6, 184, 6);
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  }
+  
