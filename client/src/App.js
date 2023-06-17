@@ -9,7 +9,6 @@ import Form from "./components/Form/Form.jsx";
 import Nav from './components/nav/Nav.jsx';
 import Favorites from './components/favorites/Favorites';
 
-
 function App() {
    const [characters, setCharacters] = useState([]);
    
@@ -31,14 +30,14 @@ function App() {
 
    useEffect(() => {
       !access && navigate('/');
-   }, [access, navigate]);
+   }, [access]);
 
    const onSearch = async id => { 
       try {
          const characterId = characters.filter(character => character.id === id);
          if(characterId.length) return alert("¡Este personaje ya está en pantalla!");
          if(id < 1 || id > 826) return alert("¡No hay personajes con este ID!")
-         const { data} = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
+         const {data} = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
          if(data.name){
             setCharacters((oldChars) => [...oldChars, data]);            
          }else {
@@ -48,19 +47,6 @@ function App() {
          console.log(error.message);         
       }
    }
-      
-   //    axios (`http://localhost:3001/rickandmorty/character/${id}`)
-   //       .then(({ data }) => {
-   //          if (data.name) {
-   //          const isDuplicate = characters.some((char) => char.id === data.id);
-   //           if (isDuplicate) {
-   //            window.alert('¡Este personaje ya está en pantalla!');
-   //           } else                
-   //          } else {
-   //             window.alert('¡No hay personajes con este ID!');
-   //          }
-   //       });
-   // }
 
    const onClose = id => {
       setCharacters(characters.filter(caracter =>
@@ -81,7 +67,7 @@ function App() {
             ? <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
             : null
          }
-         <hr />
+         {/* <hr /> */}
          <Routes>
             <Route exact path="/" element={<Form login={login} />} />
             <Route path="/home" element={
@@ -89,7 +75,7 @@ function App() {
             }/>
             <Route path="/about" element={<About />} />
             <Route path="/detail/:id" element={<Detail />} />
-            <Route path="/Favorites" element={<Favorites onClose={onClose} />} />
+            <Route path="/favorites" element={<Favorites onClose={onClose} />} />
          </Routes>
          
       </div>

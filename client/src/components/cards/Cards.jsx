@@ -6,8 +6,6 @@ export default function Cards({characters, onClose}) {
       flexWrap: "wrap",
       justifyContent: "space-evenly"
    }
-
-   console.log(characters);
    return (
       <div style={cardsContainer}>
          {

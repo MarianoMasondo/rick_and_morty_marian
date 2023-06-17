@@ -3,34 +3,56 @@ import Card from "../card/Card";
 import styles from "./Favorites.module.css";
 import { removeFav } from "../../redux/actions";
 
-function Favorites(props) {
-   const favorites = useSelector(state => state.myFavorites)
+// function Favorites(props) {
+//    const favorites = useSelector(state => state.myFavorites)
    
-   const { removeFav } = props;
-   const onClose = (id) => { 
-      removeFav(id)
-    }
+//    const { removeFav } = props;
    
+//    const onClose = (id) => { 
+//       removeFav(id)
+//     }
+
+//    return (
+//       <div style={styles.cardsContainer}>
+//           {
+//              favorites.map((character) => (
+//                 <Card
+//                 key={character.id}
+//                 id={character.id}
+//                 name={character.name}
+//                 status={character.status}
+//                 species={character.species}
+//                 gender={character.gender}
+//                 origin={character.origin?.name}
+//                 image={character.image}
+//                 onClose={onClose}
+//                 />
+//                 ))
+//                }
+//        </div>
+//     );
+//    };
+function Favorites({myFavorites, onClose}) {   
    return (
-      <div style={styles.cardsContainer}>
-          {
-             favorites.map(character => (
-                <Card
-                key={character.id}
-                id={character.id}
-                name={character.name}
-                status={character.status}
-                species={character.species}
-                gender={character.gender}
-                origin={character.origin?.name}
-                image={character.image}
-                onClose={onClose}
-                />
-                ))
-               }
-       </div>
-    );
-   };
+      <div className={styles.container}>
+         {
+            myFavorites.map(character => (
+               <Card
+                  key={character.id}
+                  id={character.id}
+                  name={character.name}
+                  status={character.status}
+                  species={character.species}
+                  gender={character.gender}
+                  origin={character.origin?.name}
+                  image={character.image}
+                  onClose={onClose}
+               />
+            ))
+         }
+      </div>
+   );
+}
    
    export function mapStateToProps(state) {
       return {
@@ -44,3 +66,4 @@ function Favorites(props) {
  }
 
  export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
+

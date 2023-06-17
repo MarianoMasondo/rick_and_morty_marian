@@ -6,25 +6,26 @@ import { useEffect, useState } from 'react';
  
 
 function Card(props) {
-   const { myFavorites, addFav, removeFav } = props;
+   const { myFavorites, addFav, removeFav, onClose } = props;
 
    const [isFav, setIsFav] = useState(false);
 
-   useEffect(() => {
-      myFavorites.forEach((fav) => {
+   useEffect(() => { 
+      props.myFavorites.forEach((fav) => {
          if (fav.id === props.id) {
             setIsFav(true);
          }
       });
-   }, [myFavorites]);
+   }, [props.myFavorites]);
 
    const handleFavorite = () => {
       if(isFav){
          setIsFav(false);
-        removeFav(props.id)
+         props.removeFav(props.id)
+         onClose(props.id);
       }else{
          setIsFav(true);
-         addFav(props)
+         props.addFav(props)
       }
    };
    
@@ -60,7 +61,6 @@ const mapStateToProps = (state) => {
       myFavorites: state.myFavorites
    }
 }
-
 const mapDispatchToProps = (dispatch) => {
    return{
       addFav: (character) => dispatch(addFav(character)),
