@@ -1,10 +1,10 @@
 .container {
     position: relative;
-    border: 10px solid black;
+    border: 8px solid #3C1642;
     background-image: url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
-    border-radius: 10px;
-    width: fit-content;
-    height: fit-content;
+    border-radius: 20px;
+    width: 20%;
+    height: 30%;
     margin: 7px;
     padding: 7px;
     box-shadow: 0 0 10px black;
@@ -12,8 +12,9 @@
   }
   
   .container:hover {
-    box-shadow: 0 0 5px grey;
+    box-shadow: 0 0 20px rgb(175, 175, 175);
     transform: scale(1.05);
+    border: 8px solid #63236d;
   }
   
   .container .buttonContainer {
@@ -42,27 +43,28 @@
   }
   
   .container .dataContainer h2 {
-    background-color: beige;
-    border: 5px solid beige;
+    background-color: #B2FF9E;
+    border: 5px solid #B2FF9E;
     margin: 2px;
     font-size: 20px;
-    color: darkslategray;
+    color: #08893b;
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   
   .container .dataContainer h4 {
-    text-align: left;
-    background-color: beige;
-    border: 5px solid beige;
+    text-align: center;
+    background-color: #B2FF9E;
+    border: 5px solid #B2FF9E;
     padding: 0px;
     margin: 0px;
     font-size: 15px;
-    color: darkslategray;
+    color: #08893b;
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   
   .container img {
-    border: 4px solid green;
+    border: 4px solid #3C1642;
+    border-radius: 50%;
     width: min-content;
     box-shadow: 0 5px 5px lightgrey;
     margin-top: 1px;
@@ -74,17 +76,18 @@
   }
   
   .container:hover .dataContainer h2 {
-    background-color: lightgray;
-    border-color: lightgray;
+    background-color: #d4fcc9;
+    border-color: #d4fcc9;
   }
   
   .container:hover .dataContainer h4 {
-    background-color: lightgray;
-    border-color: lightgray;
+    color: #08893b;
+    background-color: #d4fcc9;
+    border-color: #d4fcc9;
   }
   
   .container:hover img {
-    border-color: rgb(6, 184, 6);
+    border-color: #a821bd;
     box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
   }
   

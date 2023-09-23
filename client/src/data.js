@@ -11,7 +11,7 @@ export const Rick = {
    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
 };
 
-export default [
+const characters = [
    {
       id: 1,
       name: 'Rick Sanchez',
@@ -73,3 +73,5 @@ export default [
       image: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg',
    },
 ];
+
+export default characters;

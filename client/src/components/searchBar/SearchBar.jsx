@@ -16,16 +16,15 @@ export default function SearchBar(props) {
 
    return (      
       <div className={styles.container}>
-         {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/2560px-Rick_and_Morty.svg.png" />  verificar posicón */}
          <input
             type="text"
             name="search"
             id="search"
-            placeholder="Ingrese un número..."
+            placeholder="Insert Id number..."
             value={id}
             onChange={handleChange}
          />
-         <button onClick={(handleSearch)}>Agregar</button>
+         <button onClick={(handleSearch)}>Add ID</button>
       </div>
       
    );

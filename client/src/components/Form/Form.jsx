@@ -34,11 +34,11 @@ export default function Form(props) {
     return(
         <div className={styles.container}>
             <form onSubmit={handleSubmit}>
-                <label>Email: </label>
+                <label>Username: </label>
                 <input
                     type="text"
                     name="email"
-                    placeholder="Email..."
+                    placeholder="Please, insert your email..."
                     value={userData.email}
                     onChange={handleChange}
                 />
@@ -48,7 +48,7 @@ export default function Form(props) {
                 <input
                     type="password"
                     name="password"
-                    placeholder="Contraseña..."
+                    placeholder="Please, insert password..."
                     value={userData.password}
                     onChange={handleChange}
                 />

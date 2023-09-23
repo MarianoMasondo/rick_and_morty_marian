@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
  
 
 function Card(props) {
-   const { myFavorites, addFav, removeFav, onClose } = props;
-
+   const { onClose } = props;
+   
    const [isFav, setIsFav] = useState(false);
 
    useEffect(() => { 
@@ -16,7 +16,8 @@ function Card(props) {
             setIsFav(true);
          }
       });
-   }, [props.myFavorites]);
+   }, [props.myFavorites, props.id]);
+   
 
    const handleFavorite = () => {
       if(isFav){

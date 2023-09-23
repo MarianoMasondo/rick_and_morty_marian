@@ -22,6 +22,11 @@ export default function Nav(props) {
             <div>
                 <SearchBar onSearch={props.onSearch} />                
             </div> 
+            <div className={styles.logout}>
+            <NavLink to="/">
+                <button>Logout</button>
+               </NavLink>
+            </div>
                     
         </div>       
          

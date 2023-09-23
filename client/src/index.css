@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://images4.alphacoders.com/606/606024.jpg");
-  background-size: cover;
+  /* background-image: url("https://images4.alphacoders.com/606/606024.jpg");
+  background-size: cover; */
 }
 
 code {
@@ -17,3 +17,6 @@ code {
 a:link, a:visited, a:active {
   text-decoration:none;
 }
+
+
+
