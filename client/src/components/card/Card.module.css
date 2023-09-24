@@ -1,93 +1,104 @@
 .container {
-    position: relative;
-    border: 8px solid #3C1642;
-    background-image: url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
-    border-radius: 20px;
-    width: 20%;
-    height: 30%;
-    margin: 7px;
-    padding: 7px;
-    box-shadow: 0 0 10px black;
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .container:hover {
-    box-shadow: 0 0 20px rgb(175, 175, 175);
-    transform: scale(1.05);
-    border: 8px solid #63236d;
-  }
-  
-  .container .buttonContainer {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .container .buttonContainer button {
-    margin: 2px 2px 0 0;
-    border-radius: 3px;
-    background-color: pink;
-    color: red;
-    box-shadow: 0 2px 2px black;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-  
-    &:hover {
-      background-color: red;
-      color: pink;
-      box-shadow: 0 2px 2px white;
-    }
-  }
-  
-  .container .dataContainer {
-    text-align: center;
-    padding: 5px;
-  }
-  
-  .container .dataContainer h2 {
-    background-color: #B2FF9E;
-    border: 5px solid #B2FF9E;
-    margin: 2px;
-    font-size: 20px;
-    color: #08893b;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  
-  .container .dataContainer h4 {
-    text-align: center;
-    background-color: #B2FF9E;
-    border: 5px solid #B2FF9E;
-    padding: 0px;
-    margin: 0px;
-    font-size: 15px;
-    color: #08893b;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  
-  .container img {
-    border: 4px solid #3C1642;
-    border-radius: 50%;
-    width: min-content;
-    box-shadow: 0 5px 5px lightgrey;
-    margin-top: 1px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .container:hover .buttonContainer button {
-    box-shadow: 0 2px 2px white;
-  }
-  
-  .container:hover .dataContainer h2 {
-    background-color: #d4fcc9;
-    border-color: #d4fcc9;
-  }
-  
-  .container:hover .dataContainer h4 {
-    color: #08893b;
-    background-color: #d4fcc9;
-    border-color: #d4fcc9;
-  }
-  
-  .container:hover img {
-    border-color: #a821bd;
-    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-  }
-  
+  position: relative;
+  border: 8px solid #3c1642;
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
+  border-radius: 20px;
+  width: 20%;
+  height: 25%;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 0 0 10px black;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h3 {
+  color: #791a87;
+  margin: 0px;
+}
+
+.container:hover {
+  box-shadow: 0 0 20px rgb(175, 175, 175);
+  transform: scale(1.05);
+  border: 8px solid #63236d;
+}
+
+.container .buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .buttonContainer button {
+  width: 50px;
+  height: 40px;
+
+  border-radius: 3px;
+  background-color: pink;
+  color: red;
+  box-shadow: 0 2px 2px black;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container .buttonContainer button:hover {
+  background-color: red;
+  color: pink;
+  box-shadow: 0 2px 2px white;
+}
+
+.container .dataContainer {
+  text-align: center;
+  padding: 5px;
+}
+
+.container .dataContainer h2 {
+  background-color: #b2ff9e;
+  border: 5px solid #b2ff9e;
+  margin: 2px;
+  font-size: 20px;
+  color: #08893b;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.container .dataContainer h4 {
+  text-align: center;
+  background-color: #b2ff9e;
+  border: 5px solid #b2ff9e;
+  padding: 0px;
+  margin: 0px;
+  font-size: 15px;
+  color: #08893b;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  border: 4px solid #3c1642;
+  border-radius: 50%;
+  box-shadow: 0 5px 5px lightgrey;
+  margin-top: 1px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover .buttonContainer button {
+  box-shadow: 0 2px 2px white;
+}
+
+.container:hover .dataContainer h2 {
+  background-color: #d4fcc9;
+  border-color: #d4fcc9;
+}
+
+.container:hover .dataContainer h4 {
+  color: #08893b;
+  background-color: #d4fcc9;
+  border-color: #d4fcc9;
+}
+
+.container:hover img {
+  border-color: #a821bd;
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+}

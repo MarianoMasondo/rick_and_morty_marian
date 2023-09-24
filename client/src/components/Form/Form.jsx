@@ -1,63 +1,62 @@
 import React from "react";
 import styles from "./Form.module.css";
-import validation from "./validation"
-
+import validation from "./validation";
 
 export default function Form(props) {
+  const [userData, setUserData] = React.useState({
+    email: "",
+    password: "",
+  });
 
-    const [userData, setUserData] = React.useState({
-        email: "",
-        password: ""
-    })
+  const [errors, setErrors] = React.useState({});
 
-    const [errors, setErrors] = React.useState({});
-    
+  const handleChange = (event) => {
+    const { name, value } = event.target; // { name:-, value:- }
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
 
-    const handleChange = event => {
-        const {name, value} = event.target; // { name:-, value:- }
-        setUserData({
-            ...userData,
-            [name]: value
-        })
-        
-        setErrors(validation({
-            ...userData,
-            [name]: value
-        }))
-    }
+    setErrors(
+      validation({
+        ...userData,
+        [name]: value,
+      })
+    );
+  };
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        props.login(userData);        
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.login(userData);
+  };
 
-    return(
-        <div className={styles.container}>
-            <form onSubmit={handleSubmit}>
-                <label>Username: </label>
-                <input
-                    type="text"
-                    name="email"
-                    placeholder="Please, insert your email..."
-                    value={userData.email}
-                    onChange={handleChange}
-                />
-                <p className={styles.error}>{errors.email ? errors.email : null}</p>
+  return (
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit}>
+        <label>Username: </label>
+        <input
+          type="text"
+          name="email"
+          placeholder="Please, insert your email..."
+          value={userData.email}
+          onChange={handleChange}
+        />
+        <p className={styles.error}>{errors.email ? errors.email : null}</p>
 
-                <label>Password: </label>
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Please, insert password..."
-                    value={userData.password}
-                    onChange={handleChange}
-                />
-                <p className={styles.error}>{errors.password ? errors.password : null}</p>
-                
+        <label>Password: </label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Please, insert password..."
+          value={userData.password}
+          onChange={handleChange}
+        />
+        <p className={styles.error}>
+          {errors.password ? errors.password : null}
+        </p>
 
-                <button type="submit">Submit</button>
-
-            </form>
-        </div>
-    )
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 }

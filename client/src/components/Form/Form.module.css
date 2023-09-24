@@ -1,40 +1,39 @@
 .container {
-    color: white;
-    background-color: rgba(6, 5, 5, 0.5);;
-    border-radius: 10px;
-    width: 300px;    
-    height: 155px;
-    padding: 6px;
-    margin: 430px auto 0;
-    display: flex;
-    justify-content: center;      
-    text-align: center;     
+  color: white;
+  background-color: rgba(6, 5, 5, 0.5);
+  border-radius: 10px;
+  width: 300px;
+  height: 155px;
+  padding: 6px;
+  margin: 430px auto 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
-.container input {    
-    border-radius: 5px;
-    height: 20px;
-    margin: auto;
-    display: block;
+.container input {
+  border-radius: 5px;
+  height: 20px;
+  margin: auto;
+  display: block;
 }
 
 .container button {
-    margin-top: -5px;
-    padding-top: 10px;
-    border-radius: 10px;
-    text-align: center;
-    height: 30px;
-    color: whitesmoke;
-    background-color: 27374D;
-    box-shadow: 0 5px 5px black;
-    &:hover {
-        color: white;
-        background-color: #536986;
-        box-shadow: 3px white;
-    }
+  margin-top: -5px;
+  padding-top: 10px;
+  border-radius: 10px;
+  text-align: center;
+  height: 30px;
+  color: whitesmoke;
+  background-color: 27374D;
+  box-shadow: 0 5px 5px black;
+  &:hover {
+    color: white;
+    background-color: #536986;
+    box-shadow: 3px white;
+  }
 }
 
 .error {
-    color: pink;
+  color: pink;
 }
-
