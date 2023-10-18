@@ -19,7 +19,7 @@ function App() {
   async function login(userData) {
     try {
       const { email, password } = userData;
-      const URL = "http://localhost:3001/rickandmorty/login/";
+      const URL = "/rickandmorty/login/";
       const { access } = (
         await axios(URL + `?email=${email}&password=${password}`)
       ).data;
@@ -42,7 +42,7 @@ function App() {
       if (id < 1 || id > 826)
         return alert("There are no characters with this ID!");
       const { data } = await axios.get(
-        `http://localhost:3001/rickandmorty/character/${id}`
+        `/rickandmorty/character/${id}`
       );
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
