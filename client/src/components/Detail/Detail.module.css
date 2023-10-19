@@ -4,17 +4,18 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
-  padding: 10px;
-  width: 33%;
-  margin: 40px 630px;
+  width: 25%;
+  left: 35%;
+  margin: 30px;
   text-align: center;
   border: 8px solid #7b128e;
   position: relative;
+  padding: 20px;
 }
 
 .cardContainer h1 {
   position: absolute;
-  top: 0px;
+  top: 85px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
@@ -35,7 +36,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20px;
 }
 
 .characterImage {
@@ -43,7 +43,9 @@
   height: 300px;
   border-radius: 10%;
   padding: 20px;
-  margin: 20px;
+  left: 50px;
+  margin-top: 120px;
+
 }
 
 .textContainer {
@@ -53,7 +55,17 @@
 
 .detailContainer {
   color: whitesmoke;
-  margin-top: 20px;
+  margin-top: 120px;
   margin-left: 20px;
   text-align: left;
+}
+.detailButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }

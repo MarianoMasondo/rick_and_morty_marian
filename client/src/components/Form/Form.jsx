@@ -11,7 +11,7 @@ export default function Form(props) {
   const [errors, setErrors] = React.useState({});
 
   const handleChange = (event) => {
-    const { name, value } = event.target; // { name:-, value:- }
+    const { name, value } = event.target; 
     setUserData({
       ...userData,
       [name]: value,

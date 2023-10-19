@@ -16,15 +16,17 @@ export default function SearchBar(props) {
 
   return (
     <div className={styles.container}>
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Insert Id number..."
-        value={id}
-        onChange={handleChange}
-      />
-      <button onClick={handleSearch}>Add ID</button>
+      <div className={styles.searchContainer}>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Insert Id number..."
+          value={id}
+          onChange={handleChange}
+        />
+        <button onClick={handleSearch}>Add ID</button>
+      </div>
     </div>
   );
 }

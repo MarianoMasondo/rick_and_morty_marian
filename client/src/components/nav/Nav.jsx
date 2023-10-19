@@ -6,22 +6,24 @@ import SearchBar from "../searchBar/SearchBar.jsx";
 export default function Nav(props) {
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.left}>
         <NavLink to="/home">
           <button>Home</button>
         </NavLink>
         <NavLink to="/favorites">
           <button>Favorites</button>
+        </NavLink >
+        <NavLink to="/home">
+        <button onClick={props.randomCharacter}>Random</button>
         </NavLink>
-        <button onClick={props.randomCharacter}>Ramdom</button>
+      </div>
+      <div className={styles.center}>
+        <SearchBar onSearch={props.onSearch} />       
+      </div>
+      <div className={styles.right}>
         <NavLink to="/about">
           <button>About</button>
         </NavLink>
-      </div>
-      <div>
-        <SearchBar onSearch={props.onSearch} />
-      </div>
-      <div className={styles.logout}>
         <NavLink to="/">
           <button>Logout</button>
         </NavLink>

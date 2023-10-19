@@ -24,10 +24,10 @@ export default function Detail(props) {
   console.log("character desde Detail: ", character);
   return (
     <div className={`${styles.container} ${styles.backgroundImageContainer}`}>
-      <Link to="/home">
-        <button>Home</button>
-      </Link>
       <div className={styles.cardContainer}>
+        <Link to="/home" className={styles.detailButton}>
+          <button>Home</button>
+        </Link>
         <div class="characterImage">
           <img
             className={styles.characterImage}
@@ -35,7 +35,6 @@ export default function Detail(props) {
             alt={character.name}
           />
         </div>
-
         <div className={styles.textContainer}>
           <h1>DETAIL</h1>
         </div>
@@ -51,5 +50,5 @@ export default function Detail(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
