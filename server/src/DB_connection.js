@@ -9,14 +9,14 @@ const FavoriteModel = require("./models/User.js");
 // Recuerda pasarle la información de tu archivo '.env'.
 
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
-// const sequelize = new Sequelize(
-//   // URL
-//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
-//   { logging: false, native: false }
-// );
-const sequelize = new Sequelize(DB_DEPLOY,
+const sequelize = new Sequelize(
+  // URL
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
   { logging: false, native: false }
 );
+// const sequelize = new Sequelize(DB_DEPLOY,
+//   { logging: false, native: false }
+// );
 
 // EJERCICIO 05
 // Debajo de este comentario puedes ejecutar la función de los modelos.
