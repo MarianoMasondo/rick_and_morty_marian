@@ -55,8 +55,15 @@ function App() {
   };
 
   const onClose = (id) => {
-    setCharacters(characters.filter((caracter) => caracter.id !== id));
+    const isFavorite = characters.some((character) => character.id === id);
+  
+    if (isFavorite) {
+      setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
+    } else {
+      setCharacters(characters.filter((character) => character.id !== id));
+    }
   };
+  
 
   function generarRandomId() {
     const randomId = Math.floor(Math.random() * 826) + 1;

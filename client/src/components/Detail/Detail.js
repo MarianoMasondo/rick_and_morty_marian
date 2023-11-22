@@ -14,21 +14,20 @@ export default function Detail(props) {
         if (data.name) {
           setCharacter(data);
         } else {
-          window.alert("No hay personajes con ese ID");
+          window.alert("There are no characters with this ID!");
         }
       }
     );
     return setCharacter({});
   }, [id]);
 
-  console.log("character desde Detail: ", character);
   return (
     <div className={`${styles.container} ${styles.backgroundImageContainer}`}>
       <div className={styles.cardContainer}>
         <Link to="/home" className={styles.detailButton}>
           <button>Home</button>
         </Link>
-        <div class="characterImage">
+        <div className="characterImage">
           <img
             className={styles.characterImage}
             src={character.image}
