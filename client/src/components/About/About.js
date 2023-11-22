@@ -83,7 +83,7 @@ export default function About() {
             </div>
             <div className={styles.child}>
               <a
-                href="https://www.linkedin.com/in/mariano-masondo-7026b0254/"
+                href="https://www.linkedin.com/in/mariano-masondo"
                 target="_blank"
                 rel="noopener noreferrer"
                 >
