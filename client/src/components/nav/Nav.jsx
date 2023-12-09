@@ -12,13 +12,13 @@ export default function Nav(props) {
         </NavLink>
         <NavLink to="/favorites">
           <button>Favorites</button>
-        </NavLink >
+        </NavLink>
         <NavLink to="/home">
-        <button onClick={props.randomCharacter}>Random</button>
+          <button onClick={props.randomCharacter}>Random</button>
         </NavLink>
       </div>
       <div className={styles.center}>
-        <SearchBar onSearch={props.onSearch} />       
+        <SearchBar onSearch={props.onSearch} />
       </div>
       <div className={styles.right}>
         <NavLink to="/about">

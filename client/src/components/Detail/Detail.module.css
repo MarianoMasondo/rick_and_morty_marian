@@ -1,33 +1,31 @@
 .cardContainer {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
-  width: 30%; 
-  margin: 3% auto; 
+  width: 30%;
+  margin: 3% auto;
   text-align: center;
   border: 8px solid #7b128e;
   position: relative;
   padding: 20px;
 }
 
-
-
 .backgroundImageContainer {
   background-image: url("https://wallpapers.com/images/hd/rick-and-morty-looking-at-the-night-sky-tr8wxryct280wstz.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh; 
+  height: 100vh;
   width: 100%;
   padding-top: 1em;
 }
 
 .characterImage {
-  width: 100%; 
+  width: 100%;
   max-width: 100%;
-  height: auto; 
+  height: auto;
   border-radius: 10%;
   padding: 20px;
   margin-top: 5%;
@@ -35,7 +33,7 @@
 
 .detailContainer {
   color: whitesmoke;
-  text-align: center; 
+  text-align: center;
   margin: 5% 5% 5% 10%;
 }
 

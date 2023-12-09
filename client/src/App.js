@@ -10,13 +10,11 @@ import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
 
 function App() {
-  
   const [characters, setCharacters] = useState([]);
 
   const [access, setAccess] = useState(false);
 
-  const navigate = useNavigate();  
-  
+  const navigate = useNavigate();
 
   async function login(userData) {
     try {
@@ -43,9 +41,7 @@ function App() {
         return alert("This character is already on screen!");
       if (id < 1 || id > 826)
         return alert("There are no characters with this ID!");
-      const { data } = await axios.get(
-        `/rickandmorty/character/${id}`
-      );
+      const { data } = await axios.get(`/rickandmorty/character/${id}`);
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
       } else {
@@ -58,14 +54,15 @@ function App() {
 
   const onClose = (id) => {
     const isFavorite = characters.some((character) => character.id === id);
-  
+
     if (isFavorite) {
-      setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
+      setCharacters((oldChars) =>
+        oldChars.filter((character) => character.id !== id)
+      );
     } else {
       setCharacters(characters.filter((character) => character.id !== id));
     }
   };
-  
 
   function generarRandomId() {
     const randomId = Math.floor(Math.random() * 826) + 1;
@@ -74,32 +71,36 @@ function App() {
 
   return (
     <div>
-      <div className={`Background ${window.location.pathname === '/' ? 'HomePageBackground' : 'background'}`} />
-    <div className="App">
-      <Routes>
-        <Route exact path="/" element={<Form login={login} />} />
-        <Route
-          path="/home"
-          element={
-            <div>
-              <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
-              <Cards characters={characters} onClose={onClose} />
-            </div>
-          }
-        />
-        <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route
-          path="/favorites"
-          element={
-            <div>
-              <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
-              <Favorites onClose={onClose} />
-            </div>
-          }
-        />
-      </Routes>
-    </div>
+      <div
+        className={`Background ${
+          window.location.pathname === "/" ? "HomePageBackground" : "background"
+        }`}
+      />
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Form login={login} />} />
+          <Route
+            path="/home"
+            element={
+              <div>
+                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
+                <Cards characters={characters} onClose={onClose} />
+              </div>
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route
+            path="/favorites"
+            element={
+              <div>
+                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
+                <Favorites onClose={onClose} />
+              </div>
+            }
+          />
+        </Routes>
+      </div>
     </div>
   );
 }

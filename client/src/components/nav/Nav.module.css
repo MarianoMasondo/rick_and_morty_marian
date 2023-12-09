@@ -1,23 +1,25 @@
 .container {
   background-color: transparent;
-  background-size:cover; 
+  background-size: cover;
   display: flex;
-  align-items: center; 
-  padding: 1% 8% 1% ;
+  align-items: center;
+  padding: 1% 8% 1%;
 }
 
-.left, .right {
+.left,
+.right {
   display: flex;
 }
 
-.left button, .right button {
+.left button,
+.right button {
   margin: 1px;
 }
 
 .center {
   flex: 1;
   display: flex;
-  justify-content:space-around; 
+  justify-content: space-around;
 }
 
 button {
@@ -61,11 +63,14 @@ button:hover {
     margin: 0;
   }
 
-  .left, .center, .right {
+  .left,
+  .center,
+  .right {
     margin-bottom: 0px;
   }
 
-  .left, .right {
+  .left,
+  .right {
     justify-content: center;
   }
 
