@@ -7,10 +7,6 @@
   flex-direction: column;
 }
 
-.HomePageBackgroundHome {
-  background-image: url("https://c4.wallpaperflare.com/wallpaper/815/657/214/rick-and-morty-rick-sanchez-morty-smith-beth-smith-wallpaper-preview.jpg");
- 
-}
 
 .Background {
   position: fixed;
@@ -25,6 +21,23 @@
   z-index: -1;
 }
 
+.HomePageBackground{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://w0.peakpx.com/wallpaper/883/370/HD-wallpaper-rick-and-morty.jpg");
+  background-size:contain;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+
+ 
+ 
+}
+
 body {
   font-size: 16px;
 }
@@ -35,6 +48,12 @@ body {
   }
   .Background {
     background-image: url("https://wallpapers.com/images/high/rick-and-morty-getting-off-the-green-portal-tablet-98mf43iabdjrnru0.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .HomePageBackground{
+    background-image: url("https://w0.peakpx.com/wallpaper/883/370/HD-wallpaper-rick-and-morty.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
