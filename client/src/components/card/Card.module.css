@@ -2,9 +2,11 @@
   position: relative;
   border: 8px solid #3c1642;
   background-image: url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
   border-radius: 20px;
   width: 20%;
-  height: 25%;
+  height: auto;
   margin: 5px;
   padding: 5px;
   box-shadow: 0 0 10px black;
@@ -13,6 +15,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  max-width: 100%;
+  min-width: 250px;
 }
 
 h3 {
@@ -101,4 +105,20 @@ h3 {
 .container:hover img {
   border-color: #a821bd;
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    font-size: 14px;
+    margin: 2px;
+  }
+
+  .container .dataContainer h2 {
+    font-size: 16px;
+  }
+
+  .container .dataContainer h4 {
+    font-size: 12px;
+  }
 }

@@ -1,10 +1,9 @@
 .container {
   background-color: transparent;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  background-size:cover; 
   display: flex;
   align-items: center; 
-  margin: 0px 250px 0px 250px;
+  padding: 1% 5% 1% ;
 }
 
 .left, .right {
@@ -18,7 +17,7 @@
 .center {
   flex: 1;
   display: flex;
-  justify-content: center; 
+  justify-content:space-around; 
 }
 
 button {
@@ -63,7 +62,7 @@ button:hover {
   }
 
   .left, .center, .right {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
   }
 
   .left, .right {
@@ -72,5 +71,18 @@ button:hover {
 
   .center {
     order: 3;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin: 1px;
+    font-size: 9px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+    background: #27374d;
+    color: #dde6ed;
+    box-shadow: 0 0 10px #526d82, inset 0 0 10px #526d82;
   }
 }

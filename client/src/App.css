@@ -1,11 +1,23 @@
 .App {
   text-align: center;
   overflow: hidden;
-  background-image: url("https://images4.alphacoders.com/606/606024.jpg");
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.infobae.com/new-resizer/OBBGw89VtC9UkHma86Y1d-qe0XI=/992x661/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/YHAUBUYW75FZVLG4Z4WL5S6LMY.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 100vh;
+  z-index: -1;
 }
 
 body {
@@ -16,8 +28,10 @@ body {
   body {
     font-size: 14px;
   }
-
-  .App {
+  .Background {
+    background-image: url("https://wallpapers.com/images/high/rick-and-morty-getting-off-the-green-portal-tablet-98mf43iabdjrnru0.webp");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }

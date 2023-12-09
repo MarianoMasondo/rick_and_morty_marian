@@ -5,7 +5,7 @@
   width: 300px;
   height: 155px;
   padding: 6px;
-  margin: 430px auto 0;
+  margin: 18% auto 0;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -41,7 +41,7 @@
 @media (max-width: 768px) {
   .container {
     width: 80%;
-    margin: 50px auto;
+    margin: 40% auto;
   }
 }
 

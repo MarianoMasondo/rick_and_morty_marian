@@ -71,6 +71,8 @@ function App() {
   }
 
   return (
+    <div>
+      <div className={`Background ${window.location.pathname === '/' ? 'HomePageBackground' : ''}`} />
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Form login={login} />} />
@@ -95,6 +97,7 @@ function App() {
           }
         />
       </Routes>
+    </div>
     </div>
   );
 }
