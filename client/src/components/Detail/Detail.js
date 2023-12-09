@@ -34,9 +34,7 @@ export default function Detail(props) {
             alt={character.name}
           />
         </div>
-        <div className={styles.textContainer}>
-          <h1>DETAIL</h1>
-        </div>
+       
         <div className={styles.detailContainer}>
           <h3>Name: </h3>
           <p>{character.name}</p>

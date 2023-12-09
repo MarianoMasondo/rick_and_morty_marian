@@ -10,11 +10,13 @@ import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
 
 function App() {
+  
   const [characters, setCharacters] = useState([]);
 
   const [access, setAccess] = useState(false);
 
   const navigate = useNavigate();
+  
 
   async function login(userData) {
     try {
@@ -72,7 +74,7 @@ function App() {
 
   return (
     <div>
-      <div className={`Background ${window.location.pathname === '/' ? 'HomePageBackground' : ''}`} />
+      <div className={`Background ${window.location.pathname === '/' ? 'HomePageBackground' : 'background'}`} />
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Form login={login} />} />
