@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./SearchBar.module.css";
 
 export default function SearchBar(props) {
   const [id, setId] = useState("");
+  const [placeholder, setPlaceholder] = useState("Insert Id number...");
 
   const handleChange = (event) => {
     const { value } = event.target;
@@ -14,6 +15,24 @@ export default function SearchBar(props) {
     setId("");
   };
 
+  useEffect(() => {
+    const updatePlaceholder = () => {
+      if (window.innerWidth <= 768) {
+        setPlaceholder("Number Id...");
+      } else {
+        setPlaceholder("Insert Id number...");
+      }
+    };
+
+    updatePlaceholder();
+
+    window.addEventListener("resize", updatePlaceholder);
+
+    return () => {
+      window.removeEventListener("resize", updatePlaceholder);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
@@ -21,7 +40,7 @@ export default function SearchBar(props) {
           type="text"
           name="search"
           id="search"
-          placeholder="Insert Id number..."
+          placeholder={placeholder}
           value={id}
           onChange={handleChange}
         />

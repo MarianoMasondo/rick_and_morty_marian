@@ -56,3 +56,21 @@ button:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .left, .center, .right {
+    margin-bottom: 10px;
+  }
+
+  .left, .right {
+    justify-content: center;
+  }
+
+  .center {
+    order: 3;
+  }
+}

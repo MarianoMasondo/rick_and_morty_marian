@@ -1,13 +1,11 @@
 .container {
   padding-top: 15px;
   padding-bottom: 10px;
-  
 }
 
 .searchContainer {
   display: flex;
   align-items: center;
-  
 }
 
 .searchContainer input {
@@ -20,7 +18,7 @@
   outline-offset: 3px;
   padding: 10px 4rem;
   transition: 0.25s;
-  margin-left: -80px; 
+  margin-left: -80px;
 }
 
 .searchContainer input:focus {
@@ -30,5 +28,16 @@
 
 .searchContainer button {
   border-radius: 20px;
-  margin-left: -80px; 
+  margin-left: -80px;
+}
+
+@media (max-width: 768px) {
+  .searchContainer input {
+    padding: 10px;
+    margin-left: 0;
+  }
+
+  .searchContainer button {
+    margin-left: -80;
+  }
 }

@@ -37,3 +37,17 @@
 .error {
   color: pink;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .container input,
+  .container button {
+    width: 100%;
+  }
+}
