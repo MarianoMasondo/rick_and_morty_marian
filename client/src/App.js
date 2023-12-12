@@ -8,7 +8,6 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
-axios.defaults.baseURL = "rickandmortymarian-production.up.railway.app";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -106,4 +105,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
