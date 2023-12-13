@@ -33,7 +33,7 @@ export default function Form(props) {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
-        <label>Username: </label>
+        <label htmlFor="email">Username: </label>
         <input
           type="text"
           name="email"
@@ -43,7 +43,7 @@ export default function Form(props) {
         />
         <p className={styles.error}>{errors.email ? errors.email : null}</p>
 
-        <label>Password: </label>
+        <label htmlFor="password">Password: </label>
         <input
           type="password"
           name="password"
