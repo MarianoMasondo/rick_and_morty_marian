@@ -1,5 +1,5 @@
 import axios from "axios";
-const ENDPOINT = "http://localhost:3001/rickandmorty/fav";
+const ENDPOINT = "/rickandmorty/fav";
 
 export const addFav = (character) => {
   return async (dispatch) => {
