@@ -28,8 +28,8 @@ function App() {
     if (storedAccess) {
       setAccess(JSON.parse(storedAccess));
     } else {
-      // Si no hay información de acceso y no estás en la página de inicio, redirige a la página de inicio
-      if (window.location.pathname !== "/" && window.location.pathname !== "/favorites") {
+      // Si no hay información de acceso, redirige a la página de inicio
+      if (window.location.pathname !== "/") {
         navigate("/");
       }
     }
@@ -127,6 +127,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

@@ -46,12 +46,21 @@
 // export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
 // Favorites.jsx
 
-import React from "react";
+// Favorites.jsx
+
+import React, { useEffect, useState } from "react";
 import Card from "../cards/Card";
 
 const Favorites = ({ onClose }) => {
-  // Obtén los personajes favoritos del estado global de la aplicación
-  const characters = JSON.parse(localStorage.getItem('characters')) || [];
+  const [characters, setCharacters] = useState([]);
+
+  // Recupera los personajes favoritos del localStorage al montar el componente
+  useEffect(() => {
+    const storedCharacters = localStorage.getItem('characters');
+    if (storedCharacters) {
+      setCharacters(JSON.parse(storedCharacters));
+    }
+  }, []);
 
   return (
     <div>
@@ -64,5 +73,6 @@ const Favorites = ({ onClose }) => {
 };
 
 export default Favorites;
+
 
 
