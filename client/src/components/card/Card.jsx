@@ -21,7 +21,7 @@ function Card(props) {
     if (isFav) {
       setIsFav(false);
       props.removeFav(props.id);
-      onClose(props.id);
+      onClose(props.id, true); // Agregamos un segundo argumento para indicar que se está cerrando desde /favorites
     } else {
       setIsFav(true);
       props.addFav(props);
@@ -36,7 +36,7 @@ function Card(props) {
         ) : (
           <button onClick={handleFavorite}>🤍</button>
         )}
-        <button onClick={() => props.onClose(props.id)}>X</button>
+        {props.showCloseIcon && <button onClick={() => onClose(props.id)}>X</button>}
       </div>
       <Link to={`/detail/${props.id}`}>
         <div className={styles.dataContainer}>
@@ -58,10 +58,12 @@ const mapStateToProps = (state) => {
     myFavorites: state.myFavorites,
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addFav: (character) => dispatch(addFav(character)),
     removeFav: (id) => dispatch(removeFav(id)),
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
