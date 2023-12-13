@@ -37,6 +37,7 @@
 .homeButton {
   position: center;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .buttonContainer {
@@ -46,6 +47,7 @@
   flex-direction: column;
   height: auto;
   margin-top: 8%;
+  cursor: pointer;
 }
 
 .parent {
