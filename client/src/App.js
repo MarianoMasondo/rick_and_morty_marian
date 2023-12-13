@@ -39,9 +39,9 @@ function App() {
     localStorage.setItem("access", JSON.stringify(access));
   }, [characters, access]);
 
-  // const clearCards = () => {
-  //   setCharacters(new Set());
-  // };
+  const clearCards = () => {
+    setCharacters(new Set());
+  };
 
   async function login(userData) {
     try {
@@ -106,7 +106,7 @@ function App() {
                 <Nav
                   onSearch={onSearch}
                   randomCharacter={generarRandomId}
-                  // clearCards={clearCards}
+                  clearCards={clearCards}
                 />
                 <Cards characters={Array.from(characters)} onClose={onClose} />
               </div>
@@ -121,7 +121,7 @@ function App() {
                 <Nav
                   onSearch={onSearch}
                   randomCharacter={generarRandomId}
-                  // clearCards={clearCards}
+                  clearCards={clearCards}
                 />
                 <Favorites
                   characters={Array.from(characters)}
