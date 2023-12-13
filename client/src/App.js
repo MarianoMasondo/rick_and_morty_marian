@@ -17,12 +17,15 @@ function App() {
   const navigate = useNavigate();
 
   async function login(userData) {
+    console.log("Logging in...", userData);
     try {
       const { email, password } = userData;
       const URL = "/rickandmorty/login/";
+      console.log("Login URL:", URL);
       const { access } = (
         await axios(URL + `?email=${email}&password=${password}`)
       ).data;
+      console.log("Login Response:", access);
       setAccess(access);
       access && navigate("/home");
     } catch (error) {
