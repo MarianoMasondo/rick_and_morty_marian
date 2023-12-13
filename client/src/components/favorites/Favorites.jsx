@@ -4,7 +4,7 @@ import Card from "../card/Card";
 import styles from "./Favorites.module.css";
 import { removeFav } from "../../redux/actions";
 
-export default function Favorites({ myFavorites, removeFav }) {
+function Favorites({ myFavorites, removeFav }) {
   const onClose = (id, removeFromHome) => {
     removeFav(id);
     if (removeFromHome) {
@@ -43,4 +43,5 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
 
