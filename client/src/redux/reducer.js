@@ -13,12 +13,12 @@ export default function reducer(state = initialState, { type, payload }) {
         errors: false,
       };
 
-    case "REMOVE_FAV":
-      return {
-        ...state,
-        myFavorites: state.myFavorites.filter((fav) => fav.id !== payload),
-        errors: false,
-      };
+      case "REMOVE_FAV":
+        return {
+          ...state,
+          myFavorites: state.myFavorites.filter((fav) => fav.id !== payload),
+          errors: false,
+        };
 
     case "ERROR":
       return {
