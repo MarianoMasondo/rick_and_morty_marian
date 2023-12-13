@@ -33,10 +33,12 @@ button {
   background: #27374d;
   color: #dde6ed;
   box-shadow: 0 0 10px #526d82, inset 0 0 10px #526d82;
+  cursor: pointer;
 }
 
 button:hover {
   animation: a 0.5s 1 linear;
+  cursor: pointer;
 }
 
 @keyframes a {

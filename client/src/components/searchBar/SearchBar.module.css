@@ -28,6 +28,7 @@
 .searchContainer button {
   border-radius: 20px;
   margin-left: -23%;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {

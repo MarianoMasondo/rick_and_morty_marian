@@ -94,6 +94,7 @@
   align-items: center;
   transform: translate3d(0px, 0px, 1px) perspective(80px) rotateX() translateY();
   border-radius: 50%;
+  cursor: pointer;
 }
 
 @media (max-width: 468px) {
