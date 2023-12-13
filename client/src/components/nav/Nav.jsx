@@ -1,12 +1,13 @@
 import React from "react";
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
 
 export default function Nav(props) {
+  const navigate = useNavigate();
   const handleLogout = () => {
     props.clearCards();
-    Navigate("/");
+    navigate("/");
   };
   return (
     <div className={styles.container}>
