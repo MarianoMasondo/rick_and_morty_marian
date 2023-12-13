@@ -1,18 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
 
 export default function Nav(props) {
   const handleLogout = () => {
-    // Borrar todas las tarjetas al hacer clic en "Logout"
     props.clearCards();
-
-    // Redirigir a la ruta "/"
-    // Puedes usar el objeto history para navegar a la nueva ruta
-    // Asegúrate de tener accesso a history, por ejemplo, usando withRouter
-    // o usando el componente Route para renderizar tu componente
-    props.history.push("/");
+    Navigate("/");
   };
   return (
     <div className={styles.container}>
