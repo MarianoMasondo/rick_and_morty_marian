@@ -1,7 +1,5 @@
-// Actions.js
 import axios from "axios";
-
-const ENDPOINT = "/rickandmorty/fav";
+const ENDPOINT = "http://localhost:3001/rickandmorty/fav";
 
 export const addFav = (character) => {
   return async (dispatch) => {
@@ -19,20 +17,16 @@ export const addFav = (character) => {
     }
   };
 };
-
 export const removeFav = (id) => {
   return async (dispatch) => {
     try {
-      // Now make a request to remove the character from the server
-      await axios.delete(`${ENDPOINT}/${id}`);
-
-      // Remove character from the favorites list after successful deletion on the server
-      dispatch({
+      const { data } = await axios.delete(`${ENDPOINT}/${id}`);
+      return dispatch({
         type: "REMOVE_FAV",
-        payload: id,
+        payload: data,
       });
     } catch (error) {
-      dispatch({
+      return dispatch({
         type: "ERROR",
         payload: error.message,
       });

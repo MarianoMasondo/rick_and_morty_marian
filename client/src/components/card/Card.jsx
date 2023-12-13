@@ -10,41 +10,23 @@ function Card(props) {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    // Check if props.id is defined before using it
-    if (props.id) {
-      setIsFav((prevIsFav) => {
-        const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
-        console.log(`Character ${props.id} - isFavorite: ${isFavorite}`);
-        return isFavorite;
-      });
-    }
+    props.myFavorites.forEach((fav) => {
+      if (fav.id === props.id) {
+        setIsFav(true);
+      }
+    });
   }, [props.myFavorites, props.id]);
-  
-  
-  // ...
-  
+
   const handleFavorite = () => {
-    const { id, addFav, removeFav, onClose } = props;
-  
     if (isFav) {
       setIsFav(false);
-      removeFav(id);
-      onClose(id);
-      console.log(`Removed from favorites: ${props.name} (ID: ${id})`);
+      props.removeFav(props.id);
+      onClose(props.id);
     } else {
       setIsFav(true);
-      // Check if the character is not already in favorites before adding
-      const isCharacterInFavorites = props.myFavorites.some((fav) => fav.id === id);
-      if (!isCharacterInFavorites) {
-        addFav(props);
-        console.log(`Added to favorites: ${props.name} (ID: ${id})`);
-      }
+      props.addFav(props);
     }
   };
-  
-  
-
-  console.log(`Render - Character ${props.id} - isFav: ${isFav}`);
 
   return (
     <div className={styles.container}>
@@ -54,7 +36,7 @@ function Card(props) {
         ) : (
           <button onClick={handleFavorite}>🤍</button>
         )}
-        {props.showCloseIcon && <button onClick={() => onClose(props.id)}>X</button>}
+        <button onClick={() => props.onClose(props.id)}>X</button>
       </div>
       <Link to={`/detail/${props.id}`}>
         <div className={styles.dataContainer}>
@@ -76,12 +58,10 @@ const mapStateToProps = (state) => {
     myFavorites: state.myFavorites,
   };
 };
-
 const mapDispatchToProps = (dispatch) => {
   return {
     addFav: (character) => dispatch(addFav(character)),
     removeFav: (id) => dispatch(removeFav(id)),
   };
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

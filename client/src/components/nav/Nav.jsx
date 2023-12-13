@@ -1,14 +1,9 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
 
 export default function Nav(props) {
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    props.clearCards();
-    navigate("/");
-  };
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -29,7 +24,9 @@ export default function Nav(props) {
         <NavLink to="/about">
           <button>About</button>
         </NavLink>
-        <button onClick={handleLogout}>Logout</button>
+        <NavLink to="/">
+          <button>Logout</button>
+        </NavLink>
       </div>
     </div>
   );

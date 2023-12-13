@@ -11,30 +11,10 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+
   const [access, setAccess] = useState(false);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const storedCharacters = localStorage.getItem("characters");
-    if (storedCharacters) {
-      setCharacters(JSON.parse(storedCharacters));
-    }
-
-    const storedAccess = localStorage.getItem("access");
-    if (storedAccess) {
-      setAccess(JSON.parse(storedAccess));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("characters", JSON.stringify(characters));
-    localStorage.setItem("access", JSON.stringify(access));
-  }, [characters, access]);
-
-  const clearHome = () => {
-    setCharacters([]);
-  };
 
   async function login(userData) {
     try {
@@ -98,17 +78,13 @@ function App() {
       />
       <div className="App">
         <Routes>
-          <Route 
-          exact path="/" 
-          element={<Form login={login} 
-          clearHome={clearHome}
-          />} />
+          <Route exact path="/" element={<Form login={login} />} />
           <Route
             path="/home"
             element={
               <div>
                 <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
-                <Cards characters={characters} onClose={onClose} showCloseIcon={true} />
+                <Cards characters={characters} onClose={onClose} />
               </div>
             }
           />
