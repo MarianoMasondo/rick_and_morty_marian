@@ -21,7 +21,7 @@ function Card(props) {
     if (isFav) {
       setIsFav(false);
       props.removeFav(props.id);
-      onClose(props.id, true); // Agregamos un segundo argumento para indicar que se está cerrando desde /favorites
+      onClose(props.id); 
     } else {
       setIsFav(true);
       props.addFav(props);
