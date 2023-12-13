@@ -12,7 +12,7 @@ import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
 
 function App() {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState(new Set());
   const [access, setAccess] = useState(false);
 
   const navigate = useNavigate();
@@ -21,15 +21,15 @@ function App() {
   useEffect(() => {
     const storedCharacters = localStorage.getItem('characters');
     if (storedCharacters) {
-      setCharacters(JSON.parse(storedCharacters));
+      setCharacters(new Set(JSON.parse(storedCharacters)));
     }
 
     const storedAccess = localStorage.getItem('access');
     if (storedAccess) {
       setAccess(JSON.parse(storedAccess));
     } else {
-      // Si no hay información de acceso, redirige a la página de inicio
-      if (window.location.pathname !== "/") {
+      // Si no hay información de acceso y no estás en la página de inicio, redirige a la página de inicio
+      if (window.location.pathname !== "/" && window.location.pathname !== "/favorites") {
         navigate("/");
       }
     }
@@ -37,7 +37,7 @@ function App() {
 
   // Guarda el estado en localStorage cada vez que characters o access cambian
   useEffect(() => {
-    localStorage.setItem('characters', JSON.stringify(characters));
+    localStorage.setItem('characters', JSON.stringify(Array.from(characters)));
     localStorage.setItem('access', JSON.stringify(access));
   }, [characters, access]);
 
@@ -57,14 +57,17 @@ function App() {
 
   const onSearch = async (id) => {
     try {
-      const characterId = characters.filter((character) => character.id === id);
-      if (characterId.length)
+      if (characters.has(id)) {
         return alert("This character is already on screen!");
-      if (id < 1 || id > 826)
+      }
+
+      if (id < 1 || id > 826) {
         return alert("There are no characters with this ID!");
+      }
+
       const { data } = await axios.get(`/rickandmorty/character/${id}`);
       if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
+        setCharacters(new Set([...characters, id]));
       } else {
         window.alert("There are no characters with this ID!");
       }
@@ -74,15 +77,9 @@ function App() {
   };
 
   const onClose = (id) => {
-    const isFavorite = characters.some((character) => character.id === id);
-
-    if (isFavorite) {
-      setCharacters((oldChars) =>
-        oldChars.filter((character) => character.id !== id)
-      );
-    } else {
-      setCharacters(characters.filter((character) => character.id !== id));
-    }
+    const updatedCharacters = new Set(characters);
+    updatedCharacters.delete(id);
+    setCharacters(updatedCharacters);
   };
 
   function generarRandomId() {
@@ -105,7 +102,7 @@ function App() {
             element={
               <div>
                 <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
-                <Cards characters={characters} onClose={onClose} />
+                <Cards characters={Array.from(characters)} onClose={onClose} />
               </div>
             }
           />
@@ -116,7 +113,7 @@ function App() {
             element={
               <div>
                 <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
-                <Favorites onClose={onClose} />
+                <Favorites characters={Array.from(characters)} onClose={onClose} />
               </div>
             }
           />
@@ -127,6 +124,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

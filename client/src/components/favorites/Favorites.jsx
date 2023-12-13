@@ -48,20 +48,12 @@
 
 // Favorites.jsx
 
-import React, { useEffect, useState } from "react";
+// Favorites.jsx
+
+
 import Card from "../cards/Card";
 
-const Favorites = ({ onClose }) => {
-  const [characters, setCharacters] = useState([]);
-
-  // Recupera los personajes favoritos del localStorage al montar el componente
-  useEffect(() => {
-    const storedCharacters = localStorage.getItem('characters');
-    if (storedCharacters) {
-      setCharacters(JSON.parse(storedCharacters));
-    }
-  }, []);
-
+const Favorites = ({ characters, onClose }) => {
   return (
     <div>
       <h2>Favorites</h2>
@@ -73,6 +65,7 @@ const Favorites = ({ onClose }) => {
 };
 
 export default Favorites;
+
 
 
 
