@@ -12,11 +12,14 @@ function Card(props) {
   useEffect(() => {
     // Check if props.id is defined before using it
     if (props.id) {
-      const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
-      setIsFav(isFavorite);
-      console.log(`Character ${props.id} - isFavorite: ${isFavorite}`);
+      setIsFav((prevIsFav) => {
+        const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
+        console.log(`Character ${props.id} - isFavorite: ${isFavorite}`);
+        return isFavorite;
+      });
     }
   }, [props.myFavorites, props.id]);
+  
   
   // ...
   
