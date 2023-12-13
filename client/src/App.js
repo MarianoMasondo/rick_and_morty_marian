@@ -10,7 +10,7 @@ import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
 
 function App() {
-  const [characters, setCharacters] = useState(new Set());
+  const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
   const navigate = useNavigate();
