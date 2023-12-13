@@ -15,6 +15,7 @@ function App() {
 
   const navigate = useNavigate();
 
+  // Restaura el estado desde localStorage al cargar la aplicación
   useEffect(() => {
     const storedCharacters = localStorage.getItem('characters');
     if (storedCharacters) {
@@ -24,9 +25,15 @@ function App() {
     const storedAccess = localStorage.getItem('access');
     if (storedAccess) {
       setAccess(JSON.parse(storedAccess));
+    } else {
+      // Si no hay información de acceso y no estás en la página de login, redirige a la página de inicio
+      if (window.location.pathname !== "/") {
+        navigate("/");
+      }
     }
-  }, []);
-  
+  }, [navigate]);
+
+  // Guarda el estado en localStorage cada vez que characters o access cambian
   useEffect(() => {
     localStorage.setItem('characters', JSON.stringify(characters));
     localStorage.setItem('access', JSON.stringify(access));
@@ -46,9 +53,7 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+  // No es necesario verificar el acceso aquí, ya que la redirección ya se maneja en el useEffect anterior
 
   const onSearch = async (id) => {
     try {
