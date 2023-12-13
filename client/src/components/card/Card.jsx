@@ -10,12 +10,12 @@ function Card(props) {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    if (props.id) {
-      const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
-      setIsFav(isFavorite);
-      console.log(`Character ${props.id} - isFavorite: ${isFavorite}`);
-    }
+    console.log("Updated favorites:", props.myFavorites);
+    const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
+    setIsFav(isFavorite);
+    console.log(`Character ${props.id} - isFavorite: ${isFavorite}`);
   }, [props.myFavorites, props.id]);
+  
   
 
   const handleFavorite = () => {
