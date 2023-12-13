@@ -4,20 +4,20 @@ import { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
 import { Link } from "react-router-dom";
 
-export default function Detail() {
+export default function Detail(props) {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    axios(`/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacter(data);
-        } else {
-          window.alert("There are no characters with this ID!");
-        }
+    axios(
+      `https://rickandmortymarian-production.up.railway.app/rickandmorty/character/${id}`
+    ).then(({ data }) => {
+      if (data.name) {
+        setCharacter(data);
+      } else {
+        window.alert("There are no characters with this ID!");
       }
-    );
+    });
     return setCharacter({});
   }, [id]);
 
