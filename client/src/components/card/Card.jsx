@@ -10,30 +10,35 @@ function Card(props) {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    console.log("Updated favorites:", props.myFavorites);
-    const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
-    setIsFav(isFavorite);
-    console.log(`Character ${props.id} - isFavorite: ${isFavorite}`);
+    // Check if props.id is defined before using it
+    if (props.id) {
+      const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
+      setIsFav(isFavorite);
+      console.log(`Character ${props.id} - isFavorite: ${isFavorite}`);
+    }
   }, [props.myFavorites, props.id]);
   
+  // ...
   
-
   const handleFavorite = () => {
+    const { id, addFav, removeFav, onClose } = props;
+  
     if (isFav) {
       setIsFav(false);
-      props.removeFav(props.id);
-      onClose(props.id);
-      console.log(`Removed from favorites: ${props.name} (ID: ${props.id})`);
+      removeFav(id);
+      onClose(id);
+      console.log(`Removed from favorites: ${props.name} (ID: ${id})`);
     } else {
       setIsFav(true);
       // Check if the character is not already in favorites before adding
-      const isCharacterInFavorites = props.myFavorites.some((fav) => fav.id === props.id);
+      const isCharacterInFavorites = props.myFavorites.some((fav) => fav.id === id);
       if (!isCharacterInFavorites) {
-        props.addFav(props);
-        console.log(`Added to favorites: ${props.name} (ID: ${props.id})`);
+        addFav(props);
+        console.log(`Added to favorites: ${props.name} (ID: ${id})`);
       }
     }
   };
+  
   
 
   console.log(`Render - Character ${props.id} - isFav: ${isFav}`);
