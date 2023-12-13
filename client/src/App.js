@@ -11,10 +11,26 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-
   const [access, setAccess] = useState(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedCharacters = localStorage.getItem('characters');
+    if (storedCharacters) {
+      setCharacters(JSON.parse(storedCharacters));
+    }
+
+    const storedAccess = localStorage.getItem('access');
+    if (storedAccess) {
+      setAccess(JSON.parse(storedAccess));
+    }
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem('characters', JSON.stringify(characters));
+    localStorage.setItem('access', JSON.stringify(access));
+  }, [characters, access]);
 
   async function login(userData) {
     try {
@@ -106,3 +122,4 @@ function App() {
 }
 
 export default App;
+
