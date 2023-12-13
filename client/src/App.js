@@ -21,10 +21,7 @@ function App() {
   useEffect(() => {
     const storedCharacters = localStorage.getItem('characters');
     if (storedCharacters) {
-      // Si estás en la página de "Favorites", no sobrescribas los personajes favoritos
-      if (window.location.pathname !== "/favorites") {
-        setCharacters(JSON.parse(storedCharacters));
-      }
+      setCharacters(JSON.parse(storedCharacters));
     }
 
     const storedAccess = localStorage.getItem('access');
@@ -32,7 +29,7 @@ function App() {
       setAccess(JSON.parse(storedAccess));
     } else {
       // Si no hay información de acceso y no estás en la página de inicio, redirige a la página de inicio
-      if (window.location.pathname !== "/") {
+      if (window.location.pathname !== "/" && window.location.pathname !== "/favorites") {
         navigate("/");
       }
     }
@@ -57,8 +54,6 @@ function App() {
       console.log(error.message);
     }
   }
-
-  // No es necesario verificar el acceso aquí, ya que la redirección ya se maneja en el useEffect anterior
 
   const onSearch = async (id) => {
     try {
@@ -132,5 +127,6 @@ function App() {
 }
 
 export default App;
+
 
 
