@@ -39,6 +39,10 @@ function App() {
     localStorage.setItem("access", JSON.stringify(access));
   }, [characters, access]);
 
+  const clearCards = () => {
+    setCharacters(new Set());
+  };
+
   async function login(userData) {
     try {
       const { email, password } = userData;
@@ -56,7 +60,7 @@ function App() {
   const onSearch = async (id) => {
     try {
       if (characters.has(id)) {
-        return alert("This character is already on screen!");
+        return alert("This character is already on the screen!");
       }
 
       if (id < 1 || id > 826) {
@@ -99,7 +103,11 @@ function App() {
             path="/home"
             element={
               <div>
-                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
+                <Nav
+                  onSearch={onSearch}
+                  randomCharacter={generarRandomId}
+                  clearCards={clearCards}
+                />
                 <Cards characters={Array.from(characters)} onClose={onClose} />
               </div>
             }
@@ -110,7 +118,11 @@ function App() {
             path="/favorites"
             element={
               <div>
-                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
+                <Nav
+                  onSearch={onSearch}
+                  randomCharacter={generarRandomId}
+                  clearCards={clearCards}
+                />
                 <Favorites
                   characters={Array.from(characters)}
                   onClose={onClose}

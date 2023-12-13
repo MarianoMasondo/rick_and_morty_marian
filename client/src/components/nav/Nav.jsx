@@ -4,6 +4,16 @@ import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
 
 export default function Nav(props) {
+  const handleLogout = () => {
+    // Borrar todas las tarjetas al hacer clic en "Logout"
+    props.clearCards();
+
+    // Redirigir a la ruta "/"
+    // Puedes usar el objeto history para navegar a la nueva ruta
+    // Asegúrate de tener accesso a history, por ejemplo, usando withRouter
+    // o usando el componente Route para renderizar tu componente
+    props.history.push("/");
+  };
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -24,9 +34,7 @@ export default function Nav(props) {
         <NavLink to="/about">
           <button>About</button>
         </NavLink>
-        <NavLink to="/">
-          <button>Logout</button>
-        </NavLink>
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );
