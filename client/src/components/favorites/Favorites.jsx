@@ -37,7 +37,6 @@ export function mapStateToProps(state) {
   };
 }
 
-
 export function mapDispatchToProps(dispatch) {
   return {
     removeFav: (id) => dispatch(removeFav(id)),
@@ -45,4 +44,3 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
-
