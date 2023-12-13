@@ -10,8 +10,11 @@ function Card(props) {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
-    setIsFav(isFavorite);
+    props.myFavorites.forEach((fav) => {
+      if (fav.id === props.id) {
+        setIsFav(true);
+      }
+    });
   }, [props.myFavorites, props.id]);
 
   const handleFavorite = () => {
@@ -33,7 +36,7 @@ function Card(props) {
         ) : (
           <button onClick={handleFavorite}>🤍</button>
         )}
-        {props.showCloseIcon && <button onClick={() => onClose(props.id)}>X</button>}
+       <button onClick={() => props.onClose(props.id)}>X</button>
       </div>
       <Link to={`/detail/${props.id}`}>
         <div className={styles.dataContainer}>
