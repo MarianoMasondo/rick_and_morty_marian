@@ -9,20 +9,25 @@ export default function reducer(state = initialState, { type, payload }) {
     case "ADD_FAV":
       return {
         ...state,
-        myFavorites: payload,
-        allCharacters: payload,
+        myFavorites: [...state.myFavorites, payload],
         errors: false,
       };
 
     case "REMOVE_FAV":
-      return { ...state, myFavorites: payload, allCharacters: payload };
+      return {
+        ...state,
+        myFavorites: state.myFavorites.filter((fav) => fav.id !== payload),
+        errors: false,
+      };
 
     case "ERROR":
       return {
         ...state,
         errors: payload,
       };
+
     default:
-      return { ...state };
+      return state;
   }
 }
+
