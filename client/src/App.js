@@ -108,7 +108,7 @@ function App() {
             element={
               <div>
                 <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
-                <Cards characters={characters} onClose={(id) => onClose(id, true)} showCloseIcon={true} />
+                <Cards characters={characters} onClose={onClose} showCloseIcon={true} />
               </div>
             }
           />
