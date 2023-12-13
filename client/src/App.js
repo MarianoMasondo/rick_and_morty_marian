@@ -1,5 +1,3 @@
-// App.jsx
-
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -17,28 +15,28 @@ function App() {
 
   const navigate = useNavigate();
 
-  // Restaura el estado desde localStorage al cargar la aplicación
   useEffect(() => {
-    const storedCharacters = localStorage.getItem('characters');
+    const storedCharacters = localStorage.getItem("characters");
     if (storedCharacters) {
       setCharacters(new Set(JSON.parse(storedCharacters)));
     }
 
-    const storedAccess = localStorage.getItem('access');
+    const storedAccess = localStorage.getItem("access");
     if (storedAccess) {
       setAccess(JSON.parse(storedAccess));
     } else {
-      // Si no hay información de acceso y no estás en la página de inicio, redirige a la página de inicio
-      if (window.location.pathname !== "/" && window.location.pathname !== "/favorites") {
+      if (
+        window.location.pathname !== "/" &&
+        window.location.pathname !== "/favorites"
+      ) {
         navigate("/");
       }
     }
   }, [navigate]);
 
-  // Guarda el estado en localStorage cada vez que characters o access cambian
   useEffect(() => {
-    localStorage.setItem('characters', JSON.stringify(Array.from(characters)));
-    localStorage.setItem('access', JSON.stringify(access));
+    localStorage.setItem("characters", JSON.stringify(Array.from(characters)));
+    localStorage.setItem("access", JSON.stringify(access));
   }, [characters, access]);
 
   async function login(userData) {
@@ -113,7 +111,10 @@ function App() {
             element={
               <div>
                 <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
-                <Favorites characters={Array.from(characters)} onClose={onClose} />
+                <Favorites
+                  characters={Array.from(characters)}
+                  onClose={onClose}
+                />
               </div>
             }
           />
@@ -124,8 +125,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
