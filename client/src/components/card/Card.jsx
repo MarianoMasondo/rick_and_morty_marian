@@ -10,11 +10,9 @@ function Card(props) {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    props.myFavorites.forEach((fav) => {
-      if (fav.id === props.id) {
-        setIsFav(true);
-      }
-    });
+    const isFavorite = props.myFavorites.some((fav) => fav.id === props.id);
+    setIsFav(isFavorite);
+    console.log(`Character ${props.id} - isFavorite: ${isFavorite}`);
   }, [props.myFavorites, props.id]);
 
   const handleFavorite = () => {
@@ -22,11 +20,15 @@ function Card(props) {
       setIsFav(false);
       props.removeFav(props.id);
       onClose(props.id);
+      console.log(`Removed from favorites: ${props.name} (ID: ${props.id})`);
     } else {
       setIsFav(true);
       props.addFav(props);
+      console.log(`Added to favorites: ${props.name} (ID: ${props.id})`);
     }
   };
+
+  console.log(`Render - Character ${props.id} - isFav: ${isFav}`);
 
   return (
     <div className={styles.container}>
@@ -36,7 +38,7 @@ function Card(props) {
         ) : (
           <button onClick={handleFavorite}>🤍</button>
         )}
-       <button onClick={() => props.onClose(props.id)}>X</button>
+        {props.showCloseIcon && <button onClick={() => onClose(props.id)}>X</button>}
       </div>
       <Link to={`/detail/${props.id}`}>
         <div className={styles.dataContainer}>
