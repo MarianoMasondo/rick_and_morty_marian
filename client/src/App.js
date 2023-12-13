@@ -32,6 +32,10 @@ function App() {
     localStorage.setItem("access", JSON.stringify(access));
   }, [characters, access]);
 
+  const clearHome = () => {
+    setCharacters([]);
+  };
+
   async function login(userData) {
     try {
       const { email, password } = userData;
@@ -94,7 +98,11 @@ function App() {
       />
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<Form login={login} />} />
+          <Route 
+          exact path="/" 
+          element={<Form login={login} 
+          clearHome={clearHome}
+          />} />
           <Route
             path="/home"
             element={
