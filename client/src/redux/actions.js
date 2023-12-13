@@ -20,13 +20,16 @@ export const addFav = (character) => {
 export const removeFav = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete(`${ENDPOINT}/${id}`);
-      return dispatch({
+      // Remove character from the favorites list without making a request to the server
+      dispatch({
         type: "REMOVE_FAV",
-        payload: data,
+        payload: id,
       });
+
+      // Now make a separate request to remove the character from the server
+      await axios.delete(`${ENDPOINT}/${id}`);
     } catch (error) {
-      return dispatch({
+      dispatch({
         type: "ERROR",
         payload: error.message,
       });
