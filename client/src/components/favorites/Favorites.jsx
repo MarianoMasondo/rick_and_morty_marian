@@ -51,7 +51,7 @@
 // Favorites.jsx
 
 
-import Card from "../cards/Card";
+import Card from "../card/Card";
 
 const Favorites = ({ characters, onClose }) => {
   return (
