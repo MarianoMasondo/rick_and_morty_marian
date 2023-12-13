@@ -23,10 +23,15 @@ function Card(props) {
       console.log(`Removed from favorites: ${props.name} (ID: ${props.id})`);
     } else {
       setIsFav(true);
-      props.addFav(props);
-      console.log(`Added to favorites: ${props.name} (ID: ${props.id})`);
+      // Check if the character is not already in favorites before adding
+      const isCharacterInFavorites = props.myFavorites.some((fav) => fav.id === props.id);
+      if (!isCharacterInFavorites) {
+        props.addFav(props);
+        console.log(`Added to favorites: ${props.name} (ID: ${props.id})`);
+      }
     }
   };
+  
 
   console.log(`Render - Character ${props.id} - isFav: ${isFav}`);
 
