@@ -38,6 +38,7 @@ export const logout = () => {
   localStorage.clear();
   return {
     type: LOGOUT,
+    payload: null,
   };
 };
 
