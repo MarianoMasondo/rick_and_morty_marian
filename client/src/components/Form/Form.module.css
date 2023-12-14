@@ -3,17 +3,17 @@
   background-color: rgba(6, 5, 5, 0.5);
   border-radius: 10px;
   width: auto;
-  max-width: 80%; /* Ajusta el ancho máximo del formulario */
+  max-width: 80%;
   height: auto;
   padding: 6px;
-  position: fixed; /* Cambia la posición a fija */
-  top: 30%;
+  position: fixed; 
+  top: 35%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centra vertical y horizontalmente */
+  transform: translate(-50%, -50%); 
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-top: 0; /* Elimina el margen superior */
+  margin-top: 0; 
 }
 
 .container input {
@@ -30,12 +30,12 @@
   text-align: center;
   height: 30px;
   color: whitesmoke;
-  background-color: 27374D;
+  background-color: #27374D;
   box-shadow: 0 5px 5px black;
   &:hover {
     color: white;
     background-color: #536986;
-    box-shadow: 3px white;
+    box-shadow: 3px 3px 5px white;
   }
 }
 
@@ -45,11 +45,13 @@
 
 @media (max-width: 768px) {
   .container {
-    width: 100%;    
+    width: auto;
+        
   }
 }
 
 @media (max-width: 480px) {
+  .container,
   .container input,
   .container button {
     width: auto;
