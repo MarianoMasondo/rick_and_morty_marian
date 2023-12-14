@@ -43,9 +43,10 @@
   color: pink;
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .container {
     width: auto;
+    height: auto;
         
   }
 }
@@ -53,6 +54,7 @@
 @media (max-width: 480px) {
   .container {
     width: auto;
+    height: auto;
   }
-} */
+}
 
