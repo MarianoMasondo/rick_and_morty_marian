@@ -3,13 +3,12 @@ import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
 import { logout } from "../../redux/actions.js";
-import { useDispatch } from "react-redux";
+import { connect } from "react-redux";
 
-export default function Nav(props) {
-  const dispatch = useDispatch();
-
+// Componente funcional Nav
+const Nav = (props) => {
   const handleLogout = () => {
-    dispatch(logout());
+    props.logout(); // Usa la acción directamente desde las props
   };
 
   return (
@@ -38,4 +37,24 @@ export default function Nav(props) {
       </div>
     </div>
   );
-}
+};
+
+// Mapea el estado de Redux a las props del componente
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+    allCharacters: state.allCharacters,
+    // Mapea aquí cualquier parte del estado que necesites en tu componente
+  };
+};
+
+// Mapea las acciones de Redux a las props del componente
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(logout()), // Mapea la acción de logout
+  };
+};
+
+// Conecta el componente a Redux
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+
