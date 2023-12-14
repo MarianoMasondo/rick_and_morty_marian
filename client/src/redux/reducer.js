@@ -31,11 +31,7 @@ export default function reducer(state = initialState, { type, payload }) {
       };
 
     case LOGOUT:
-      return {
-        myFavorites: [""],
-        allCharacters: [""],
-        errors: false,
-      };
+      return initialState;
 
     default:
       return {...state};
