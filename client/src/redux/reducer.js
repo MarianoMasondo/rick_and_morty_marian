@@ -30,10 +30,10 @@ export default function reducer(state = initialState, { type, payload }) {
         errors: payload,
       };
 
-    case LOGOUT:
-      return initialState;
-
-    default:
-      return {...state};
-  }
+      
+      default:
+        return {...state};
+        case LOGOUT:
+          return initialState;
+      }
 }
