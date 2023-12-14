@@ -7,7 +7,7 @@
   height: auto;
   padding: 6px;
   position: fixed; /* Cambia la posición a fija */
-  top: 25%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%); /* Centra vertical y horizontalmente */
   display: flex;
