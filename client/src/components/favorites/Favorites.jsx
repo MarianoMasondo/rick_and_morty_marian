@@ -1,12 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Card from '../card/Card';
 import styles from './Favorites.module.css';
 import { removeFav } from '../../redux/actions';
 
-function Favorites({ myFavorites, removeFav }) {
+export default function Favorites() {
+  const myFavorites = useSelector((state) => state.myFavorites);
+  const dispatch = useDispatch();
+
   const onClose = (id, removeFromHome) => {
-    removeFav(id);
+    dispatch(removeFav(id));
     if (removeFromHome) {
       console.log(`Removing from home: ${id}`);
     }
@@ -24,24 +27,11 @@ function Favorites({ myFavorites, removeFav }) {
           gender={character.gender}
           origin={character.origin}
           image={character.image}
-          onClose={() => onClose(character.id, false)}        
+          onClose={() => onClose(character.id, false)}
         />
       ))}
     </div>
   );
 }
 
-export function mapStateToProps(state) {
-  return {
-    myFavorites: state.myFavorites,
-  };
-}
-
-export function mapDispatchToProps(dispatch) {
-  return {
-    removeFav: (id) => dispatch(removeFav(id)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
 
