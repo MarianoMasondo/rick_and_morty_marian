@@ -7,8 +7,11 @@ import { logout } from "../../redux/actions.js";
 export default function Nav(props) {
   const handleLogout = () => {
     console.log('handleLogout called');
-    props.dispatch(logout());
+    setTimeout(() => {
+      props.dispatch(logout());
+    }, 5000); // 1000 milisegundos (1 segundo)
   };
+  
   
 
   return (
