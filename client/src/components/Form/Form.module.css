@@ -7,9 +7,9 @@
   height: auto;
   padding: 6px;
   position: fixed; /* Cambia la posición a fija */
-  top: 50%;
+  top: 25%;
   left: 50%;
-  transform: translate(-25%, -50%); /* Centra vertical y horizontalmente */
+  transform: translate(-50%, -50%); /* Centra vertical y horizontalmente */
   display: flex;
   justify-content: center;
   text-align: center;
