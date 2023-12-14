@@ -16,6 +16,13 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
+    const storedToken = localStorage.getItem("accessToken");
+    if (storedToken) {
+      setAccess(true);
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("currentLocation", location.pathname);
   }, [location.pathname]);
 
