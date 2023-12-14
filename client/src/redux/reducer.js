@@ -32,12 +32,12 @@ export default function reducer(state = initialState, { type, payload }) {
 
     case LOGOUT:
       return {
-        myFavorites: [],
-        allCharacters: [],
+        myFavorites: [""],
+        allCharacters: [""],
         errors: false,
       };
 
     default:
-      return state;
+      return {...state};
   }
 }
