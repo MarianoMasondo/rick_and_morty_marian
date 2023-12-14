@@ -1,8 +1,20 @@
 .favContainer {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   position: relative;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .favContainer {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 576px) {
+  .favContainer {
+    justify-content: flex-start;
+  }
 }
