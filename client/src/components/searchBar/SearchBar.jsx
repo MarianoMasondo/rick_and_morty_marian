@@ -20,7 +20,7 @@ export default function SearchBar(props) {
       if (window.innerWidth <= 768) {
         setPlaceholder("Number Id...");
       } else {
-        setPlaceholder("Insert Id number...");
+        setPlaceholder("Number Id...");
       }
     };
 
