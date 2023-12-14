@@ -10,7 +10,6 @@ export default function Nav(props) {
 
   const handleLogout = () => {
     dispatch(logout());
-    window.location.reload();
   };
 
   return (
