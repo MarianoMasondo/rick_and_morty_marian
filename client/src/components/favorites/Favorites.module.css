@@ -1,7 +1,7 @@
 .favContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   position: relative;
   cursor: pointer;
@@ -9,7 +9,7 @@
 
 @media (max-width: 768px) {
   .favContainer {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }
 
