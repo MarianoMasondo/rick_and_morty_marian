@@ -34,5 +34,8 @@ export const removeFav = (id) => {
     }
   };
 };
-
-
+export const logout = () => {
+  return {
+    type: "LOGOUT",
+  };
+};

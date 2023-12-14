@@ -2,8 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
+import { logout } from "../../redux/actions.js";
 
 export default function Nav(props) {
+  const handleLogout = () => {
+    props.dispatch(logout());
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -24,7 +29,7 @@ export default function Nav(props) {
         <NavLink to="/about">
           <button>About</button>
         </NavLink>
-        <NavLink to="/">
+        <NavLink to="/" onClick={handleLogout}>
           <button>Logout</button>
         </NavLink>
       </div>

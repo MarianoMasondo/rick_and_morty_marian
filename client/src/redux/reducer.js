@@ -17,20 +17,25 @@ export default function reducer(state = initialState, { type, payload }) {
       };
 
     case REMOVE_FAV:
-      return { ...state, 
-        myFavorites: payload, 
+      return {
+        ...state,
+        myFavorites: payload,
         allCharacters: payload,
         errors: false,
-       };
-        
+      };
 
     case "ERROR":
       return {
         ...state,
         errors: payload,
       };
+
+    case "LOGOUT":
+      return {
+        ...initialState,
+      };
+
     default:
       return { ...state };
   }
 }
-

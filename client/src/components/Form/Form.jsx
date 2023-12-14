@@ -1,3 +1,4 @@
+//form
 import React from "react";
 import styles from "./Form.module.css";
 import validation from "./validation";
@@ -25,8 +26,19 @@ export default function Form(props) {
     );
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const isEmailRegistered = await props.login(userData);
+
+    if (!isEmailRegistered) {
+      setErrors({
+        email: "El email ingresado no se encuentra registrado",
+        ...errors,
+      });
+      return;
+    }
+
     props.login(userData);
   };
 
