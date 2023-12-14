@@ -3,13 +3,16 @@ import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
 import { logout } from "../../redux/actions.js";
+import { useDispatch } from "react-redux";
 
 export default function Nav(props) {
+  const dispatch = useDispatch();
+
   const handleLogout = () => {
     console.log('handleLogout called');
     setTimeout(() => {
-      props.dispatch(logout());
-    }, 5000); // 1000 milisegundos (1 segundo)
+      dispatch(logout());
+    }, 5000);
   };
   
   
