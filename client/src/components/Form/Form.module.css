@@ -43,7 +43,7 @@
   color: pink;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .container {
     width: auto;
         
@@ -54,5 +54,5 @@
   .container {
     width: auto;
   }
-}
+} */
 
