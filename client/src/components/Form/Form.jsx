@@ -1,4 +1,3 @@
-//form
 import React from "react";
 import styles from "./Form.module.css";
 import validation from "./validation";
