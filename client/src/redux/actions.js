@@ -35,7 +35,9 @@ export const removeFav = (id) => {
   };
 };
 export const logout = () => {
+  console.log('Dispatching LOGOUT action');
   return {
     type: LOGOUT,
   };
 };
+

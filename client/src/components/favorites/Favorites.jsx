@@ -33,7 +33,7 @@ function Favorites({ myFavorites, removeFav }) {
 
 export function mapStateToProps(state) {
   return {
-    myFavorites: state.myFavorites.myFavorites,
+    myFavorites: state.myFavorites,
   };
 }
 
