@@ -9,13 +9,8 @@ export default function Nav(props) {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    console.log('handleLogout called');
-    setTimeout(() => {
-      dispatch(logout());
-    }, 5000);
+    dispatch(logout());
   };
-  
-  
 
   return (
     <div className={styles.container}>
