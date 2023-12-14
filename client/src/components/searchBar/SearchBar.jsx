@@ -3,7 +3,7 @@ import styles from "./SearchBar.module.css";
 
 export default function SearchBar(props) {
   const [id, setId] = useState("");
-  const [placeholder, setPlaceholder] = useState("Insert Id number...");
+  const [placeholder, setPlaceholder] = useState("Number Id...");
 
   const handleChange = (event) => {
     const { value } = event.target;
