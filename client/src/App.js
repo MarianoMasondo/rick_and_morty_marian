@@ -1,44 +1,44 @@
-import "./App.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import About from "./components/About/About";
-import Cards from "./components/cards/Cards.jsx";
-import Detail from "./components/Detail/Detail";
-import Form from "./components/Form/Form.jsx";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Nav from "./components/nav/Nav.jsx";
+import Form from "./components/Form/Form.jsx";
+import Cards from "./components/cards/Cards.jsx";
 import Favorites from "./components/favorites/Favorites";
+import About from "./components/About/About";
+import Detail from "./components/Detail/Detail";
+import axios from "axios";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-
   const [access, setAccess] = useState(false);
-
   const navigate = useNavigate();
+  const location = useLocation();
 
-  async function login(userData) {
+  useEffect(() => {
+    // Resetear los estados cuando la ruta es exactamente "/"
+    if (location.pathname === "/") {
+      setCharacters([]);
+      setAccess(false);
+    }
+  }, [location.pathname]);
+
+  const login = async (userData) => {
     try {
       const { email, password } = userData;
       const URL = "/rickandmorty/login/";
-      const { access } = (
-        await axios(URL + `?email=${email}&password=${password}`)
-      ).data;
+      const { access } = (await axios(URL + `?email=${email}&password=${password}`)).data;
       setAccess(access);
       access && navigate("/home");
     } catch (error) {
       console.log(error.message);
     }
-  }
-
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+  };
 
   const onSearch = async (id) => {
     try {
       const characterId = characters.filter((character) => character.id === id);
       if (characterId.length)
-        return alert("This character is already on screen!");
+        return alert("This character is already on the screen!");
       if (id < 1 || id > 826)
         return alert("There are no characters with this ID!");
       const { data } = await axios.get(`/rickandmorty/character/${id}`);
@@ -64,18 +64,14 @@ function App() {
     }
   };
 
-  function generarRandomId() {
+  const generarRandomId = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
     onSearch(randomId);
-  }
+  };
 
   return (
     <div>
-      <div
-        className={`Background ${
-          window.location.pathname === "/" ? "HomePageBackground" : "background"
-        }`}
-      />
+      <div className={`Background ${location.pathname === "/" ? "HomePageBackground" : "background"}`} />
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Form login={login} />} />
@@ -106,3 +102,4 @@ function App() {
 }
 
 export default App;
+
