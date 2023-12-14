@@ -3,12 +3,17 @@
   background-color: rgba(6, 5, 5, 0.5);
   border-radius: 10px;
   width: 300px;
+  max-width: 80%; /* Ajusta el ancho máximo del formulario */
   height: 160px;
   padding: 6px;
-  margin: 10% auto 0;
+  position: fixed; /* Cambia la posición a fija */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra vertical y horizontalmente */
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-top: 0; /* Elimina el margen superior */
 }
 
 .container input {
