@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { useEffect, useState } from "react";
 
 function Card(props) {
-  const { onClose } = props;
+ 
 
   const [isFav, setIsFav] = useState(false);
 
@@ -21,7 +21,6 @@ function Card(props) {
     if (isFav) {
       setIsFav(false);
       props.removeFav(props.id);
-      onClose(props.id);
     } else {
       setIsFav(true);
       props.addFav(props);
