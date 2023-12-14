@@ -37,6 +37,7 @@ export const removeFav = (id) => {
 export const logout = () => {
   return {
     type: LOGOUT,
+    payload: { myFavorites: [], allCharacters: [], errors: false },
   };
 };
 
