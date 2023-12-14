@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV } from "./types";
+import { ADD_FAV, LOGOUT, REMOVE_FAV } from "./types";
 
 const initialState = {
   myFavorites: [],
@@ -30,9 +30,9 @@ export default function reducer(state = initialState, { type, payload }) {
         errors: payload,
       };
 
-    case "LOGOUT":
+    case LOGOUT:
       return {
-        ...initialState,
+        initialState,
       };
 
     default:

@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import Card from "../card/Card";
-import styles from "./Favorites.module.css";
-import { removeFav } from "../../redux/actions";
+import React from 'react';
+import { connect } from 'react-redux';
+import Card from '../card/Card';
+import styles from './Favorites.module.css';
+import { removeFav } from '../../redux/actions';
 
 function Favorites({ myFavorites, removeFav }) {
   const onClose = (id, removeFromHome) => {
@@ -24,7 +24,7 @@ function Favorites({ myFavorites, removeFav }) {
           gender={character.gender}
           origin={character.origin}
           image={character.image}
-          onClose={() => onClose(character.id, false)}
+          onClose={() => onClose(character.id, false)}        
         />
       ))}
     </div>
@@ -44,3 +44,4 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
+
