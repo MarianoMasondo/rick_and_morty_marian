@@ -50,7 +50,7 @@ body {
   }
   .HomePageBackground {
     background-image: url("https://w0.peakpx.com/wallpaper/883/370/HD-wallpaper-rick-and-morty.jpg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
