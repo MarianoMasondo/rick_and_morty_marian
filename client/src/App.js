@@ -16,22 +16,6 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("accessToken");
-    if (storedToken) {
-      // Verificar la validez del token consultando al servidor
-      axios.get("/rickandmorty/verifyToken", { headers: { Authorization: `Bearer ${storedToken}` } })
-        .then(response => {
-          setAccess(true);
-        })
-        .catch(error => {
-          // Si el token no es válido, borrarlo del localStorage
-          localStorage.removeItem("accessToken");
-        });
-    }
-  }, []);
-  
-
-  useEffect(() => {
     localStorage.setItem("currentLocation", location.pathname);
   }, [location.pathname]);
 
