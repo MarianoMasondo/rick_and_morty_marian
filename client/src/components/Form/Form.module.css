@@ -52,6 +52,6 @@
 @media (max-width: 480px) {
   .container input,
   .container button {
-    width: 100%;
+    width: 80%;
   }
 }
