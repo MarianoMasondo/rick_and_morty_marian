@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import About from "./components/About/About";
 import Cards from "./components/cards/Cards.jsx";
 import Detail from "./components/Detail/Detail";
@@ -13,16 +13,11 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
- 
+  const location = useLocation();
 
   useEffect(() => {
-    const storedLocation = localStorage.getItem("currentLocation");
-    console.log("Stored Location:", storedLocation);
-    if (storedLocation) {
-      navigate(storedLocation);
-    }
-  }, [navigate]);
-  
+    localStorage.setItem("currentLocation", location.pathname);
+  }, [location.pathname]);
 
   async function login(userData) {
     try {
@@ -31,14 +26,12 @@ function App() {
       const { access } = (
         await axios(URL + `?email=${email}&password=${password}`)
       ).data;
-      console.log("Access:", access);
       setAccess(access);
       access && navigate("/home");
     } catch (error) {
       console.log(error.message);
     }
   }
-  
 
   useEffect(() => {
     !access && navigate("/");
