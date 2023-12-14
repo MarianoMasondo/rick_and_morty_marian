@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import Nav from "./components/nav/Nav.jsx";
-import Form from "./components/Form/Form.jsx";
-import Cards from "./components/cards/Cards.jsx";
-import Favorites from "./components/favorites/Favorites";
-import About from "./components/About/About";
-import Detail from "./components/Detail/Detail";
+import "./App.css";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import About from "./components/About/About";
+import Cards from "./components/cards/Cards.jsx";
+import Detail from "./components/Detail/Detail";
+import Form from "./components/Form/Form.jsx";
+import Nav from "./components/nav/Nav.jsx";
+import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+
   const [access, setAccess] = useState(false);
+
   const navigate = useNavigate();
-  const location = useLocation();
 
-  useEffect(() => {
-    // Resetear los estados cuando la ruta es exactamente "/"
-    if (location.pathname === "/") {
-      setCharacters([]);
-      setAccess(false);
-    }
-  }, [location.pathname]);
-
-  const login = async (userData) => {
+  async function login(userData) {
     try {
       const { email, password } = userData;
       const URL = "/rickandmorty/login/";
@@ -34,7 +28,11 @@ function App() {
     } catch (error) {
       console.log(error.message);
     }
-  };
+  }
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access, navigate]);
 
   const onSearch = async (id) => {
     try {
@@ -66,10 +64,10 @@ function App() {
     }
   };
 
-  const generarRandomId = () => {
+  function generarRandomId() {
     const randomId = Math.floor(Math.random() * 826) + 1;
     onSearch(randomId);
-  };
+  }
 
   return (
     <div>
