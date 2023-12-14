@@ -35,9 +35,9 @@ export const removeFav = (id) => {
   };
 };
 export const logout = () => {
+  localStorage.clear();
   return {
     type: LOGOUT,
-    payload: { myFavorites: [], allCharacters: [], errors: false },
   };
 };
 
