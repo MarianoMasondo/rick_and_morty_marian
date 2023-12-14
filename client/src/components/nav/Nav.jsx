@@ -5,7 +5,7 @@ import SearchBar from "../searchBar/SearchBar.jsx";
 import { logout } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
 
-export default function Nav() {
+export default function Nav(props) {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -22,17 +22,19 @@ export default function Nav() {
           <button>Favorites</button>
         </NavLink>
         <NavLink to="/home">
-          <button>Random</button>
+          <button onClick={props.randomCharacter}>Random</button>
         </NavLink>
       </div>
       <div className={styles.center}>
-        <SearchBar />
+        <SearchBar onSearch={props.onSearch} />
       </div>
       <div className={styles.right}>
         <NavLink to="/about">
           <button>About</button>
         </NavLink>
-        <button onClick={handleLogout}>Logout</button>
+        <NavLink to="/" onClick={handleLogout}>
+          <button>Logout</button>
+        </NavLink>
       </div>
     </div>
   );
