@@ -6,8 +6,10 @@ import { logout } from "../../redux/actions.js";
 
 export default function Nav(props) {
   const handleLogout = () => {
+    console.log('handleLogout called');
     props.dispatch(logout());
   };
+  
 
   return (
     <div className={styles.container}>
