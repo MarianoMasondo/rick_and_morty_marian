@@ -55,12 +55,14 @@ export const logout = () => {
 };
 
 export const resetMyFavorites = () => {
-  console.log("Resetting favorites");
+  // Limpiar localStorage
+  localStorage.removeItem('myFavorites');
+
+  // Reiniciar los favoritos en el estado
   return {
     type: RESET_MY_FAVORITES,
   };
 };
-
 
 
 

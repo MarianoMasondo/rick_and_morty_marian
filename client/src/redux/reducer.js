@@ -33,14 +33,15 @@ export default function reducer(state = initialState, { type, payload }) {
         isAuthenticated: false,
       };
 
-    case RESET_MY_FAVORITES:
-      console.log("Reducer: Resetting favorites");
-      return {
-        ...state,
-        myFavorites: [],
-        allCharacters: [],
-        errors: false,
-      };
+      case RESET_MY_FAVORITES:
+        // Limpiar localStorage
+        localStorage.removeItem('myFavorites');
+  
+        console.log("Reducer: Resetting favorites");
+        return {
+          ...initialState,
+          isAuthenticated: false,
+        };
 
     default:
       return { ...state };
