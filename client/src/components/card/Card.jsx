@@ -43,10 +43,10 @@ function Card(props) {
           <img src={props.image} alt="Imagen" />
           <h3>ID: {props.id}</h3>
           <div className={styles.h4Container}>
-          <h4>Status: {props.status}</h4>
+          <h4 class="Top">Status: {props.status}</h4>
           <h4>Species: {props.species}</h4>
           <h4>Gender: {props.gender}</h4>
-          <h4>Origin: {props.origin}</h4>
+          <h4 class="Bottom">Origin: {props.origin}</h4>
           </div>
         </div>
       </Link>

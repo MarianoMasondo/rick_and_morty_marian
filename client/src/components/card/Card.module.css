@@ -79,12 +79,21 @@ h3 {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+h4.Top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+h4.Bottom {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .dataContainer h4-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 5px solid #b2ff9e;
-  border-radius: 10px;
 }
 
 .container img {

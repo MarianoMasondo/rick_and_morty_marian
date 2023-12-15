@@ -33,7 +33,8 @@ export default function reducer(state = initialState, { type, payload }) {
 
     case LOGOUT:
       return {
-        ...initialState,
+        ...state,
+        myFavorites: [],
         isAuthenticated: false,
       };    
 
