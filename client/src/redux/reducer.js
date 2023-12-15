@@ -1,5 +1,3 @@
-// reducer.js
-
 import { ADD_FAV, LOGOUT, REMOVE_FAV, RESET_MY_FAVORITES } from "./types";
 
 const initialState = {

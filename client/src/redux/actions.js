@@ -1,5 +1,3 @@
-// actions.js
-
 import axios from "axios";
 import {
   ADD_FAV,
@@ -14,10 +12,12 @@ export const addFav = (character) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(ENDPOINT, character);
-      return dispatch({
+      dispatch({
         type: ADD_FAV,
         payload: data,
       });
+      // Actualizar localStorage
+      localStorage.setItem('myFavorites', JSON.stringify(data));
     } catch (error) {
       return dispatch({
         type: "ERROR",
@@ -31,10 +31,12 @@ export const removeFav = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(`${ENDPOINT}/${id}`);
-      return dispatch({
+      dispatch({
         type: REMOVE_FAV,
         payload: data,
       });
+      // Actualizar localStorage
+      localStorage.setItem('myFavorites', JSON.stringify(data));
     } catch (error) {
       return dispatch({
         type: "ERROR",
@@ -45,10 +47,8 @@ export const removeFav = (id) => {
 };
 
 export const logout = () => {
-  // Limpiar localStorage
   localStorage.removeItem('myFavorites');
 
-  // Reiniciar los favoritos en el estado
   return {
     type: LOGOUT,
   };
