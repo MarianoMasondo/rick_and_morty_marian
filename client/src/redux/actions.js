@@ -1,6 +1,6 @@
 import { ADD_FAV, LOGOUT, REMOVE_FAV, RESET_MY_FAVORITES } from "./types";
 import axios from "axios";
-const ENDPOINT = "/rickandmorty/fav";
+const ENDPOINT = "https://rickandmortymarian-production.up.railway.app/rickandmorty/fav";
 
 export const addFav = (character) => {
   return async (dispatch) => {
