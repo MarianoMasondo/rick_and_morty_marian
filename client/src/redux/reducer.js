@@ -31,15 +31,11 @@ export default function reducer(state = initialState, { type, payload }) {
       };
 
       case RESET_MY_FAVORITES:
-      return {
-        ...state,
-        myFavorites: [], 
-        allCharacters: state.allCharacters.map((character) => ({
-          ...character,
-          isFavorite: false, 
-        })),
-        isAuthenticated: false,
-      };
+        return {
+          ...state,
+        myFavorites: [],
+          isAuthenticated: false,
+        };
 
     default:
       return { ...state };
