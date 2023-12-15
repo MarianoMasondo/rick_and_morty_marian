@@ -8,14 +8,11 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
-import { useDispatch } from "react-redux";
-import { resetMyFavorites } from "./redux/actions.js";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   async function login(userData) {
     try {
@@ -79,11 +76,7 @@ function App() {
     setCharacters([]);
     setAccess(false);
     navigate("/");
-    dispatch(resetMyFavorites());
-    resetMyFavorites();
-  };
-  
-  
+  };  
 
   return (
     <div>

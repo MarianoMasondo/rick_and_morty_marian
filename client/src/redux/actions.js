@@ -3,7 +3,6 @@ import {
   ADD_FAV,
   LOGOUT,
   REMOVE_FAV,
-  RESET_MY_FAVORITES,
 } from "./types";
 
 const ENDPOINT = "/rickandmorty/fav";
@@ -45,12 +44,6 @@ export const removeFav = (id) => {
 export const logout = () => {
   return {
     type: LOGOUT,
-  };
-};
-
-export const resetMyFavorites = () => {
-  return {
-    type: RESET_MY_FAVORITES,
   };
 };
 
