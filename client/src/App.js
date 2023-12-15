@@ -10,11 +10,17 @@ import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
 
 function App() {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState(() => {
+    // Intenta obtener el estado de personajes desde el almacenamiento local al inicio
+    const storedCharacters = localStorage.getItem('characters');
+    return storedCharacters ? JSON.parse(storedCharacters) : [];
+  });
+
   const [access, setAccess] = useState(() => {
     const storedAccess = localStorage.getItem('access');
     return storedAccess ? JSON.parse(storedAccess) : false;
   });
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,8 +30,12 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('access', JSON.stringify(access));
+    // Almacenar el estado de characters solo cuando la página se recarga
+    if (!access) {
+      localStorage.setItem('characters', JSON.stringify(characters));
+    }
     !access && navigate("/");
-  }, [access, navigate]);
+  }, [access, characters, navigate]);
 
   async function login(userData) {
     try {
@@ -36,13 +46,15 @@ function App() {
       ).data;
       setAccess(access);
       if (access) {
-        setCharacters([]); 
+        // Limpiar characters al iniciar sesión
+        setCharacters([]);
         navigate("/home");
       }
     } catch (error) {
       console.log(error.message);
     }
   }
+
 
   const onSearch = async (id) => {
     try {
@@ -82,7 +94,6 @@ function App() {
   };
 
   const logout = () => {
-    setCharacters([]); 
     setAccess(false);
     localStorage.removeItem('access');
     navigate("/");
