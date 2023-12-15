@@ -37,13 +37,10 @@ export const removeFav = (id) => {
 };
 
 export const logout = () => {
-  return {
-    type: LOGOUT,
-  };
-};
+  // Limpiar localStorage
+  localStorage.removeItem('myFavorites');
 
-export const resetMyFavorites = () => {
-  console.log("Resetting favorites");
+  // Reiniciar los favoritos en el estado
   return {
     type: RESET_MY_FAVORITES,
   };

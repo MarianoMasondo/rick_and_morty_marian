@@ -79,12 +79,12 @@ h3 {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-container .dataContainer h4.Top {
+.container .dataContainer h4.Top {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-container .dataContainer h4.Bottom {
+.container .dataContainer h4.Bottom {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
