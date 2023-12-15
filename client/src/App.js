@@ -81,7 +81,10 @@ function App() {
     navigate("/");
     dispatch(resetMyFavorites());
   };
-  
+
+  const onCloseAllFavorites = () => {
+    setCharacters([]);
+  };  
 
   return (
     <div>
@@ -101,6 +104,7 @@ function App() {
                   onSearch={onSearch}
                   randomCharacter={generarRandomId}
                   logout={logout}
+                  onCloseAllFavorites={onCloseAllFavorites}
                 />
                 <Cards characters={characters} onClose={onClose} />
               </div>
@@ -116,6 +120,7 @@ function App() {
                   onSearch={onSearch}
                   randomCharacter={generarRandomId}
                   logout={logout}
+                  onCloseAllFavorites={onCloseAllFavorites}
                 />
                 <Favorites onClose={onClose} />
               </div>

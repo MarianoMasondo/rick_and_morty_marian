@@ -9,7 +9,8 @@ export default function Nav(props) {
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
-    dispatch(resetMyFavorites()); 
+    dispatch(resetMyFavorites());
+    props.onCloseAllFavorites();
   };
 
   return (
@@ -39,3 +40,4 @@ export default function Nav(props) {
     </div>
   );
 }
+
