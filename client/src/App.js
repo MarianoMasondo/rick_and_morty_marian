@@ -78,10 +78,13 @@ function App() {
   };
 
   const logout = () => {
+    console.log("Logging out");
     setCharacters([]); 
     setAccess(false);
+    console.log("Characters after setCharacters:", characters);
     navigate("/");
   };
+  
 
   return (
     <div>
