@@ -5,8 +5,8 @@ import styles from './Favorites.module.css';
 import { removeFav } from '../../redux/actions';
 
 export default function Favorites() {
-  console.log("Favorites component rendering");
   const myFavorites = useSelector((state) => state.myFavorites);
+  console.log('Current myFavorites:', myFavorites);
   const dispatch = useDispatch();
 
   const onClose = (id, removeFromHome) => {
@@ -15,8 +15,6 @@ export default function Favorites() {
       console.log(`Removing from home: ${id}`);
     }
   };
-
-  console.log("Favorites component rendering");
 
   return (
     <div className={styles.favContainer}>
