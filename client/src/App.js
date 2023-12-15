@@ -11,7 +11,7 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,16 +26,21 @@ function App() {
       const { access } = (
         await axios(URL + `?email=${email}&password=${password}`)
       ).data;
-      setAccess(access);
-      access && navigate("/home");
+
+      if (access) {
+        setIsLoggedIn(true);
+        navigate("/home");
+      }
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+  const logout = () => {
+    setCharacters([]);
+    setIsLoggedIn(false);
+    navigate("/");
+  };
 
   const onSearch = async (id) => {
     try {
@@ -72,10 +77,6 @@ function App() {
     onSearch(randomId);
   }
 
-  const clearAllCards = () => {
-    setCharacters([]);
-  };
-
   return (
     <div>
       <div
@@ -90,7 +91,12 @@ function App() {
             path="/home"
             element={
               <div>
-                <Nav onSearch={onSearch} randomCharacter={generarRandomId} onLogout={clearAllCards} />
+                <Nav onSearch={onSearch} 
+                randomCharacter={generarRandomId}
+                onClose={onClose}
+                  isLoggedIn={isLoggedIn}
+                  logout={logout}
+                   />
                 <Cards characters={characters} onClose={onClose} />
               </div>
             }
