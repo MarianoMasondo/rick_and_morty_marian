@@ -43,6 +43,7 @@ export const logout = () => {
 };
 
 export const resetMyFavorites = () => {
+  console.log("Resetting favorites");
   return {
     type: RESET_MY_FAVORITES,
   };
