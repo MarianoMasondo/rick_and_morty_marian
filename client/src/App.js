@@ -31,8 +31,8 @@ function App() {
       ).data;
       setAccess(access);
       if (access) {
-        setCharacters([]);
-        setMyFavorites([]); // Reinicia las tarjetas al iniciar sesión
+        setCharacters([]); 
+        setMyFavorites([]); 
         navigate("/home");
       }
     } catch (error) {
@@ -83,7 +83,7 @@ function App() {
 
   const logout = () => {
     setCharacters([]); 
-    setMyFavorites([]);
+    setMyFavorites([]); 
     setAccess(false);
     navigate("/");
   };
@@ -122,7 +122,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites onClose={onClose} />
+                <Favorites favotites={myFavorites} onClose={onClose} />
               </div>
             }
           />
