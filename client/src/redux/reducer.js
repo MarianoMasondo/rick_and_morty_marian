@@ -38,13 +38,15 @@ export default function reducer(state = initialState, { type, payload }) {
       };    
 
       case RESET_MY_FAVORITES:
-        console.log("Reducer: Resetting favorites");
-      return {
-        ...state,
-        myFavorites: [],
-        allCharacters: [],
-        errors: false,
-      };
+  console.log("Reducer: Resetting favorites");
+  const newState = {
+    ...state,
+    myFavorites: [],  // Asegúrate de que myFavorites se establezca en un array vacío.
+    allCharacters: [],
+    errors: false,
+  };
+  console.log("New State:", newState); // Agrega este log para verificar el nuevo estado
+  return newState;
 
     default:
       return { ...state };
