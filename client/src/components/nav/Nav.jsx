@@ -2,13 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
-
+import { resetMyFavorites } from "../../redux/actions.js";
+import { useDispatch } from "react-redux";
 
 export default function Nav(props) {
- 
+  const dispatch = useDispatch();
 
   const handleLogout = async () => {
-    props.resetMyFavoritesLocal();  // Llama a la función para resetear el estado local
+    await dispatch(resetMyFavorites());  // Usa resetMyFavorites en lugar de logout
   };
 
   return (
