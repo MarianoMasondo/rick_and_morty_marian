@@ -1,4 +1,6 @@
-import { ADD_FAV, LOGOUT, REMOVE_FAV } from "./types";
+// actions.js
+
+import { ADD_FAV, LOGOUT, REMOVE_FAV, CLEAR_HOME, CLEAR_FAVORITES } from "./types";
 import axios from "axios";
 const ENDPOINT = "/rickandmorty/fav";
 
@@ -18,6 +20,7 @@ export const addFav = (character) => {
     }
   };
 };
+
 export const removeFav = (id) => {
   return async (dispatch) => {
     try {
@@ -34,10 +37,20 @@ export const removeFav = (id) => {
     }
   };
 };
+
+export const clearHome = () => ({
+  type: CLEAR_HOME,
+});
+
+export const clearFavorites = () => ({
+  type: CLEAR_FAVORITES,
+});
+
 export const logout = () => {
   return {
     type: LOGOUT,
   };
 };
+
 
 

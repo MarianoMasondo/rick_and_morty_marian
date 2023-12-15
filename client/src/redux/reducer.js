@@ -1,6 +1,6 @@
 // reducer.js
 
-import { ADD_FAV, LOGOUT, REMOVE_FAV } from "./types";
+import { ADD_FAV, LOGOUT, REMOVE_FAV, CLEAR_HOME, CLEAR_FAVORITES } from "./types";
 
 const initialState = {
   myFavorites: [],
@@ -39,8 +39,21 @@ export default function reducer(state = initialState, { type, payload }) {
         isAuthenticated: false,
       };
 
+    case CLEAR_HOME:
+      return {
+        ...state,
+        allCharacters: [],
+      };
+
+    case CLEAR_FAVORITES:
+      return {
+        ...state,
+        myFavorites: [],
+      };
+
     default:
       return { ...state };
   }
 }
+
 
