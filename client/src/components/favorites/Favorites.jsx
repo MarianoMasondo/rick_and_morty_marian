@@ -2,7 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../card/Card';
 import styles from './Favorites.module.css';
-import { removeFav } from '../../redux/actions';
+import { removeFav, resetMyFavorites } from '../../redux/actions';
+import { useEffect } from 'react';
 
 export default function Favorites() {
   const myFavorites = useSelector((state) => state.myFavorites);
@@ -14,6 +15,10 @@ export default function Favorites() {
       console.log(`Removing from home: ${id}`);
     }
   };
+
+  useEffect(() => {
+    dispatch(resetMyFavorites());
+  }, [dispatch]);
 
   return (
     <div className={styles.favContainer}>
