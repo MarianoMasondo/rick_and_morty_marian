@@ -72,6 +72,10 @@ function App() {
     onSearch(randomId);
   }
 
+  const clearAllCards = () => {
+    setCharacters([]);
+  };
+
   return (
     <div>
       <div
@@ -86,7 +90,7 @@ function App() {
             path="/home"
             element={
               <div>
-                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
+                <Nav onSearch={onSearch} randomCharacter={generarRandomId} onLogout={clearAllCards} />
                 <Cards characters={characters} onClose={onClose} />
               </div>
             }
