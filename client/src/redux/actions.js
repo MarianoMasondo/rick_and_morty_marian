@@ -16,7 +16,6 @@ export const addFav = (character) => {
         type: ADD_FAV,
         payload: data,
       });
-      // Actualizar localStorage
       localStorage.setItem('myFavorites', JSON.stringify(data));
     } catch (error) {
       return dispatch({
@@ -35,7 +34,6 @@ export const removeFav = (id) => {
         type: REMOVE_FAV,
         payload: data,
       });
-      // Actualizar localStorage
       localStorage.setItem('myFavorites', JSON.stringify(data));
     } catch (error) {
       return dispatch({
@@ -55,10 +53,7 @@ export const logout = () => {
 };
 
 export const resetMyFavorites = () => {
-  // Limpiar localStorage
   localStorage.removeItem('myFavorites');
-
-  // Reiniciar los favoritos en el estado
   return {
     type: RESET_MY_FAVORITES,
   };
