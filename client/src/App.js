@@ -11,13 +11,21 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(() => {
+    const storedAccess = localStorage.getItem('access');
+    return storedAccess ? JSON.parse(storedAccess) : false;
+  });
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     localStorage.setItem("currentLocation", location.pathname);
   }, [location.pathname]);
+
+  useEffect(() => {
+    localStorage.setItem('access', JSON.stringify(access));
+    !access && navigate("/");
+  }, [access, navigate]);
 
   async function login(userData) {
     try {
@@ -35,10 +43,6 @@ function App() {
       console.log(error.message);
     }
   }
-
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
 
   const onSearch = async (id) => {
     try {
@@ -80,6 +84,7 @@ function App() {
   const logout = () => {
     setCharacters([]); 
     setAccess(false);
+    localStorage.removeItem('access');
     navigate("/");
   };
   
