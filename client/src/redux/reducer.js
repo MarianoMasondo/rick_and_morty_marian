@@ -31,15 +31,20 @@ export default function reducer(state = initialState, { type, payload }) {
         errors: payload,
       };
 
+    case LOGOUT:
+      return {
+        ...initialState,
+        isAuthenticated: false,
+      };    
+
       case RESET_MY_FAVORITES:
-        // Limpiar localStorage
         localStorage.removeItem('myFavorites');
-  
-        console.log("Reducer: Resetting favorites");
-        return {
-          ...initialState,
-          isAuthenticated: false,
-        };
+      return {
+        ...state,
+        myFavorites: [],
+        allCharacters: [],
+        errors: false,
+      };
       
 
     default:
