@@ -1,6 +1,6 @@
 import { ADD_FAV, LOGOUT, REMOVE_FAV, RESET_MY_FAVORITES } from "./types";
 import axios from "axios";
-const ENDPOINT = "https://rickandmortymarian-production.up.railway.app/rickandmorty/fav";
+const ENDPOINT = "https://rick-and-morty-marian.vercel.app/favorites";
 
 export const addFav = (character) => {
   return async (dispatch) => {
