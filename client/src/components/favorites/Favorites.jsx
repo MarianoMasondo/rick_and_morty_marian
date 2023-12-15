@@ -15,6 +15,8 @@ export default function Favorites() {
     }
   };
 
+  console.log("Favorites component rendering");
+
   return (
     <div className={styles.favContainer}>
       {myFavorites.map((character, index) => (
