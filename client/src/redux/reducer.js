@@ -7,35 +7,32 @@ const initialState = {
   isAuthenticated: true,
 };
 
-export default function reducer(state = initialState, { type, action }) {
+export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
     case ADD_FAV:
       return {
         ...state,
-        myFavorites: action.payload,
-        allCharacters: action.payload,
+        myFavorites: payload,
+        allCharacters: payload,
         errors: false,
       };
 
     case REMOVE_FAV:
       return {
         ...state,
-        myFavorites: action.payload,
-        allCharacters: action.payload,
+        myFavorites: payload,
+        allCharacters: payload,
         errors: false,
       };
 
     case "ERROR":
       return {
         ...state,
-        errors: action.payload,
+        errors: payload,
       };
 
-      case LOGOUT:
-        return {
-          state,
-          isAuthenticated: false,
-        };
+    case LOGOUT:
+      return state;
       
 
     default:
