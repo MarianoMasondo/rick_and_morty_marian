@@ -1,3 +1,5 @@
+// reducer.js
+
 import { ADD_FAV, LOGOUT, REMOVE_FAV } from "./types";
 
 const initialState = {
@@ -32,10 +34,13 @@ export default function reducer(state = initialState, { type, payload }) {
       };
 
     case LOGOUT:
-      return state;
-      
+      return {
+        ...initialState,
+        isAuthenticated: false,
+      };
 
     default:
-      return {...state};
+      return { ...state };
   }
 }
+

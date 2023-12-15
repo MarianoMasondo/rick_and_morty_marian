@@ -11,7 +11,7 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [access, setAccess] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,21 +26,16 @@ function App() {
       const { access } = (
         await axios(URL + `?email=${email}&password=${password}`)
       ).data;
-
-      if (access) {
-        setIsLoggedIn(true);
-        navigate("/home");
-      }
+      setAccess(access);
+      access && navigate("/home");
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  const logout = () => {
-    setCharacters([]);
-    setIsLoggedIn(false);
-    navigate("/");
-  };
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access, navigate]);
 
   const onSearch = async (id) => {
     try {
@@ -91,13 +86,7 @@ function App() {
             path="/home"
             element={
               <div>
-                <Nav 
-                onSearch={onSearch} 
-                randomCharacter={generarRandomId}
-                onClose={onClose}
-                  isLoggedIn={isLoggedIn}
-                  logout={logout}
-                   />
+                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
                 <Cards characters={characters} onClose={onClose} />
               </div>
             }
@@ -108,17 +97,8 @@ function App() {
             path="/favorites"
             element={
               <div>
-                <Nav 
-                onSearch={onSearch} 
-                randomCharacter={generarRandomId}
-                onClose={onClose}
-                  isLoggedIn={isLoggedIn}
-                  logout={logout}
-                   />
-                <Favorites 
-                onClose={onClose}
-                logout={logout}
-                 />
+                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
+                <Favorites onClose={onClose} />
               </div>
             }
           />
