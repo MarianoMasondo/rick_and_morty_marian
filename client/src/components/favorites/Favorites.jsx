@@ -5,6 +5,7 @@ import styles from './Favorites.module.css';
 import { removeFav } from '../../redux/actions';
 
 export default function Favorites() {
+  console.log("Favorites component rendering");
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
 
