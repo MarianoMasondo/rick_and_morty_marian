@@ -16,7 +16,6 @@ export const addFav = (character) => {
         type: ADD_FAV,
         payload: data,
       });
-      localStorage.setItem('myFavorites', JSON.stringify(data));
     } catch (error) {
       return dispatch({
         type: "ERROR",
@@ -34,7 +33,6 @@ export const removeFav = (id) => {
         type: REMOVE_FAV,
         payload: data,
       });
-      localStorage.setItem('myFavorites', JSON.stringify(data));
     } catch (error) {
       return dispatch({
         type: "ERROR",
@@ -45,15 +43,12 @@ export const removeFav = (id) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem('myFavorites');
-
   return {
     type: LOGOUT,
   };
 };
 
 export const resetMyFavorites = () => {
-  localStorage.removeItem('myFavorites');
   return {
     type: RESET_MY_FAVORITES,
   };

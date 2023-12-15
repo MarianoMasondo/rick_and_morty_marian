@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import About from "./components/About/About";
 import Cards from "./components/cards/Cards.jsx";
 import Detail from "./components/Detail/Detail";
@@ -13,11 +13,6 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    localStorage.setItem("currentLocation", location.pathname);
-  }, [location.pathname]);
 
   async function login(userData) {
     try {

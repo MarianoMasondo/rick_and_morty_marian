@@ -25,15 +25,12 @@ export default function reducer(state = initialState, { type, payload }) {
       };
 
     case LOGOUT:
-      localStorage.removeItem('myFavorites');
-
       return {
         ...initialState,
         isAuthenticated: false,
       };
 
       case RESET_MY_FAVORITES:
-        localStorage.removeItem('myFavorites');
         return {
           ...state,
         myFavorites: [],

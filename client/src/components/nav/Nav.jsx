@@ -9,7 +9,7 @@ export default function Nav(props) {
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
-    await dispatch(resetMyFavorites());  // Usa resetMyFavorites en lugar de logout
+    dispatch(resetMyFavorites()); 
   };
 
   return (
