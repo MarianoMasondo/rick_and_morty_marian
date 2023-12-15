@@ -1,5 +1,3 @@
-// App.jsx
-
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -13,7 +11,6 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [myFavorites, setMyFavorites] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,7 +29,6 @@ function App() {
       setAccess(access);
       if (access) {
         setCharacters([]); 
-        setMyFavorites([]); 
         navigate("/home");
       }
     } catch (error) {
@@ -83,7 +79,6 @@ function App() {
 
   const logout = () => {
     setCharacters([]); 
-    setMyFavorites([]); 
     setAccess(false);
     navigate("/");
   };
@@ -122,7 +117,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites favotites={myFavorites} onClose={onClose} />
+                <Favorites onClose={onClose} />
               </div>
             }
           />
