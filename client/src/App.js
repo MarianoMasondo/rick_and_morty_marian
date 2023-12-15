@@ -11,7 +11,6 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState(() => {
-    // Intenta obtener el estado de personajes desde el almacenamiento local al inicio
     const storedCharacters = localStorage.getItem('characters');
     return storedCharacters ? JSON.parse(storedCharacters) : [];
   });
@@ -30,8 +29,8 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('access', JSON.stringify(access));
-    // Almacenar el estado de characters solo cuando la página se recarga
-    if (!access) {
+    // Almacenar el estado de characters solo cuando la página se recarga y hay tarjetas
+    if (!access && characters.length > 0) {
       localStorage.setItem('characters', JSON.stringify(characters));
     }
     !access && navigate("/");
@@ -46,15 +45,16 @@ function App() {
       ).data;
       setAccess(access);
       if (access) {
-        // Limpiar characters al iniciar sesión
-        setCharacters([]);
+        // Limpiar characters al iniciar sesión solo si no hay tarjetas
+        if (characters.length === 0) {
+          setCharacters([]);
+        }
         navigate("/home");
       }
     } catch (error) {
       console.log(error.message);
     }
   }
-
 
   const onSearch = async (id) => {
     try {
@@ -98,7 +98,6 @@ function App() {
     localStorage.removeItem('access');
     navigate("/");
   };
-  
 
   return (
     <div>
@@ -145,4 +144,5 @@ function App() {
 }
 
 export default App;
+
 
