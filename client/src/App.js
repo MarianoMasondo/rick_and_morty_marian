@@ -13,6 +13,7 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [myFavorites, setMyFavorites] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,7 +31,8 @@ function App() {
       ).data;
       setAccess(access);
       if (access) {
-        setCharacters([]); // Reinicia las tarjetas al iniciar sesión
+        setCharacters([]);
+        setMyFavorites([]); // Reinicia las tarjetas al iniciar sesión
         navigate("/home");
       }
     } catch (error) {
@@ -80,7 +82,8 @@ function App() {
   };
 
   const logout = () => {
-    setCharacters([]); // Reinicia las tarjetas al cerrar sesión
+    setCharacters([]); 
+    setMyFavorites([]);
     setAccess(false);
     navigate("/");
   };
