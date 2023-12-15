@@ -4,6 +4,7 @@ const initialState = {
   myFavorites: [],
   allCharacters: [],
   errors: false,
+  isAuthenticated: true,
 };
 
 export default function reducer(state = initialState, { type, payload }) {
@@ -30,8 +31,11 @@ export default function reducer(state = initialState, { type, payload }) {
         errors: payload,
       };
 
-    case LOGOUT:
-      return state;
+      case LOGOUT:
+        return {
+          ...state,
+          isAuthenticated: false,
+        };
       
 
     default:
