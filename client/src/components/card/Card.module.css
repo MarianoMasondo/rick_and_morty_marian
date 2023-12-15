@@ -59,6 +59,7 @@ h3 {
 .container .dataContainer h2 {
   background-color: #b2ff9e;
   border: 5px solid #b2ff9e;
+  border-radius: 10px;
   margin: 2px;
   font-size: 20px;
   color: #08893b;
@@ -69,6 +70,7 @@ h3 {
   text-align: center;
   background-color: #b2ff9e;
   border: 5px solid #b2ff9e;
+  border-radius: 10px;
   padding: 0px;
   margin: 0px;
   font-size: 15px;

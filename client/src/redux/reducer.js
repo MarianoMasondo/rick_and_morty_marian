@@ -40,7 +40,7 @@ export default function reducer(state = initialState, { type, payload }) {
       case RESET_MY_FAVORITES:
         console.log("Reducer: Resetting favorites");
       return {
-        state,
+        ...state,
         myFavorites: [],
         allCharacters: [],
         errors: false,
