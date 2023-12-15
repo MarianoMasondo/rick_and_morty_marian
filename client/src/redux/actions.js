@@ -44,8 +44,21 @@ export const logout = () => {
 
 export const resetMyFavorites = () => {
   console.log("Resetting favorites");
-  return {
-    type: RESET_MY_FAVORITES,
+  return async (dispatch) => {
+    try {
+      // Limpiar favoritos almacenados en el servidor
+      await axios.delete(ENDPOINT);
+      
+      // Limpiar favoritos en el estado local
+      dispatch({
+        type: RESET_MY_FAVORITES,
+      });
+    } catch (error) {
+      return dispatch({
+        type: "ERROR",
+        payload: error.message,
+      });
+    }
   };
 };
 

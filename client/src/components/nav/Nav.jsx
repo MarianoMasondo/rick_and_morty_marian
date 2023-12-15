@@ -8,9 +8,9 @@ import { useDispatch } from "react-redux";
 export default function Nav(props) {
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await dispatch(resetMyFavorites());
     dispatch(logout());
-    dispatch(resetMyFavorites());
   };
 
   return (
