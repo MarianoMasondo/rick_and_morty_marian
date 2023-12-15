@@ -1,5 +1,13 @@
-import { ADD_FAV, LOGOUT, REMOVE_FAV, RESET_MY_FAVORITES } from "./types";
+// actions.js
+
 import axios from "axios";
+import {
+  ADD_FAV,
+  LOGOUT,
+  REMOVE_FAV,
+  RESET_MY_FAVORITES,
+} from "./types";
+
 const ENDPOINT = "/rickandmorty/fav";
 
 export const addFav = (character) => {
@@ -42,9 +50,17 @@ export const logout = () => {
 
   // Reiniciar los favoritos en el estado
   return {
+    type: LOGOUT,
+  };
+};
+
+export const resetMyFavorites = () => {
+  console.log("Resetting favorites");
+  return {
     type: RESET_MY_FAVORITES,
   };
 };
+
 
 
 

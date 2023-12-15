@@ -1,3 +1,5 @@
+// reducer.js
+
 import { ADD_FAV, LOGOUT, REMOVE_FAV, RESET_MY_FAVORITES } from "./types";
 
 const initialState = {
@@ -10,13 +12,6 @@ const initialState = {
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
     case ADD_FAV:
-      return {
-        ...state,
-        myFavorites: payload,
-        allCharacters: payload,
-        errors: false,
-      };
-
     case REMOVE_FAV:
       return {
         ...state,
@@ -32,24 +27,27 @@ export default function reducer(state = initialState, { type, payload }) {
       };
 
     case LOGOUT:
+      // Limpiar localStorage
+      localStorage.removeItem('myFavorites');
+
       return {
         ...initialState,
         isAuthenticated: false,
-      };    
+      };
 
-      case RESET_MY_FAVORITES:
-        localStorage.removeItem('myFavorites');
+    case RESET_MY_FAVORITES:
+      console.log("Reducer: Resetting favorites");
       return {
         ...state,
         myFavorites: [],
         allCharacters: [],
         errors: false,
       };
-      
 
     default:
       return { ...state };
   }
 }
+
 
 
