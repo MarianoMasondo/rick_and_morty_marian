@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 import SearchBar from "../searchBar/SearchBar.jsx";
-import { logout } from "../../redux/actions.js";
+import { logout, resetMyFavorites } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
 
 export default function Nav(props) {
@@ -10,6 +10,7 @@ export default function Nav(props) {
 
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(resetMyFavorites());
   };
 
   return (
