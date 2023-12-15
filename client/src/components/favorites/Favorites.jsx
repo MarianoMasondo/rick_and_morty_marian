@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Card from '../card/Card';
 import styles from './Favorites.module.css';
+import { removeFav } from '../../redux/actions';
 
 export default function Favorites() {
-  // Usamos useState para manejar el estado local
-  const [myFavorites, setMyFavorites] = useState([]);
+  const myFavorites = useSelector((state) => state.myFavorites);
+  const dispatch = useDispatch();
 
-  // Función para quitar de favoritos
-  const onRemoveFromFavorites = (id) => {
-    setMyFavorites((prevFavorites) => prevFavorites.filter((character) => character.id !== id));
+  const onClose = (id, removeFromHome) => {
+    dispatch(removeFav(id));
+    if (removeFromHome) {
+      console.log(`Removing from home: ${id}`);
+    }
   };
 
   return (
     <div className={styles.favContainer}>
-      {/* Renderizamos la lista de favoritos */}
       {myFavorites.map((character, index) => (
         <Card
           key={index}
@@ -24,12 +27,11 @@ export default function Favorites() {
           gender={character.gender}
           origin={character.origin}
           image={character.image}
-          onClose={() => onRemoveFromFavorites(character.id)}
+          onClose={() => onClose(character.id, false)}
         />
       ))}
     </div>
   );
 }
-
 
 
