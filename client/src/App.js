@@ -1,3 +1,5 @@
+// App.jsx
+
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -27,7 +29,10 @@ function App() {
         await axios(URL + `?email=${email}&password=${password}`)
       ).data;
       setAccess(access);
-      access && navigate("/home");
+      if (access) {
+        setCharacters([]); // Reinicia las tarjetas al iniciar sesión
+        navigate("/home");
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -39,11 +44,13 @@ function App() {
 
   const onSearch = async (id) => {
     try {
-      const characterId = characters.filter((character) => character.id === id);
-      if (characterId.length)
+      const characterId = characters.find((character) => character.id === id);
+      if (characterId) {
         return alert("This character is already on screen!");
-      if (id < 1 || id > 826)
+      }
+      if (id < 1 || id > 826) {
         return alert("There are no characters with this ID!");
+      }
       const { data } = await axios.get(`/rickandmorty/character/${id}`);
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
@@ -67,10 +74,16 @@ function App() {
     }
   };
 
-  function generarRandomId() {
+  const generarRandomId = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
     onSearch(randomId);
-  }
+  };
+
+  const logout = () => {
+    setCharacters([]); // Reinicia las tarjetas al cerrar sesión
+    setAccess(false);
+    navigate("/");
+  };
 
   return (
     <div>
@@ -86,7 +99,11 @@ function App() {
             path="/home"
             element={
               <div>
-                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
+                <Nav
+                  onSearch={onSearch}
+                  randomCharacter={generarRandomId}
+                  logout={logout}
+                />
                 <Cards characters={characters} onClose={onClose} />
               </div>
             }
@@ -97,7 +114,11 @@ function App() {
             path="/favorites"
             element={
               <div>
-                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
+                <Nav
+                  onSearch={onSearch}
+                  randomCharacter={generarRandomId}
+                  logout={logout}
+                />
                 <Favorites onClose={onClose} />
               </div>
             }
@@ -109,3 +130,4 @@ function App() {
 }
 
 export default App;
+

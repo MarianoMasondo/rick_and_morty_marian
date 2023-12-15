@@ -1,13 +1,10 @@
 import Card from "../card/Card.jsx";
+import styles from "./Cards.module.css";
 
 export default function Cards({ characters, onClose }) {
-  const cardsContainer = {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-  };
+  
   return (
-    <div style={cardsContainer}>
+    <div className={styles.cardsContainer}>
       {characters.map((character) => (
         <Card
           key={character.id}
