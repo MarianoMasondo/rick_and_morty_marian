@@ -91,7 +91,8 @@ function App() {
             path="/home"
             element={
               <div>
-                <Nav onSearch={onSearch} 
+                <Nav 
+                onSearch={onSearch} 
                 randomCharacter={generarRandomId}
                 onClose={onClose}
                   isLoggedIn={isLoggedIn}
@@ -107,8 +108,17 @@ function App() {
             path="/favorites"
             element={
               <div>
-                <Nav onSearch={onSearch} randomCharacter={generarRandomId} />
-                <Favorites onClose={onClose} />
+                <Nav 
+                onSearch={onSearch} 
+                randomCharacter={generarRandomId}
+                onClose={onClose}
+                  isLoggedIn={isLoggedIn}
+                  logout={logout}
+                   />
+                <Favorites 
+                onClose={onClose}
+                logout={logout}
+                 />
               </div>
             }
           />
