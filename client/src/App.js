@@ -14,6 +14,24 @@ function App() {
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
+  // Cargar datos al montar la aplicación
+  useEffect(() => {
+    const storedCharacters = JSON.parse(localStorage.getItem('characters')) || [];
+    const storedAccess = JSON.parse(localStorage.getItem('access')) || false;
+
+    setCharacters(storedCharacters);
+    setAccess(storedAccess);
+  }, []);
+
+  // Guardar datos al cambiar
+  useEffect(() => {
+    localStorage.setItem('characters', JSON.stringify(characters));
+  }, [characters]);
+
+  useEffect(() => {
+    localStorage.setItem('access', JSON.stringify(access));
+  }, [access]);
+
   async function login(userData) {
     try {
       const { email, password } = userData;
