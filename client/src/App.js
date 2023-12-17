@@ -11,26 +11,10 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(() => {
+    return JSON.parse(localStorage.getItem("access")) || false;
+  });
   const navigate = useNavigate();
-
-  // Cargar datos al montar la aplicación
-  useEffect(() => {
-    const storedCharacters = JSON.parse(localStorage.getItem('characters')) || [];
-    const storedAccess = JSON.parse(localStorage.getItem('access')) || false;
-
-    setCharacters(storedCharacters);
-    setAccess(storedAccess);
-  }, []);
-
-  // Guardar datos al cambiar
-  useEffect(() => {
-    localStorage.setItem('characters', JSON.stringify(characters));
-  }, [characters]);
-
-  useEffect(() => {
-    localStorage.setItem('access', JSON.stringify(access));
-  }, [access]);
 
   async function login(userData) {
     try {
@@ -41,7 +25,7 @@ function App() {
       ).data;
       setAccess(access);
       if (access) {
-        setCharacters([]); 
+        setCharacters([]);
         navigate("/home");
       }
     } catch (error) {
@@ -50,24 +34,13 @@ function App() {
   }
 
   useEffect(() => {
+    localStorage.setItem("access", JSON.stringify(access));
     !access && navigate("/");
   }, [access, navigate]);
 
   const onSearch = async (id) => {
     try {
-      const characterId = characters.find((character) => character.id === id);
-      if (characterId) {
-        return alert("This character is already on screen!");
-      }
-      if (id < 1 || id > 826) {
-        return alert("There are no characters with this ID!");
-      }
-      const { data } = await axios.get(`/rickandmorty/character/${id}`);
-      if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert("There are no characters with this ID!");
-      }
+      // ...
     } catch (error) {
       console.log(error.message);
     }
@@ -91,10 +64,11 @@ function App() {
   };
 
   const logout = () => {
+    localStorage.removeItem("access");
     setCharacters([]);
     setAccess(false);
     navigate("/");
-  };  
+  };
 
   return (
     <div>
