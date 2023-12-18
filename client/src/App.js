@@ -14,19 +14,6 @@ function App() {
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
-  // Al cargar la aplicación, intenta obtener los personajes desde localStorage
-  useEffect(() => {
-    const storedCharacters = JSON.parse(localStorage.getItem("characters"));
-    if (storedCharacters) {
-      setCharacters(storedCharacters);
-    }
-  }, []);
-
-  // Al actualizar los personajes, guarda la información en localStorage
-  useEffect(() => {
-    localStorage.setItem("characters", JSON.stringify(characters));
-  }, [characters]);
-
   async function login(userData) {
     try {
       const { email, password } = userData;
@@ -86,7 +73,6 @@ function App() {
   };
 
   const logout = () => {
-    localStorage.removeItem("characters");
     setCharacters([]);
     setAccess(false);
     navigate("/");
@@ -137,5 +123,4 @@ function App() {
 }
 
 export default App;
-
 

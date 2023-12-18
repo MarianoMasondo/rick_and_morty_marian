@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import { useEffect, useState } from "react";
 
 function Card(props) {
- 
-
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
@@ -35,7 +33,9 @@ function Card(props) {
         ) : (
           <button onClick={handleFavorite}>🤍</button>
         )}
-        <button onClick={() => props.onClose(props.id)}>X</button>
+        {props.showCloseButton && (
+          <button onClick={() => props.onClose(props.id)}>X</button>
+        )}
       </div>
       <Link to={`/detail/${props.id}`}>
         <div className={styles.dataContainer}>
@@ -43,10 +43,10 @@ function Card(props) {
           <img src={props.image} alt="Imagen" />
           <h3>ID: {props.id}</h3>
           <div className={styles.h4Container}>
-          <h4 class="Top">Status: {props.status}</h4>
-          <h4>Species: {props.species}</h4>
-          <h4>Gender: {props.gender}</h4>
-          <h4 class="Bottom">Origin: {props.origin}</h4>
+            <h4 class="Top">Status: {props.status}</h4>
+            <h4>Species: {props.species}</h4>
+            <h4>Gender: {props.gender}</h4>
+            <h4 class="Bottom">Origin: {props.origin}</h4>
           </div>
         </div>
       </Link>

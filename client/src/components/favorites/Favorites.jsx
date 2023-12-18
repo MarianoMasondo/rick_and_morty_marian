@@ -27,6 +27,7 @@ export default function Favorites() {
           gender={character.gender}
           origin={character.origin}
           image={character.image}
+          showCloseButton={false}
           onClose={() => onClose(character.id, false)}
         />
       ))}
