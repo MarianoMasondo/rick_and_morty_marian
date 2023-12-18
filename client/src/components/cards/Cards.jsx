@@ -1,6 +1,6 @@
 import Card from "../card/Card.jsx";
 
-export default function Cards({ characters, onClose }) {
+export default function Cards({ characters, onClose, showCloseButton }) {
   const cardsContainer = {
     display: "flex",
     flexWrap: "wrap",
@@ -19,6 +19,7 @@ export default function Cards({ characters, onClose }) {
           origin={character.origin?.name}
           image={character.image}
           onClose={onClose}
+          showCloseButton={showCloseButton}
         />
       ))}
     </div>
