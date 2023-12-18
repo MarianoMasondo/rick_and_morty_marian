@@ -8,11 +8,14 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
+import { removeFav } from "./redux/actions.js";
+import { useDispatch } from "react-redux";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   async function login(userData) {
     try {
@@ -56,8 +59,13 @@ function App() {
     }
   };
 
-  const onClose = (id) => {
+  const onClose = (id, removeFromHome) => {
     setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
+
+    if (removeFromHome) {
+      // Remove from Favorites if closing from Favorites page
+      dispatch(removeFav(id));
+    }
   };
   
 

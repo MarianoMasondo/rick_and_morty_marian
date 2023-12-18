@@ -25,6 +25,10 @@ function Card(props) {
     }
   };
 
+  const handleClose = () => {
+    props.onClose(props.id, props.showCloseButton);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.buttonContainer}>
@@ -34,7 +38,7 @@ function Card(props) {
           <button onClick={handleFavorite}>🤍</button>
         )}
         {props.showCloseButton && (
-          <button onClick={() => props.onClose(props.id)}>X</button>
+          <button onClick={handleClose}>X</button>
         )}
       </div>
       <Link to={`/detail/${props.id}`}>
