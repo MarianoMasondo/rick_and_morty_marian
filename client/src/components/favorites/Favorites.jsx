@@ -4,7 +4,7 @@ import Card from "../card/Card";
 import styles from "./Favorites.module.css";
 import { removeFav } from "../../redux/actions";
 
-export default function Favorites({ logout }) {
+export default function Favorites() {
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
 
@@ -15,15 +15,8 @@ export default function Favorites({ logout }) {
     }
   };
 
-  const handleLogout = () => {
-    if (typeof logout === "function") {
-      logout();
-    }
-  };
-
   return (
     <div className={styles.favContainer}>
-      <button onClick={handleLogout}>Logout</button>
       {myFavorites.map((character, index) => (
         <Card
           key={index}
@@ -40,4 +33,3 @@ export default function Favorites({ logout }) {
     </div>
   );
 }
-

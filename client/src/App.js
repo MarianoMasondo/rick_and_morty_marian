@@ -56,10 +56,9 @@ function App() {
   };
 
   const onClose = (id) => {
-    setCharacters((oldChars) =>
-      oldChars.filter((character) => character.id !== id)
-    );
+    setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
   };
+  
 
   const generarRandomId = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
@@ -110,11 +109,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites
-                  logout={logout}
-                  onClose={onClose}
-                  showCloseButton={false}
-                />
+                <Favorites onClose={onClose} showCloseButton={false} />
               </div>
             }
           />
