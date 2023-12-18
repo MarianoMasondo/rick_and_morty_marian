@@ -1,9 +1,5 @@
 import axios from "axios";
-import {
-  ADD_FAV,
-  LOGOUT,
-  REMOVE_FAV,
-} from "./types";
+import { ADD_FAV, LOGOUT, REMOVE_FAV } from "./types";
 
 const ENDPOINT = "/rickandmorty/fav";
 
@@ -46,6 +42,3 @@ export const logout = () => {
     type: LOGOUT,
   };
 };
-
-
-

@@ -23,6 +23,7 @@ function App() {
       ).data;
       setAccess(access);
       if (access) {
+        // Limpiar el estado de favoritos al iniciar sesión
         setCharacters([]);
         navigate("/home");
       }
@@ -56,16 +57,9 @@ function App() {
   };
 
   const onClose = (id) => {
-    const isFavorite = characters.some((character) => character.id === id);
-
-    if (isFavorite) {
-      setCharacters((oldChars) =>
-        oldChars.filter((character) => character.id !== id)
-      );
-    } else {
-      setCharacters(characters.filter((character) => character.id !== id));
-    }
+    setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
   };
+  
 
   const generarRandomId = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
@@ -116,7 +110,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites onClose={onClose} showCloseButton={false}/>
+                <Favorites onClose={onClose} showCloseButton={false} />
               </div>
             }
           />

@@ -1,8 +1,8 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Card from '../card/Card';
-import styles from './Favorites.module.css';
-import { removeFav } from '../../redux/actions';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Card from "../card/Card";
+import styles from "./Favorites.module.css";
+import { removeFav } from "../../redux/actions";
 
 export default function Favorites() {
   const myFavorites = useSelector((state) => state.myFavorites);
@@ -14,7 +14,7 @@ export default function Favorites() {
       console.log(`Removing from home: ${id}`);
     }
   };
-  
+
   return (
     <div className={styles.favContainer}>
       {myFavorites.map((character, index) => (
@@ -33,5 +33,3 @@ export default function Favorites() {
     </div>
   );
 }
-
-
