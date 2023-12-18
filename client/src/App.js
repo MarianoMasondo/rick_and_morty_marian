@@ -8,11 +8,14 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
+import { removeFav } from "./redux/actions.js";
+import { useDispatch } from "react-redux";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   async function login(userData) {
     try {
@@ -37,8 +40,6 @@ function App() {
 
     if (storedAccess) {
       setAccess(storedAccess);
-
-      // Recuperar personajes almacenados en localStorage al cargar la página
       const storedCharacters = JSON.parse(localStorage.getItem('characters')) || [];
       setCharacters(storedCharacters);
     } else {
@@ -61,7 +62,6 @@ function App() {
       } else {
         window.alert("There are no characters with this ID!");
       }
-      // Guardar personajes en localStorage
       localStorage.setItem('characters', JSON.stringify(characters));
     } catch (error) {
       console.log(error.message);
@@ -69,11 +69,16 @@ function App() {
   };
 
   const onClose = (id) => {
+    // Eliminar el personaje de la lista de personajes
     setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
-
-    // Actualizar personajes en localStorage
+  
+    // Eliminar el personaje de la lista de favoritos
+    dispatch(removeFav(id));
+  
+    // Actualizar el almacenamiento local
     localStorage.setItem('characters', JSON.stringify(characters));
   };
+  
   
 
   const generarRandomId = () => {
@@ -82,8 +87,7 @@ function App() {
   };
 
   const logout = () => {
-    localStorage.removeItem('access');
-    localStorage.removeItem('characters');
+    setCharacters([]);
     navigate('/');
   };
 

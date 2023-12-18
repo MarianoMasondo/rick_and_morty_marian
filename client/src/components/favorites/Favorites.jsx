@@ -9,7 +9,7 @@ export default function Favorites() {
   const dispatch = useDispatch();
 
   const onClose = (id) => {
-    dispatch(removeFav(id));  
+    dispatch(removeFav(id));
   };
 
   return (
