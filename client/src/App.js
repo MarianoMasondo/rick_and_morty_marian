@@ -11,10 +11,21 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(() => {
-    return JSON.parse(localStorage.getItem("access")) || false;
-  });
+  const [access, setAccess] = useState(false);
   const navigate = useNavigate();
+
+  // Al cargar la aplicación, intenta obtener los personajes desde localStorage
+  useEffect(() => {
+    const storedCharacters = JSON.parse(localStorage.getItem("characters"));
+    if (storedCharacters) {
+      setCharacters(storedCharacters);
+    }
+  }, []);
+
+  // Al actualizar los personajes, guarda la información en localStorage
+  useEffect(() => {
+    localStorage.setItem("characters", JSON.stringify(characters));
+  }, [characters]);
 
   async function login(userData) {
     try {
@@ -25,7 +36,7 @@ function App() {
       ).data;
       setAccess(access);
       if (access) {
-        setCharacters([]);
+        setCharacters([]); 
         navigate("/home");
       }
     } catch (error) {
@@ -34,13 +45,24 @@ function App() {
   }
 
   useEffect(() => {
-    localStorage.setItem("access", JSON.stringify(access));
     !access && navigate("/");
   }, [access, navigate]);
 
   const onSearch = async (id) => {
     try {
-      // ...
+      const characterId = characters.find((character) => character.id === id);
+      if (characterId) {
+        return alert("This character is already on screen!");
+      }
+      if (id < 1 || id > 826) {
+        return alert("There are no characters with this ID!");
+      }
+      const { data } = await axios.get(`/rickandmorty/character/${id}`);
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
+      } else {
+        window.alert("There are no characters with this ID!");
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -64,11 +86,11 @@ function App() {
   };
 
   const logout = () => {
-    localStorage.removeItem("access");
+    localStorage.removeItem("characters");
     setCharacters([]);
     setAccess(false);
     navigate("/");
-  };
+  };  
 
   return (
     <div>
@@ -115,4 +137,5 @@ function App() {
 }
 
 export default App;
+
 
