@@ -21,6 +21,7 @@ function App() {
       const { access } = (
         await axios(URL + `?email=${email}&password=${password}`)
       ).data;
+      localStorage.setItem('access', access);
       setAccess(access);
       if (access) {
         setCharacters([]);
@@ -32,8 +33,17 @@ function App() {
   }
 
   useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+    // Verificar el estado de inicio de sesión en el almacenamiento local
+    const storedAccess = localStorage.getItem('access');
+    
+    if (storedAccess) {
+      // Si hay un estado de inicio de sesión almacenado, establecerlo en el estado
+      setAccess(storedAccess);
+    } else {
+      // Si no hay un estado de inicio de sesión almacenado, redirigir al usuario a la página de inicio de sesión
+      navigate('/');
+    }
+  }, [navigate])
 
   const onSearch = async (id) => {
     try {
@@ -66,8 +76,7 @@ function App() {
   };
 
   const logout = () => {
-    setCharacters([]);
-    setAccess(false);
+    localStorage.removeItem(access);
     navigate("/");
   };
 
