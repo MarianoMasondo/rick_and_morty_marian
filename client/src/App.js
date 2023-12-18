@@ -23,7 +23,7 @@ function App() {
       ).data;
       setAccess(access);
       if (access) {
-        setCharacters([]); 
+        setCharacters([]);
         navigate("/home");
       }
     } catch (error) {
@@ -76,7 +76,7 @@ function App() {
     setCharacters([]);
     setAccess(false);
     navigate("/");
-  };  
+  };
 
   return (
     <div>
@@ -97,7 +97,11 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Cards characters={characters} onClose={onClose} />
+                <Cards
+                  characters={characters}
+                  onClose={onClose}
+                  showCloseButton={true}
+                />
               </div>
             }
           />
@@ -123,4 +127,3 @@ function App() {
 }
 
 export default App;
-
