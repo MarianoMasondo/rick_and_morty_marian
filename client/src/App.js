@@ -116,7 +116,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites onClose={onClose} showCloseButton={false}/>
+                <Favorites characters={characters} onClose={onClose} showCloseButton={false}/>
               </div>
             }
           />
