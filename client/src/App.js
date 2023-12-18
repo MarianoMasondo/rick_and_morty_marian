@@ -11,6 +11,7 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [myFavorites, setMyFavorites] = useState([]); // Nuevo estado para los favoritos
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
@@ -47,6 +48,7 @@ function App() {
       const { data } = await axios.get(`/rickandmorty/character/${id}`);
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
+        setMyFavorites((oldFavorites) => [...oldFavorites, data]); // Añade el personaje a myFavorites
       } else {
         window.alert("There are no characters with this ID!");
       }
@@ -62,8 +64,12 @@ function App() {
       setCharacters((oldChars) =>
         oldChars.filter((character) => character.id !== id)
       );
+      setMyFavorites((oldFavorites) =>
+        oldFavorites.filter((character) => character.id !== id)
+      ); // Elimina el personaje de myFavorites también
     } else {
       setCharacters(characters.filter((character) => character.id !== id));
+      setMyFavorites(myFavorites.filter((character) => character.id !== id));
     }
   };
 
@@ -74,6 +80,7 @@ function App() {
 
   const logout = () => {
     setCharacters([]);
+    setMyFavorites([]); // Limpia también el estado de myFavorites
     setAccess(false);
     navigate("/");
   };
@@ -116,7 +123,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites characters={characters} onClose={onClose} showCloseButton={false}/>
+                <Favorites onClose={onClose} showCloseButton={false}/>
               </div>
             }
           />
@@ -127,3 +134,4 @@ function App() {
 }
 
 export default App;
+
