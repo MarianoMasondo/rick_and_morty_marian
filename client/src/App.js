@@ -11,7 +11,8 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [myFavorites, setMyFavorites] = useState([]); // Nuevo estado para los favoritos
+  const [favorites, setFavorites] = useState([]);
+
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
@@ -48,7 +49,6 @@ function App() {
       const { data } = await axios.get(`/rickandmorty/character/${id}`);
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
-        setMyFavorites((oldFavorites) => [...oldFavorites, data]); // Añade el personaje a myFavorites
       } else {
         window.alert("There are no characters with this ID!");
       }
@@ -58,18 +58,16 @@ function App() {
   };
 
   const onClose = (id) => {
-    const isFavorite = myFavorites.some((character) => character.id === id);
-  
-    if (isFavorite) {
-      setMyFavorites((oldFavorites) =>
-        oldFavorites.filter((character) => character.id !== id)
-      );
-    }
+    const isFavorite = characters.some((character) => character.id === id);
   
     setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
+  
+    // If the card is a favorite, remove it from the favorites list
+    if (isFavorite) {
+      setFavorites((oldFavorites) => oldFavorites.filter((character) => character.id !== id));
+    }
   };
   
-
   const generarRandomId = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
     onSearch(randomId);
@@ -77,7 +75,6 @@ function App() {
 
   const logout = () => {
     setCharacters([]);
-    setMyFavorites([]); // Limpia también el estado de myFavorites
     setAccess(false);
     navigate("/");
   };
@@ -120,7 +117,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites onClose={onClose} showCloseButton={false}/>
+                <Favorites characters={characters} onClose={onClose} showCloseButton={false}/>
               </div>
             }
           />
@@ -131,4 +128,3 @@ function App() {
 }
 
 export default App;
-
