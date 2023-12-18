@@ -33,17 +33,18 @@ function App() {
   }
 
   useEffect(() => {
-    // Verificar el estado de inicio de sesión en el almacenamiento local
     const storedAccess = localStorage.getItem('access');
-    
+
     if (storedAccess) {
-      // Si hay un estado de inicio de sesión almacenado, establecerlo en el estado
       setAccess(storedAccess);
+
+      // Recuperar personajes almacenados en localStorage al cargar la página
+      const storedCharacters = JSON.parse(localStorage.getItem('characters')) || [];
+      setCharacters(storedCharacters);
     } else {
-      // Si no hay un estado de inicio de sesión almacenado, redirigir al usuario a la página de inicio de sesión
       navigate('/');
     }
-  }, [navigate])
+  }, [navigate]);
 
   const onSearch = async (id) => {
     try {
@@ -60,6 +61,8 @@ function App() {
       } else {
         window.alert("There are no characters with this ID!");
       }
+      // Guardar personajes en localStorage
+      localStorage.setItem('characters', JSON.stringify(characters));
     } catch (error) {
       console.log(error.message);
     }
@@ -67,6 +70,9 @@ function App() {
 
   const onClose = (id) => {
     setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
+
+    // Actualizar personajes en localStorage
+    localStorage.setItem('characters', JSON.stringify(characters));
   };
   
 
@@ -76,8 +82,9 @@ function App() {
   };
 
   const logout = () => {
-    localStorage.removeItem(access);
-    navigate("/");
+    localStorage.removeItem('access');
+    localStorage.removeItem('characters');
+    navigate('/');
   };
 
   return (
