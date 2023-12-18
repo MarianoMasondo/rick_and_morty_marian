@@ -11,8 +11,6 @@ import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [favorites, setFavorites] = useState([]);
-
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
@@ -59,15 +57,16 @@ function App() {
 
   const onClose = (id) => {
     const isFavorite = characters.some((character) => character.id === id);
-  
-    setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
-  
-    // If the card is a favorite, remove it from the favorites list
+
     if (isFavorite) {
-      setFavorites((oldFavorites) => oldFavorites.filter((character) => character.id !== id));
+      setCharacters((oldChars) =>
+        oldChars.filter((character) => character.id !== id)
+      );
+    } else {
+      setCharacters(characters.filter((character) => character.id !== id));
     }
   };
-  
+
   const generarRandomId = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
     onSearch(randomId);
@@ -117,7 +116,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites characters={characters} onClose={onClose} showCloseButton={false}/>
+                <Favorites onClose={onClose} showCloseButton={false}/>
               </div>
             }
           />
