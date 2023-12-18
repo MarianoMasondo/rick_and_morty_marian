@@ -58,20 +58,17 @@ function App() {
   };
 
   const onClose = (id) => {
-    const isFavorite = characters.some((character) => character.id === id);
-
+    const isFavorite = myFavorites.some((character) => character.id === id);
+  
     if (isFavorite) {
-      setCharacters((oldChars) =>
-        oldChars.filter((character) => character.id !== id)
-      );
       setMyFavorites((oldFavorites) =>
         oldFavorites.filter((character) => character.id !== id)
-      ); // Elimina el personaje de myFavorites también
-    } else {
-      setCharacters(characters.filter((character) => character.id !== id));
-      setMyFavorites(myFavorites.filter((character) => character.id !== id));
+      );
     }
+  
+    setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
   };
+  
 
   const generarRandomId = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
