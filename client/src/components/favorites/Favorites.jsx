@@ -8,11 +8,8 @@ export default function Favorites() {
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
 
-  const onClose = (id, removeFromHome) => {
-    dispatch(removeFav(id));
-    if (removeFromHome) {
-      console.log(`Removing from home: ${id}`);
-    }
+  const onClose = (id) => {
+    dispatch(removeFav(id));  
   };
 
   return (
