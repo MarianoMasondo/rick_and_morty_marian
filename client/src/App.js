@@ -8,8 +8,11 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
+import { removeFav } from "./redux/actions.js";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
@@ -56,9 +59,10 @@ function App() {
   };
 
   const onClose = (id) => {
-    setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
+    setCharacters((oldChars) =>
+      oldChars.filter((character) => character.id !== id)
+    );
   };
-  
 
   const generarRandomId = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
@@ -66,6 +70,10 @@ function App() {
   };
 
   const logout = () => {
+    characters.forEach((character) => {
+      dispatch(removeFav(character.id));
+    });
+
     setCharacters([]);
     setAccess(false);
     navigate("/");
