@@ -63,7 +63,6 @@ function App() {
     setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
 
     if (removeFromHome) {
-      // Remove from Favorites if closing from Favorites page
       dispatch(removeFav(id));
     }
   };
@@ -79,6 +78,7 @@ function App() {
     setAccess(false);
     navigate("/");
   };
+  
 
   return (
     <div>
@@ -118,7 +118,7 @@ function App() {
                   randomCharacter={generarRandomId}
                   logout={logout}
                 />
-                <Favorites onClose={onClose} showCloseButton={false} />
+                <Favorites characters={characters} onClose={onClose} showCloseButton={false} />
               </div>
             }
           />
