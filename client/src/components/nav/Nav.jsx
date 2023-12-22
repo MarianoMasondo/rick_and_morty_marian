@@ -9,8 +9,7 @@ export default function Nav(props) {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    props.closeAllCards(); // Llama a la función para cerrar todas las cartas abiertas
-    dispatch(logout()); // Realiza el logout
+    dispatch(logout());
   };
 
   return (
@@ -40,4 +39,3 @@ export default function Nav(props) {
     </div>
   );
 }
-
