@@ -20,7 +20,7 @@ function App() {
   async function login(userData) {
     try {
       const { email, password } = userData;
-      const URL = "/rickandmorty/login/";
+      const URL = "/rickandmorty/login";
       const { access } = (
         await axios(URL + `?email=${email}&password=${password}`)
       ).data;
@@ -35,9 +35,9 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access, navigate]);
 
   const onSearch = async (id) => {
     try {
@@ -76,7 +76,7 @@ function App() {
   const logout = () => {
     setCharacters([]);
     setAccess(false);
-    navigate("/");
+    navigate("/home");
   };  
 
   return (
