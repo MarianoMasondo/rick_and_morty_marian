@@ -36,7 +36,7 @@ function App() {
   }
 
   useEffect(() => {
-    // !access && navigate("/");
+    !access && navigate("/");
   }, [access, navigate]);
 
   const onSearch = async (id) => {
