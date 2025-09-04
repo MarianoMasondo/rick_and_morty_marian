@@ -77,8 +77,7 @@ function App() {
     setCharacters([]);
     setAccess(false);
     navigate("/");
-  };
-  
+  };  
 
   return (
     <div>
