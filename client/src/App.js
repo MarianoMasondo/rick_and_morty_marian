@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -36,7 +36,7 @@ function App() {
   }
 
   useEffect(() => {
-    !access && navigate("/");
+    navigate("/home");
   }, [access, navigate]);
 
   const onSearch = async (id) => {
@@ -88,7 +88,7 @@ function App() {
       />
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<Form login={login} />} />
+          {/* <Route exact path="/" element={<Form login={login} />} /> */}
           <Route
             path="/home"
             element={
