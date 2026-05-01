@@ -1,6 +1,8 @@
 # Rick and Morty App
 
-Aplicación web full stack para buscar personajes de **Rick and Morty**, ver su detalle y guardar favoritos.
+Aplicación web full stack desarrollada con **React** y **Node.js** que permite buscar personajes de **Rick and Morty**, ver su información principal, acceder a una vista de detalle y guardar personajes favoritos.
+
+El proyecto conecta un frontend en React con un backend en Express, consumiendo información de la API pública de Rick and Morty.
 
 ## Demo
 
