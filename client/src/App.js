@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import About from "./components/About/About";
 import Cards from "./components/cards/Cards.jsx";
@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(true);
+  const [ setAccess] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -33,11 +33,11 @@ function App() {
     } catch (error) {
       console.log(error.message);
     }
-  }*/
+  }
 
   useEffect(() => {
     navigate("/home");
-  }, [access, navigate]);
+  }, [access, navigate]);*/
 
   const onSearch = async (id) => {
     try {
