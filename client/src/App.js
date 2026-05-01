@@ -5,7 +5,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import About from "./components/About/About";
 import Cards from "./components/cards/Cards.jsx";
 import Detail from "./components/Detail/Detail";
-import Form from "./components/Form/Form.jsx";
+/*import Form from "./components/Form/Form.jsx";*/
 import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
 import { removeFav } from "./redux/actions.js";
@@ -17,7 +17,7 @@ function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  async function login(userData) {
+  /*async function login(userData) {
     try {
       const { email, password } = userData;
       const URL = "/rickandmorty/login/";
@@ -33,7 +33,7 @@ function App() {
     } catch (error) {
       console.log(error.message);
     }
-  }
+  }*/
 
   useEffect(() => {
     navigate("/home");
