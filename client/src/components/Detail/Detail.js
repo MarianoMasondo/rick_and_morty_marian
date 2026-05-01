@@ -9,17 +9,15 @@ export default function Detail(props) {
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    axios(
-      `https://rickandmortymarian-production.up.railway.app/rickandmorty/character/${id}`
-    ).then(({ data }) => {
-      if (data.name) {
-        setCharacter(data);
-      } else {
-        window.alert("There are no characters with this ID!");
-      }
-    });
-    return setCharacter({});
-  }, [id]);
+  axios(`/rickandmorty/character/${id}`).then(({ data }) => {
+    if (data.name) {
+      setCharacter(data);
+    } else {
+      window.alert("There are no characters with this ID");
+    }
+  });
+  return setCharacter({});
+}, [id]);
 
   return (
     <div className={`${styles.container} ${styles.backgroundImageContainer}`}>
