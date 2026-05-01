@@ -111,4 +111,3 @@ npm start
 
 Desarrollado por **Mariano Masondo**.
 
-GitHub: https://github.com/MarianoMasondo
