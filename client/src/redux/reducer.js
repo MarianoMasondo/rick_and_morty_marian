@@ -9,16 +9,41 @@ const initialState = {
 
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
-    case ADD_FAV:
-    case REMOVE_FAV:
-      localStorage.setItem("myFavorites", JSON.stringify(payload));
+    case ADD_FAV: {
+      const alreadyExists = state.myFavorites.some(
+        (character) => character.id === payload.id
+      );
+
+      if (alreadyExists) {
+        return state;
+      }
+
+      const updatedFavorites = [...state.myFavorites, payload];
+
+      localStorage.setItem("myFavorites", JSON.stringify(updatedFavorites));
 
       return {
         ...state,
-        myFavorites: payload,
-        allCharacters: payload,
+        myFavorites: updatedFavorites,
+        allCharacters: updatedFavorites,
         errors: false,
       };
+    }
+
+    case REMOVE_FAV: {
+      const updatedFavorites = state.myFavorites.filter(
+        (character) => character.id !== payload
+      );
+
+      localStorage.setItem("myFavorites", JSON.stringify(updatedFavorites));
+
+      return {
+        ...state,
+        myFavorites: updatedFavorites,
+        allCharacters: updatedFavorites,
+        errors: false,
+      };
+    }
 
     case "ERROR":
       return {
