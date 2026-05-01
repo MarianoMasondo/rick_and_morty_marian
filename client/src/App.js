@@ -8,14 +8,11 @@ import Detail from "./components/Detail/Detail";
 /*import Form from "./components/Form/Form.jsx";*/
 import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
-import { removeFav } from "./redux/actions.js";
-import { useDispatch } from "react-redux";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [ setAccess] = useState(true);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   /*async function login(userData) {
     try {
@@ -59,13 +56,11 @@ function App() {
     }
   };
 
-  const onClose = (id, removeFromHome) => {
-    setCharacters((oldChars) => oldChars.filter((character) => character.id !== id));
-
-    if (removeFromHome) {
-      dispatch(removeFav(id));
-    }
-  };
+  const onClose = (id) => {
+  setCharacters((oldChars) =>
+    oldChars.filter((character) => character.id !== id)
+  );
+};
   
 
   const generarRandomId = () => {
