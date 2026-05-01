@@ -1,40 +1,49 @@
 import "./App.css";
 import axios from "axios";
-import { useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import About from "./components/About/About";
 import Cards from "./components/cards/Cards.jsx";
 import Detail from "./components/Detail/Detail";
-/*import Form from "./components/Form/Form.jsx";*/
+import Form from "./components/Form/Form.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [ setAccess] = useState(true);
+  const [ access, setAccess] = useState(false);
   const navigate = useNavigate();
 
-  /*async function login(userData) {
-    try {
-      const { email, password } = userData;
-      const URL = "/rickandmorty/login/";
-      const { access } = (
-        await axios(URL + `?email=${email}&password=${password}`)
-      ).data;
-      localStorage.setItem('access', access);
-      setAccess(access);
-      if (access) {
-        setCharacters([]);
-        navigate("/home");
-      }
-    } catch (error) {
-      console.log(error.message);
+  const login = async (userData) => {
+  try {
+    const { email, password } = userData;
+
+    const { data } = await axios(
+      `/rickandmorty/login/?email=${email}&password=${password}`
+    );
+
+    setAccess(data.access);
+    localStorage.setItem("access", data.access);
+
+    if (data.access) {
+      setCharacters([]);
+      navigate("/home");
+    } else {
+      window.alert("Email o password incorrectos");
     }
+  } catch (error) {
+    console.log(error.message);
+    window.alert("Error al iniciar sesión");
   }
+};
 
   useEffect(() => {
-    navigate("/home");
-  }, [access, navigate]);*/
+  const storedAccess = localStorage.getItem("access");
+
+  if (storedAccess === "true") {
+    setAccess(true);
+  }
+}, []);
 
   const onSearch = async (id) => {
     try {
@@ -69,10 +78,11 @@ function App() {
   };
 
   const logout = () => {
-    setCharacters([]);
-    setAccess(false);
-    navigate("/");
-  };  
+  setCharacters([]);
+  setAccess(false);
+  localStorage.removeItem("access");
+  navigate("/");
+}; 
 
   return (
     <div>
@@ -83,40 +93,65 @@ function App() {
       />
       <div className="App">
         <Routes>
-          {/* <Route exact path="/" element={<Form login={login} />} /> */}
-          <Route
-            path="/home"
-            element={
-              <div>
-                <Nav
-                  onSearch={onSearch}
-                  randomCharacter={generarRandomId}
-                  logout={logout}
-                />
-                <Cards
-                  characters={characters}
-                  onClose={onClose}
-                  showCloseButton={true}
-                />
-              </div>
-            }
+  <Route
+    path="/"
+    element={access ? <Navigate to="/home" /> : <Form login={login} />}
+  />
+
+  <Route
+    path="/home"
+    element={
+      access ? (
+        <div>
+          <Nav
+            onSearch={onSearch}
+            randomCharacter={generarRandomId}
+            logout={logout}
           />
-          <Route path="/about" element={<About />} />
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route
-            path="/favorites"
-            element={
-              <div>
-                <Nav
-                  onSearch={onSearch}
-                  randomCharacter={generarRandomId}
-                  logout={logout}
-                />
-                <Favorites characters={characters} onClose={onClose} showCloseButton={false} />
-              </div>
-            }
+          <Cards
+            characters={characters}
+            onClose={onClose}
+            showCloseButton={true}
           />
-        </Routes>
+        </div>
+      ) : (
+        <Navigate to="/" />
+      )
+    }
+  />
+
+  <Route
+    path="/about"
+    element={access ? <About /> : <Navigate to="/" />}
+  />
+
+  <Route
+    path="/detail/:id"
+    element={access ? <Detail /> : <Navigate to="/" />}
+  />
+
+  <Route
+    path="/favorites"
+    element={
+      access ? (
+        <div>
+          <Nav
+            onSearch={onSearch}
+            randomCharacter={generarRandomId}
+            logout={logout}
+          />
+          <Favorites
+            characters={characters}
+            onClose={onClose}
+            showCloseButton={false}
+          />
+        </div>
+      ) : (
+        <Navigate to="/" />
+      )
+    }
+  />
+</Routes>
       </div>
     </div>
   );
