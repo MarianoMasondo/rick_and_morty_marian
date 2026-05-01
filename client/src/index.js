@@ -8,7 +8,7 @@ import store from "./redux/store";
 import axios from "axios";
 
 // axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://rickandmortymarian-production.up.railway.app";
+axios.defaults.baseURL = "https://name-rick-and-morty-marian-api.onrender.com";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);

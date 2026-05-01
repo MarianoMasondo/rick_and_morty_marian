@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/rickandmorty/:path*",
+      "destination": "https://name-rick-and-morty-marian-api.onrender.com/rickandmorty/:path*"
+    }
+  ]
+}
