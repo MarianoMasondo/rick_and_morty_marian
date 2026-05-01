@@ -1,8 +1,8 @@
 import { ADD_FAV, LOGOUT, REMOVE_FAV } from "./types";
 
 const initialState = {
-  myFavorites: [],
-  allCharacters: [],
+  myFavorites: JSON.parse(localStorage.getItem("myFavorites")) || [],
+  allCharacters: JSON.parse(localStorage.getItem("myFavorites")) || [],
   errors: false,
   isAuthenticated: true,
 };
@@ -11,6 +11,8 @@ export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
     case ADD_FAV:
     case REMOVE_FAV:
+      localStorage.setItem("myFavorites", JSON.stringify(payload));
+
       return {
         ...state,
         myFavorites: payload,
@@ -25,12 +27,17 @@ export default function reducer(state = initialState, { type, payload }) {
       };
 
     case LOGOUT:
+      localStorage.removeItem("myFavorites");
+
       return {
         ...state,
+        myFavorites: [],
+        allCharacters: [],
+        errors: false,
         isAuthenticated: false,
       };
 
     default:
-      return { ...state };
+      return state;
   }
 }
