@@ -4,13 +4,6 @@
 
 ### Aplicación full stack para buscar personajes, ver detalles y guardar favoritos.
 
-![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=000)
-![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=fff)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=fff)
-![Express](https://img.shields.io/badge/Express-000?style=for-the-badge&logo=express&logoColor=fff)
-![Vercel](https://img.shields.io/badge/Vercel-Frontend-000?style=for-the-badge&logo=vercel&logoColor=fff)
-![Render](https://img.shields.io/badge/Render-Backend-46E3B7?style=for-the-badge&logo=render&logoColor=000)
-
 </div>
 
 ---
