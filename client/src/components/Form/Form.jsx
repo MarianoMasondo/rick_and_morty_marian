@@ -52,9 +52,9 @@ export default function Form(props) {
 
       setTimeout(() => {
         setCopied("");
-      }, 1500);
+      }, 1200);
     } catch (error) {
-      console.error("No se pudo copiar el texto", error);
+      console.error("No se pudo copiar", error);
     }
   };
 
@@ -101,11 +101,9 @@ export default function Form(props) {
         <div className={styles.demoBox}>
           <p className={styles.demoTitle}>Usuario de prueba</p>
 
-          <div className={styles.demoItem}>
-            <div className={styles.demoText}>
-              <span>Email:</span>
-              <strong>{demoEmail}</strong>
-            </div>
+          <div className={styles.demoRow}>
+            <span>Email</span>
+            <strong>{demoEmail}</strong>
 
             <button
               type="button"
@@ -113,15 +111,13 @@ export default function Form(props) {
               onClick={() => handleCopy(demoEmail, "email")}
               title="Copiar email"
             >
-              {copied === "email" ? "Copiado" : "📋"}
+              {copied === "email" ? "✓" : "📋"}
             </button>
           </div>
 
-          <div className={styles.demoItem}>
-            <div className={styles.demoText}>
-              <span>Contraseña:</span>
-              <strong>{demoPassword}</strong>
-            </div>
+          <div className={styles.demoRow}>
+            <span>Contraseña</span>
+            <strong>{demoPassword}</strong>
 
             <button
               type="button"
@@ -129,7 +125,7 @@ export default function Form(props) {
               onClick={() => handleCopy(demoPassword, "password")}
               title="Copiar contraseña"
             >
-              {copied === "password" ? "Copiado" : "📋"}
+              {copied === "password" ? "✓" : "📋"}
             </button>
           </div>
         </div>

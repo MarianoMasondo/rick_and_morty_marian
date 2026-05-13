@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   display: flex;
   justify-content: center;
@@ -17,11 +17,9 @@
 
 .overlay {
   position: absolute;
+  inset: 0;
 
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.68);
 
   backdrop-filter: blur(3px);
 }
@@ -30,21 +28,23 @@
   position: relative;
   z-index: 2;
 
-  width: 380px;
+  width: 390px;
 
-  padding: 40px;
+  padding: 34px 36px;
 
-  border-radius: 20px;
+  border-radius: 22px;
 
-  background: rgba(10, 10, 10, 0.75);
+  background: rgba(8, 12, 8, 0.82);
 
-  border: 2px solid #64ff00;
+  border: 1px solid rgba(100, 255, 0, 0.9);
 
-  box-shadow: 0 0 25px rgba(100, 255, 0, 0.5);
+  box-shadow:
+    0 0 28px rgba(100, 255, 0, 0.42),
+    inset 0 0 18px rgba(100, 255, 0, 0.06);
 
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 15px;
 
   box-sizing: border-box;
 }
@@ -56,9 +56,10 @@
 
   margin: 0;
 
-  font-size: 42px;
+  font-size: 39px;
+  line-height: 1.05;
 
-  text-shadow: 0 0 10px #64ff00;
+  text-shadow: 0 0 12px #64ff00;
 }
 
 .form h2 {
@@ -66,9 +67,10 @@
 
   text-align: center;
 
-  margin: 0;
+  margin: 8px 0 0;
 
-  font-size: 28px;
+  font-size: 25px;
+  line-height: 1.1;
 }
 
 .subtitle {
@@ -76,25 +78,30 @@
 
   color: #bbbbbb;
 
-  margin-top: -10px;
+  margin: -4px 0 4px;
+
+  font-size: 14px;
 }
 
 .inputGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
 .inputGroup label {
   color: #64ff00;
 
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 800;
 
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .inputGroup input {
-  padding: 14px;
+  width: 100%;
+
+  padding: 13px 14px;
 
   border-radius: 12px;
 
@@ -104,11 +111,11 @@
 
   color: white;
 
-  font-size: 16px;
+  font-size: 15px;
 
   outline: none;
 
-  transition: 0.3s;
+  transition: 0.25s;
 
   box-sizing: border-box;
 }
@@ -118,29 +125,24 @@
 }
 
 .inputGroup input:focus {
-  box-shadow: 0 0 15px #64ff00;
-
-  transform: scale(1.02);
+  box-shadow: 0 0 14px rgba(100, 255, 0, 0.8);
 }
 
 .submitButton {
   width: 100%;
 
-  box-sizing: border-box;
-
   margin-top: 10px;
-
   padding: 14px;
 
   border: none;
-  border-radius: 14px;
+  border-radius: 13px;
 
   background: linear-gradient(90deg, #64ff00, #b7ff00);
 
   color: black;
 
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 17px;
+  font-weight: 900;
 
   cursor: pointer;
 
@@ -148,79 +150,70 @@
 }
 
 .submitButton:hover {
-  box-shadow: 0 0 20px #64ff00;
+  box-shadow: 0 0 18px #64ff00;
 
-  filter: brightness(1.1);
+  filter: brightness(1.08);
 }
 
 .demoBox {
   margin-top: 10px;
-
-  padding: 16px;
+  padding: 14px;
 
   border-radius: 14px;
 
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.055);
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .demoTitle {
-  margin: 0 0 4px 0;
+  margin: 0 0 2px;
 
   color: #64ff00;
 
-  font-size: 15px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 900;
 
   text-align: center;
-
   text-transform: uppercase;
-
   letter-spacing: 1px;
 }
 
-.demoItem {
-  display: flex;
+.demoRow {
+  height: 42px;
+
+  display: grid;
+  grid-template-columns: 78px 1fr 38px;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
 
-  padding: 10px 12px;
+  padding: 0 8px 0 12px;
 
-  border-radius: 12px;
+  border-radius: 11px;
 
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.28);
 
-  border: 1px solid rgba(100, 255, 0, 0.18);
+  border: 1px solid rgba(100, 255, 0, 0.16);
+
+  box-sizing: border-box;
 }
 
-.demoText {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  min-width: 0;
-}
-
-.demoText span {
+.demoRow span {
   color: #64ff00;
 
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 800;
 }
 
-.demoText strong {
+.demoRow strong {
   color: white;
 
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
 
   white-space: nowrap;
   overflow: hidden;
@@ -228,13 +221,14 @@
 }
 
 .copyButton {
-  min-width: 72px;
-  height: 36px;
+  width: 32px;
+  height: 30px;
 
-  padding: 0 10px;
+  margin: 0;
+  padding: 0;
 
   border: 1px solid rgba(100, 255, 0, 0.45);
-  border-radius: 10px;
+  border-radius: 9px;
 
   background:
     linear-gradient(
@@ -246,7 +240,6 @@
   color: #64ff00;
 
   font-size: 14px;
-  font-weight: 800;
 
   cursor: pointer;
 
@@ -254,44 +247,21 @@
   align-items: center;
   justify-content: center;
 
-  box-shadow:
-    0 0 10px rgba(100, 255, 0, 0.16),
-    inset 0 0 10px rgba(100, 255, 0, 0.08);
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
-
   box-sizing: border-box;
 }
 
 .copyButton:hover {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(100, 255, 0, 0.22),
-      rgba(12, 35, 12, 0.98)
-    );
-
   color: white;
 
-  box-shadow:
-    0 0 16px rgba(100, 255, 0, 0.45),
-    inset 0 0 12px rgba(100, 255, 0, 0.16);
-
-  transform: translateY(-1px);
-}
-
-.copyButton:active {
-  transform: scale(0.97);
+  box-shadow: 0 0 12px rgba(100, 255, 0, 0.45);
 }
 
 .error {
+  min-height: 16px;
+
   color: #ff4d4d;
 
-  font-size: 14px;
+  font-size: 13px;
 
   margin: 0;
 }
@@ -299,29 +269,22 @@
 @media (max-width: 500px) {
   .form {
     width: 90%;
-
-    padding: 25px;
+    padding: 26px 22px;
   }
 
   .form h1 {
-    font-size: 30px;
+    font-size: 31px;
   }
 
   .form h2 {
     font-size: 22px;
   }
 
-  .demoItem {
-    padding: 10px;
+  .demoRow {
+    grid-template-columns: 72px 1fr 34px;
   }
 
-  .demoText strong {
-    font-size: 14px;
-  }
-
-  .copyButton {
-    min-width: 64px;
-
+  .demoRow strong {
     font-size: 12px;
   }
 }
