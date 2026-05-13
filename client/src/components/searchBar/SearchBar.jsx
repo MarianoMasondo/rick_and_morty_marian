@@ -1,50 +1,43 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./SearchBar.module.css";
 
 export default function SearchBar(props) {
   const [id, setId] = useState("");
-  const [placeholder, setPlaceholder] = useState("Number Id...");
 
   const handleChange = (event) => {
-    const { value } = event.target;
-    setId(value);
+    setId(event.target.value);
   };
 
   const handleSearch = () => {
+    if (!id.trim()) return;
+
     props.onSearch(id);
     setId("");
   };
 
-  useEffect(() => {
-    const updatePlaceholder = () => {
-      if (window.innerWidth <= 768) {
-        setPlaceholder("Number Id...");
-      } else {
-        setPlaceholder("Number Id...");
-      }
-    };
-
-    updatePlaceholder();
-
-    window.addEventListener("resize", updatePlaceholder);
-
-    return () => {
-      window.removeEventListener("resize", updatePlaceholder);
-    };
-  }, []);
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
         <input
+          className={styles.input}
           type="text"
           name="search"
           id="search"
-          placeholder={placeholder}
+          placeholder="Number Id..."
           value={id}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
         />
-        <button onClick={handleSearch}>Add ID</button>
+
+        <button className={styles.button} onClick={handleSearch}>
+          Add ID
+        </button>
       </div>
     </div>
   );
