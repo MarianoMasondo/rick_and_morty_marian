@@ -44,7 +44,7 @@ export default function Form(props) {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Username: </label>
+        <label htmlFor="email">Email: </label>
         <input
           type="text"
           name="email"
@@ -54,7 +54,7 @@ export default function Form(props) {
         />
         <p className={styles.error}>{errors.email ? errors.email : null}</p>
 
-        <label htmlFor="password">Password: </label>
+        <label htmlFor="password">Contraseña: </label>
         <input
           type="password"
           name="password"
@@ -66,7 +66,9 @@ export default function Form(props) {
           {errors.password ? errors.password : null}
         </p>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Ingresar</button>
+        <p>Mail test: ejemplo@gmail.com</p>
+        <p>Contraseña test: ejemplo123</p>
       </form>
     </div>
   );
