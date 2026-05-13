@@ -13,14 +13,19 @@
   display: flex;
   align-items: center;
 
-  border-radius: 999px;
+  border-radius: 14px;
 
-  background: rgba(0, 0, 0, 0.85);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(12, 35, 12, 0.95),
+      rgba(2, 10, 2, 0.95)
+    );
 
-  border: 2px solid rgba(100, 255, 0, 0.65);
+  border: 1px solid rgba(100, 255, 0, 0.45);
 
   box-shadow:
-    0 0 18px rgba(100, 255, 0, 0.28),
+    0 0 12px rgba(100, 255, 0, 0.16),
     inset 0 0 12px rgba(100, 255, 0, 0.08);
 
   overflow: hidden;
@@ -35,12 +40,12 @@
   border: none;
   outline: none;
 
-  background: rgba(235, 235, 235, 0.95);
+  background: rgba(255, 255, 255, 0.88);
 
   color: #111;
 
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
 
   text-align: center;
 
@@ -56,35 +61,50 @@
 }
 
 .button {
-  width: 135px;
+  width: 130px;
   height: 100%;
 
   border: none;
+  border-left: 1px solid rgba(100, 255, 0, 0.35);
   outline: none;
 
-  background: #64ff00;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(12, 35, 12, 0.95),
+      rgba(2, 10, 2, 0.95)
+    );
 
-  color: black;
+  color: #64ff00;
 
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
+  letter-spacing: 0.5px;
 
   cursor: pointer;
 
   font-family: Arial, Helvetica, sans-serif;
 
   transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
     background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+    color 0.2s ease;
 }
 
 .button:hover {
-  background: white;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(100, 255, 0, 0.22),
+      rgba(12, 35, 12, 0.98)
+    );
 
-  color: #111;
+  color: white;
 
-  box-shadow: 0 0 18px rgba(100, 255, 0, 0.65);
+  box-shadow:
+    0 0 20px rgba(100, 255, 0, 0.45),
+    inset 0 0 14px rgba(100, 255, 0, 0.16);
 }
 
 .button:active {
@@ -111,6 +131,6 @@
 
   .button {
     width: 105px;
-    font-size: 13px;
+    font-size: 12px;
   }
 }

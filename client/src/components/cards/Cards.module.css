@@ -1,0 +1,35 @@
+.cardsContainer {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 42px;
+
+  padding: 42px 48px;
+
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .cardsContainer {
+    gap: 36px;
+    padding: 36px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsContainer {
+    gap: 30px;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsContainer {
+    gap: 24px;
+    padding: 24px 12px;
+  }
+}
