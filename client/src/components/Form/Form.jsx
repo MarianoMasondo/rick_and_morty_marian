@@ -12,6 +12,7 @@ export default function Form(props) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setUserData({
       ...userData,
       [name]: value,
@@ -33,7 +34,6 @@ export default function Form(props) {
     if (!isEmailRegistered) {
       setErrors({
         email: "El email ingresado no se encuentra registrado",
-        ...errors,
       });
       return;
     }
@@ -43,32 +43,53 @@ export default function Form(props) {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email: </label>
-        <input
-          type="text"
-          name="email"
-          placeholder="Ingrese su email..."
-          value={userData.email}
-          onChange={handleChange}
-        />
-        <p className={styles.error}>{errors.email ? errors.email : null}</p>
+      <div className={styles.overlay}></div>
 
-        <label htmlFor="password">Contraseña: </label>
-        <input
-          type="password"
-          name="password"
-          placeholder="Ingrese su contraseña..."
-          value={userData.password}
-          onChange={handleChange}
-        />
-        <p className={styles.error}>
-          {errors.password ? errors.password : null}
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <h1>Rick and Morty</h1>
+        <h2>¡Bienvenido de vuelta!</h2>
+        <p className={styles.subtitle}>
+          Inicia sesión para continuar
         </p>
 
+        <div className={styles.inputGroup}>
+          <label>Email</label>
+          <input
+            type="text"
+            name="email"
+            placeholder="Ingresa tu email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+          <p className={styles.error}>
+            {errors.email ? errors.email : null}
+          </p>
+        </div>
+
+        <div className={styles.inputGroup}>
+          <label>Contraseña</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Ingresa tu contraseña"
+            value={userData.password}
+            onChange={handleChange}
+          />
+          <p className={styles.error}>
+            {errors.password ? errors.password : null}
+          </p>
+        </div>
+
         <button type="submit">Ingresar</button>
-        <p>Mail test: ejemplo@gmail.com</p>
-        <p>Contraseña test: ejemplo123</p>
+
+        <div className={styles.demoBox}>
+          <p>
+            <span>Email:</span> ejemplo@gmail.com
+          </p>
+          <p>
+            <span>Contraseña:</span> ejemplo123
+          </p>
+        </div>
       </form>
     </div>
   );
