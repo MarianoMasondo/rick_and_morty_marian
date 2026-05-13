@@ -1,6 +1,6 @@
 module.exports = [
   {
-    email: "admin@admin.com",
-    password: "admin123",
+    email: "ejemplo@gmail.com",
+    password: "ejemplo123",
   },
 ];
