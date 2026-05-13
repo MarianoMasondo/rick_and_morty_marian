@@ -42,17 +42,27 @@ function Card(props) {
         )}
       </div>
       <Link to={`/detail/${props.id}`}>
-        <div className={styles.dataContainer}>
-          <h2>{props.name}</h2>
-          <img src={props.image} alt="Imagen" />
-          <h3>ID: {props.id}</h3>
-          <div className={styles.h4Container}>
-            <h4 class="Top">Status: {props.status}</h4>
-            <h4>Species: {props.species}</h4>
-            <h4>Gender: {props.gender}</h4>
-            <h4 class="Bottom">Origin: {props.origin}</h4>
-          </div>
-        </div>
+        <div className={styles.h4Container}>
+  <h4 className={styles.infoItem}>
+    <span>ID:</span> {props.id}
+  </h4>
+
+  <h4 className={styles.infoItem}>
+    <span>Status:</span> {props.status}
+  </h4>
+
+  <h4 className={styles.infoItem}>
+    <span>Species:</span> {props.species}
+  </h4>
+
+  <h4 className={styles.infoItem}>
+    <span>Gender:</span> {props.gender}
+  </h4>
+
+  <h4 className={styles.infoItem}>
+    <span>Origin:</span> {props.origin}
+  </h4>
+</div>
       </Link>
     </div>
   );

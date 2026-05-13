@@ -1,143 +1,185 @@
 .container {
   position: relative;
-  border: 8px solid #3c1642;
-  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
+
+  width: 320px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.82),
+      rgba(0, 0, 0, 0.92)
+    ),
+    url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
+
   background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  width: 20%;
-  height: auto;
-  margin: 5px;
-  padding: 5px;
-  box-shadow: 0 0 10px black;
-  transition: box-shadow 0.3s ease;
+  background-position: center;
+
+  border: 2px solid rgba(100, 255, 0, 0.35);
+
+  box-shadow:
+    0 0 20px rgba(100, 255, 0, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+
+  backdrop-filter: blur(8px);
+
+  transition: all 0.25s ease;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  max-width: 100%;
-  min-width: 250px;
-}
 
-h3 {
-  color: #791a87;
-  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container:hover {
-  box-shadow: 0 0 20px rgb(175, 175, 175);
-  transform: scale(1.05);
-  border: 8px solid #63236d;
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 0 35px rgba(100, 255, 0, 0.35),
+    0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
-.container .buttonContainer {
+.buttonContainer {
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
+
+  margin-bottom: 10px;
 }
 
-.container .buttonContainer button {
-  width: 50px;
-  height: 40px;
-  border-radius: 3px;
-  background-color: pink;
-  color: red;
-  box-shadow: 0 2px 2px black;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+.buttonContainer button {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: rgba(20, 20, 20, 0.8);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: all 0.2s ease;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.container .buttonContainer button:hover {
-  background-color: rgb(215, 158, 166);
-  color: pink;
-  box-shadow: 0 2px 2px white;
+.buttonContainer button:hover {
+  background: rgba(100, 255, 0, 0.18);
+
+  border-color: #64ff00;
+
+  box-shadow: 0 0 15px #64ff00;
 }
 
-.container .dataContainer {
-  text-align: center;
-  padding: 5px;
-}
+.dataContainer {
+  width: 100%;
 
-.container .dataContainer h2 {
-  background-color: #b2ff9e;
-  border: 5px solid #b2ff9e;
-  border-radius: 10px;
-  margin: 2px;
-  font-size: 20px;
-  color: #08893b;
-  opacity: 0.7;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.container .dataContainer h4 {
-  text-align: center;
-  background-color: #b2ff9e;
-  border: 5px solid #b2ff9e;
-  padding: 0px;
-  margin: 0px;
-  font-size: 15px;
-  color: #08893b;
-  opacity: 0.7;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.container .dataContainer h4.Top {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.container .dataContainer h4.Bottom {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.dataContainer h4-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 5px solid #b2ff9e;
+
+  text-align: center;
 }
 
-.container img {
-  max-width: 100%;
-  height: auto;
-  border: 4px solid #3c1642;
+.dataContainer h2 {
+  color: #64ff00;
+
+  font-size: 32px;
+
+  font-weight: 800;
+
+  margin-bottom: 24px;
+
+  text-shadow: 0 0 10px rgba(100, 255, 0, 0.5);
+}
+
+.dataContainer img {
+  width: 220px;
+  height: 220px;
+
+  object-fit: cover;
+
   border-radius: 50%;
-  box-shadow: 0 5px 5px lightgrey;
-  margin-top: 1px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  border: 4px solid #64ff00;
+
+  box-shadow: 0 0 25px rgba(100, 255, 0, 0.35);
+
+  margin-bottom: 24px;
 }
 
-.container:hover .buttonContainer button {
-  box-shadow: 0 2px 2px white;
+.h4Container {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border-radius: 20px;
+
+  padding: 10px 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(6px);
 }
 
-.container:hover .dataContainer h2 {
-  background-color: #d4fcc9;
-  border-color: #d4fcc9;
+.infoItem {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 14px 20px;
+
+  margin: 0;
+
+  color: white;
+
+  font-size: 17px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.container:hover .dataContainer h4 {
-  color: #08893b;
-  background-color: #d4fcc9;
-  border-color: #d4fcc9;
+.infoItem:last-child {
+  border-bottom: none;
 }
 
-.container:hover img {
-  border-color: #a821bd;
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+.infoItem span {
+  color: #64ff00;
+
+  font-weight: bold;
 }
 
-@media only screen and (max-width: 600px) {
+a {
+  text-decoration: none;
+
+  width: 100%;
+}
+
+@media (max-width: 600px) {
   .container {
-    width: 100%;
-    font-size: 14px;
-    margin: 2px;
+    width: 90%;
   }
 
-  .container .dataContainer h2 {
-    font-size: 16px;
+  .dataContainer h2 {
+    font-size: 26px;
   }
 
-  .container .dataContainer h4 {
-    font-size: 12px;
+  .dataContainer img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .infoItem {
+    font-size: 15px;
   }
 }
