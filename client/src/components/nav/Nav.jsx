@@ -12,7 +12,7 @@ export default function Nav(props) {
         </NavLink>
 
         <NavLink to="/favorites" className={styles.link}>
-          <button className={styles.navButton}>Favorites</button>
+          <button className={styles.navButton}>Favoritos</button>
         </NavLink>
 
         <NavLink to="/home" className={styles.link}>
@@ -31,14 +31,14 @@ export default function Nav(props) {
 
       <div className={styles.right}>
         <NavLink to="/about" className={styles.link}>
-          <button className={styles.navButton}>About</button>
+          <button className={styles.navButton}>Acerca de</button>
         </NavLink>
 
         <button
           className={`${styles.navButton} ${styles.logoutButton}`}
           onClick={props.logout}
         >
-          Logout
+          Cerrar sesión
         </button>
       </div>
     </nav>
