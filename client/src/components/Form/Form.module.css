@@ -88,16 +88,23 @@
 
 button {
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
+
   margin-top: 10px;
   padding: 14px;
+
   border: none;
   border-radius: 14px;
+
   background: linear-gradient(90deg, #64ff00, #b7ff00);
+
   color: black;
   font-size: 18px;
   font-weight: bold;
+
   cursor: pointer;
+
   transition: all 0.2s ease;
 }
 
