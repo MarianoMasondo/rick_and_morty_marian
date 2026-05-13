@@ -5,18 +5,23 @@ import SearchBar from "../searchBar/SearchBar.jsx";
 
 export default function Nav(props) {
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <div className={styles.left}>
-        <NavLink to="/home">
-          <button>Home</button>
+        <NavLink to="/home" className={styles.link}>
+          <button className={styles.navButton}>Home</button>
         </NavLink>
 
-        <NavLink to="/favorites">
-          <button>Favorites</button>
+        <NavLink to="/favorites" className={styles.link}>
+          <button className={styles.navButton}>Favorites</button>
         </NavLink>
 
-        <NavLink to="/home">
-          <button onClick={props.randomCharacter}>Random</button>
+        <NavLink to="/home" className={styles.link}>
+          <button
+            className={styles.navButton}
+            onClick={props.randomCharacter}
+          >
+            Random
+          </button>
         </NavLink>
       </div>
 
@@ -25,12 +30,17 @@ export default function Nav(props) {
       </div>
 
       <div className={styles.right}>
-        <NavLink to="/about">
-          <button>About</button>
+        <NavLink to="/about" className={styles.link}>
+          <button className={styles.navButton}>About</button>
         </NavLink>
 
-        <button onClick={props.logout}>Logout</button>
+        <button
+          className={`${styles.navButton} ${styles.logoutButton}`}
+          onClick={props.logout}
+        >
+          Logout
+        </button>
       </div>
-    </div>
+    </nav>
   );
 }
