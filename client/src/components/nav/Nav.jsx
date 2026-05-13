@@ -31,7 +31,7 @@ export default function Nav(props) {
 
       <div className={styles.right}>
         <NavLink to="/about" className={styles.link}>
-          <button className={styles.navButton}>Acerca</button>
+          <button className={styles.navButton}>Acerca de</button>
         </NavLink>
 
         <button
