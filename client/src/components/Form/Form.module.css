@@ -1,56 +1,81 @@
 .container {
   width: 100%;
   height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   background: url("https://wallpapercave.com/wp/wp12336562.jpg")
     center/cover no-repeat;
+
   position: relative;
   overflow: hidden;
+
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .overlay {
   position: absolute;
+
   width: 100%;
   height: 100%;
+
   background: rgba(0, 0, 0, 0.7);
+
   backdrop-filter: blur(3px);
 }
 
 .form {
   position: relative;
   z-index: 2;
+
   width: 380px;
+
   padding: 40px;
+
   border-radius: 20px;
+
   background: rgba(10, 10, 10, 0.75);
+
   border: 2px solid #64ff00;
+
   box-shadow: 0 0 25px rgba(100, 255, 0, 0.5);
+
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  box-sizing: border-box;
 }
 
 .form h1 {
   color: #64ff00;
+
   text-align: center;
+
   margin: 0;
+
   font-size: 42px;
+
   text-shadow: 0 0 10px #64ff00;
 }
 
 .form h2 {
   color: white;
+
   text-align: center;
+
   margin: 0;
+
   font-size: 28px;
 }
 
 .subtitle {
   text-align: center;
+
   color: #bbbbbb;
+
   margin-top: -10px;
 }
 
@@ -62,19 +87,30 @@
 
 .inputGroup label {
   color: #64ff00;
+
   font-weight: bold;
+
   letter-spacing: 1px;
 }
 
 .inputGroup input {
   padding: 14px;
+
   border-radius: 12px;
+
   border: 1px solid #64ff00;
+
   background: rgba(255, 255, 255, 0.08);
+
   color: white;
+
   font-size: 16px;
+
   outline: none;
+
   transition: 0.3s;
+
+  box-sizing: border-box;
 }
 
 .inputGroup input::placeholder {
@@ -83,15 +119,17 @@
 
 .inputGroup input:focus {
   box-shadow: 0 0 15px #64ff00;
+
   transform: scale(1.02);
 }
 
-button {
+.submitButton {
   width: 100%;
-  max-width: 100%;
+
   box-sizing: border-box;
 
   margin-top: 10px;
+
   padding: 14px;
 
   border: none;
@@ -100,6 +138,7 @@ button {
   background: linear-gradient(90deg, #64ff00, #b7ff00);
 
   color: black;
+
   font-size: 18px;
   font-weight: bold;
 
@@ -108,39 +147,182 @@ button {
   transition: all 0.2s ease;
 }
 
-button:hover {
+.submitButton:hover {
   box-shadow: 0 0 20px #64ff00;
+
   filter: brightness(1.1);
 }
 
 .demoBox {
   margin-top: 10px;
+
   padding: 16px;
+
   border-radius: 14px;
+
   background: rgba(255, 255, 255, 0.06);
+
   border: 1px solid rgba(255, 255, 255, 0.1);
+
   color: white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.demoBox span {
+.demoTitle {
+  margin: 0 0 4px 0;
+
   color: #64ff00;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.demoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 10px 12px;
+
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  border: 1px solid rgba(100, 255, 0, 0.18);
+}
+
+.demoText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.demoText span {
+  color: #64ff00;
+
+  font-size: 13px;
   font-weight: bold;
+}
+
+.demoText strong {
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copyButton {
+  min-width: 72px;
+  height: 36px;
+
+  padding: 0 10px;
+
+  border: 1px solid rgba(100, 255, 0, 0.45);
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(12, 35, 12, 0.95),
+      rgba(2, 10, 2, 0.95)
+    );
+
+  color: #64ff00;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 10px rgba(100, 255, 0, 0.16),
+    inset 0 0 10px rgba(100, 255, 0, 0.08);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+.copyButton:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(100, 255, 0, 0.22),
+      rgba(12, 35, 12, 0.98)
+    );
+
+  color: white;
+
+  box-shadow:
+    0 0 16px rgba(100, 255, 0, 0.45),
+    inset 0 0 12px rgba(100, 255, 0, 0.16);
+
+  transform: translateY(-1px);
+}
+
+.copyButton:active {
+  transform: scale(0.97);
 }
 
 .error {
   color: #ff4d4d;
+
   font-size: 14px;
+
   margin: 0;
 }
 
 @media (max-width: 500px) {
   .form {
     width: 90%;
+
     padding: 25px;
   }
 
   .form h1 {
     font-size: 30px;
+  }
+
+  .form h2 {
+    font-size: 22px;
+  }
+
+  .demoItem {
+    padding: 10px;
+  }
+
+  .demoText strong {
+    font-size: 14px;
+  }
+
+  .copyButton {
+    min-width: 64px;
+
+    font-size: 12px;
   }
 }
 

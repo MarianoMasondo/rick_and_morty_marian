@@ -9,6 +9,10 @@ export default function Form(props) {
   });
 
   const [errors, setErrors] = React.useState({});
+  const [copied, setCopied] = React.useState("");
+
+  const demoEmail = "ejemplo@gmail.com";
+  const demoPassword = "ejemplo123";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -41,6 +45,19 @@ export default function Form(props) {
     props.login(userData);
   };
 
+  const handleCopy = async (text, type) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(type);
+
+      setTimeout(() => {
+        setCopied("");
+      }, 1500);
+    } catch (error) {
+      console.error("No se pudo copiar el texto", error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
@@ -48,9 +65,8 @@ export default function Form(props) {
       <form className={styles.form} onSubmit={handleSubmit}>
         <h1>Rick and Morty</h1>
         <h2>¡Bienvenido de vuelta!</h2>
-        <p className={styles.subtitle}>
-          Inicia sesión para continuar
-        </p>
+
+        <p className={styles.subtitle}>Inicia sesión para continuar</p>
 
         <div className={styles.inputGroup}>
           <label>Email</label>
@@ -61,9 +77,7 @@ export default function Form(props) {
             value={userData.email}
             onChange={handleChange}
           />
-          <p className={styles.error}>
-            {errors.email ? errors.email : null}
-          </p>
+          <p className={styles.error}>{errors.email ? errors.email : null}</p>
         </div>
 
         <div className={styles.inputGroup}>
@@ -80,15 +94,44 @@ export default function Form(props) {
           </p>
         </div>
 
-        <button type="submit">Ingresar</button>
+        <button className={styles.submitButton} type="submit">
+          Ingresar
+        </button>
 
         <div className={styles.demoBox}>
-          <p>
-            <span>Email:</span> ejemplo@gmail.com
-          </p>
-          <p>
-            <span>Contraseña:</span> ejemplo123
-          </p>
+          <p className={styles.demoTitle}>Usuario de prueba</p>
+
+          <div className={styles.demoItem}>
+            <div className={styles.demoText}>
+              <span>Email:</span>
+              <strong>{demoEmail}</strong>
+            </div>
+
+            <button
+              type="button"
+              className={styles.copyButton}
+              onClick={() => handleCopy(demoEmail, "email")}
+              title="Copiar email"
+            >
+              {copied === "email" ? "Copiado" : "📋"}
+            </button>
+          </div>
+
+          <div className={styles.demoItem}>
+            <div className={styles.demoText}>
+              <span>Contraseña:</span>
+              <strong>{demoPassword}</strong>
+            </div>
+
+            <button
+              type="button"
+              className={styles.copyButton}
+              onClick={() => handleCopy(demoPassword, "password")}
+              title="Copiar contraseña"
+            >
+              {copied === "password" ? "Copiado" : "📋"}
+            </button>
+          </div>
         </div>
       </form>
     </div>
