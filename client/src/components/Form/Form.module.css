@@ -102,7 +102,6 @@ button {
 }
 
 button:hover {
-  transform: translateY(-1px);
   box-shadow: 0 0 20px #64ff00;
   filter: brightness(1.1);
 }
