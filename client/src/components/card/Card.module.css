@@ -2,6 +2,7 @@
   position: relative;
 
   width: 320px;
+  height: 735px;
 
   padding: 22px;
 
@@ -34,6 +35,8 @@
   transition: all 0.25s ease;
 
   font-family: Arial, Helvetica, sans-serif;
+
+  box-sizing: border-box;
 }
 
 .container:hover {
@@ -50,7 +53,7 @@
   display: flex;
   justify-content: space-between;
 
-  margin-bottom: 10px;
+  margin-bottom: 26px;
 }
 
 .buttonContainer button {
@@ -102,44 +105,60 @@
 
 .cardLink {
   width: 100%;
+  height: 100%;
 
   text-decoration: none;
 
   color: inherit;
+
+  display: block;
 }
 
 .dataContainer {
   width: 100%;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
   text-align: center;
+
+  min-width: 0;
 }
 
-.dataContainer h2 {
+.cardTitle {
+  width: 100%;
+  height: 42px;
+
   color: #64ff00;
 
   font-size: 34px;
 
   font-weight: 900;
 
-  margin-bottom: 22px;
+  margin: 0 0 28px 0;
 
   text-transform: uppercase;
 
   text-shadow: 0 0 12px rgba(100, 255, 0, 0.5);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  line-height: 42px;
+
+  min-width: 0;
 }
 
 .dataContainer img {
   width: 220px;
-
-  max-width: 100%;
-
-  height: auto;
+  height: 220px;
 
   display: block;
+
+  object-fit: cover;
 
   border-radius: 50%;
 
@@ -152,6 +171,8 @@
   margin-bottom: 28px;
 
   background-color: black;
+
+  flex-shrink: 0;
 }
 
 .h4Container {
@@ -166,6 +187,8 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 
   backdrop-filter: blur(6px);
+
+  margin-top: auto;
 }
 
 .infoItem {
@@ -173,6 +196,7 @@
 
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 
   padding: 16px 20px;
 
@@ -184,6 +208,8 @@
   font-weight: 500;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  min-width: 0;
 }
 
 .infoItem:last-child {
@@ -196,19 +222,49 @@
   font-weight: bold;
 
   letter-spacing: 0.5px;
+
+  flex-shrink: 0;
+}
+
+.infoItem strong {
+  color: white;
+
+  font-weight: 600;
+
+  text-align: right;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  min-width: 0;
 }
 
 @media (max-width: 600px) {
   .container {
     width: 90%;
+    height: 680px;
   }
 
-  .dataContainer h2 {
+  .buttonContainer {
+    margin-bottom: 22px;
+  }
+
+  .cardTitle {
+    height: 34px;
+
     font-size: 26px;
+
+    line-height: 34px;
+
+    margin-bottom: 24px;
   }
 
   .dataContainer img {
     width: 180px;
+    height: 180px;
+
+    margin-bottom: 24px;
   }
 
   .infoItem {

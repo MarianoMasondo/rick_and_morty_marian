@@ -8,9 +8,7 @@ function Card(props) {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    const favorite = props.myFavorites.some(
-      (fav) => fav.id === props.id
-    );
+    const favorite = props.myFavorites.some((fav) => fav.id === props.id);
 
     setIsFav(favorite);
   }, [props.myFavorites, props.id]);
@@ -32,59 +30,51 @@ function Card(props) {
   return (
     <div className={styles.container}>
       <div className={styles.buttonContainer}>
-        <button
-          className={styles.favoriteButton}
-          onClick={handleFavorite}
-        >
+        <button className={styles.favoriteButton} onClick={handleFavorite}>
           {isFav ? "❤️" : "🤍"}
         </button>
 
         {props.showCloseButton && (
-          <button
-            className={styles.closeButton}
-            onClick={handleClose}
-          >
+          <button className={styles.closeButton} onClick={handleClose}>
             ✕
           </button>
         )}
       </div>
 
-      <Link
-        to={`/detail/${props.id}`}
-        className={styles.cardLink}
-      >
+      <Link to={`/detail/${props.id}`} className={styles.cardLink}>
         <div className={styles.dataContainer}>
-          <h2>{props.name}</h2>
+          <h2 className={styles.cardTitle} title={props.name}>
+            {props.name}
+          </h2>
 
-          <img
-            src={props.image}
-            alt={props.name}
-          />
+          <img src={props.image} alt={props.name} />
 
           <div className={styles.h4Container}>
             <h4 className={styles.infoItem}>
               <span>ID</span>
-              {props.id}
+              <strong>{props.id}</strong>
             </h4>
 
             <h4 className={styles.infoItem}>
               <span>Status</span>
-              {props.status}
+              <strong>{props.status}</strong>
             </h4>
 
             <h4 className={styles.infoItem}>
               <span>Species</span>
-              {props.species}
+              <strong>{props.species}</strong>
             </h4>
 
             <h4 className={styles.infoItem}>
               <span>Gender</span>
-              {props.gender}
+              <strong>{props.gender}</strong>
             </h4>
 
             <h4 className={styles.infoItem}>
               <span>Origin</span>
-              {props.origin?.name || props.origin}
+              <strong title={props.origin?.name || props.origin}>
+                {props.origin?.name || props.origin}
+              </strong>
             </h4>
           </div>
         </div>
@@ -106,7 +96,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
