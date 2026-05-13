@@ -29,14 +29,14 @@ export default function SearchBar(props) {
           type="text"
           name="search"
           id="search"
-          placeholder="Ingresa un ID entre el 1 y el 826..."
+          placeholder="ID 1-826"
           value={id}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
         />
 
         <button className={styles.button} onClick={handleSearch}>
-          Agregar ID
+          Agregar
         </button>
       </div>
     </div>

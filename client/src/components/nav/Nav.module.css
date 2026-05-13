@@ -52,7 +52,7 @@
 }
 
 .navButton {
-  min-width: 105px;
+  min-width: 120px;
 
   padding: 12px 18px;
 
@@ -72,6 +72,8 @@
   font-weight: 800;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+
+  white-space: nowrap;
 
   cursor: pointer;
 
