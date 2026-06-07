@@ -1,63 +1,118 @@
-.cardContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  width: 30%;
-  margin: 3% auto;
-  text-align: center;
-  border: 8px solid #7b128e;
-  position: relative;
-  padding: 20px;
-}
-
 .backgroundImageContainer {
-  background-image: url("https://wallpapers.com/images/hd/rick-and-morty-looking-at-the-night-sky-tr8wxryct280wstz.webp");
-  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  padding: 120px 20px 50px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.9)),
+    url("https://wallpapers.com/images/hd/rick-and-morty-looking-at-the-night-sky-tr8wxryct280wstz.webp");
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  width: 100%;
-  padding-top: 1em;
+  box-sizing: border-box;
+}
+
+.cardContainer {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 35px;
+  align-items: center;
+  padding: 30px;
+  border-radius: 32px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.94)),
+    url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid rgba(100, 255, 0, 0.45);
+  box-shadow:
+    0 0 30px rgba(100, 255, 0, 0.25),
+    0 18px 45px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  position: relative;
 }
 
 .characterImage {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-radius: 10%;
-  padding: 20px;
-  margin-top: 5%;
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #64ff00;
+  box-shadow:
+    0 0 28px rgba(100, 255, 0, 0.45),
+    0 0 70px rgba(100, 255, 0, 0.18);
+  background-color: black;
 }
 
 .detailContainer {
+  color: white;
+  text-align: left;
+}
+
+.detailContainer h3 {
+  margin: 18px 0 6px;
+  color: #64ff00;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(100, 255, 0, 0.45);
+}
+
+.detailContainer h2 {
+  margin: 0;
+  font-size: 28px;
   color: whitesmoke;
-  text-align: center;
-  margin: 5% 5% 5% 10%;
 }
 
 .detailButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   position: absolute;
-  top: 2%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 24px;
+  left: 24px;
+}
+
+.detailButton a,
+.detailButton button {
+  padding: 12px 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(100, 255, 0, 0.45);
+  background: rgba(0, 0, 0, 0.75);
+  color: #64ff00;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(100, 255, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.detailButton a:hover,
+.detailButton button:hover {
+  background: rgba(100, 255, 0, 0.16);
+  box-shadow: 0 0 25px rgba(100, 255, 0, 0.45);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
+  .backgroundImageContainer {
+    padding-top: 100px;
+  }
+
   .cardContainer {
-    width: 80%;
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 24px;
   }
 
   .characterImage {
-    margin-top: 10%;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
   }
 
   .detailContainer {
-    margin: 5% 5% 5% 15%;
+    text-align: center;
+  }
+
+  .detailContainer h2 {
+    font-size: 24px;
   }
 }
