@@ -1,7 +1,7 @@
 .backgroundImageContainer {
   min-height: 100vh;
   width: 100%;
-  padding: 120px 20px 50px;
+  padding: 125px 20px 45px;
   background:
     linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.9)),
     url("https://wallpapers.com/images/hd/rick-and-morty-looking-at-the-night-sky-tr8wxryct280wstz.webp");
@@ -11,36 +11,32 @@
 }
 
 .cardContainer {
-  width: min(900px, 92%);
+  width: min(760px, 90%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 35px;
+  grid-template-columns: 280px 1fr;
+  gap: 34px;
   align-items: center;
-  padding: 30px;
-  border-radius: 32px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.94)),
-    url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
-  background-size: cover;
-  background-position: center;
-  border: 2px solid rgba(100, 255, 0, 0.45);
+  padding: 34px 42px;
+  border-radius: 28px;
+  background: rgba(4, 18, 8, 0.88);
+  border: 1px solid rgba(100, 255, 0, 0.55);
   box-shadow:
-    0 0 30px rgba(100, 255, 0, 0.25),
-    0 18px 45px rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
+    0 0 26px rgba(100, 255, 0, 0.25),
+    0 18px 45px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   position: relative;
 }
 
 .characterImage {
-  width: 280px;
-  height: 280px;
+  width: 255px;
+  height: 255px;
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid #64ff00;
   box-shadow:
-    0 0 28px rgba(100, 255, 0, 0.45),
-    0 0 70px rgba(100, 255, 0, 0.18);
+    0 0 26px rgba(100, 255, 0, 0.45),
+    0 0 65px rgba(100, 255, 0, 0.18);
   background-color: black;
 }
 
@@ -50,7 +46,7 @@
 }
 
 .detailContainer h3 {
-  margin: 18px 0 6px;
+  margin: 16px 0 7px;
   color: #64ff00;
   font-size: 18px;
   text-transform: uppercase;
@@ -60,7 +56,8 @@
 
 .detailContainer h2 {
   margin: 0;
-  font-size: 28px;
+  font-size: 16px;
+  font-weight: 500;
   color: whitesmoke;
 }
 
@@ -72,47 +69,72 @@
 
 .detailButton a,
 .detailButton button {
-  padding: 12px 22px;
-  border-radius: 14px;
-  border: 1px solid rgba(100, 255, 0, 0.45);
-  background: rgba(0, 0, 0, 0.75);
+  padding: 11px 22px;
+  border-radius: 13px;
+  border: 1px solid rgba(100, 255, 0, 0.55);
+  background: rgba(0, 0, 0, 0.76);
   color: #64ff00;
-  font-weight: 800;
+  font-weight: 900;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 0 15px rgba(100, 255, 0, 0.2);
+  box-shadow: 0 0 14px rgba(100, 255, 0, 0.2);
   transition: all 0.25s ease;
 }
 
 .detailButton a:hover,
 .detailButton button:hover {
   background: rgba(100, 255, 0, 0.16);
-  box-shadow: 0 0 25px rgba(100, 255, 0, 0.45);
+  box-shadow: 0 0 24px rgba(100, 255, 0, 0.45);
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .backgroundImageContainer {
-    padding-top: 100px;
+    padding-top: 105px;
   }
 
   .cardContainer {
+    width: min(620px, 92%);
     grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 28px 24px;
     text-align: center;
-    padding: 24px;
   }
 
   .characterImage {
     width: 220px;
     height: 220px;
-    margin: 0 auto;
+    margin: 38px auto 0;
   }
 
   .detailContainer {
     text-align: center;
   }
 
-  .detailContainer h2 {
-    font-size: 24px;
+  .detailButton {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-height: 760px) {
+  .backgroundImageContainer {
+    padding-top: 105px;
+  }
+
+  .cardContainer {
+    width: min(700px, 88%);
+    padding: 28px 36px;
+  }
+
+  .characterImage {
+    width: 220px;
+    height: 220px;
+  }
+
+  .detailContainer h3 {
+    margin: 12px 0 5px;
+    font-size: 16px;
   }
 }
