@@ -12,7 +12,7 @@ export default function Form(props) {
   const [copied, setCopied] = React.useState("");
 
   const demoEmail = "ejemplo@gmail.com";
-  const demoPassword = "ejemplo123";
+  const demoPassword = "mbqfAM7xq";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
