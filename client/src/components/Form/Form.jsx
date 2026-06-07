@@ -64,9 +64,8 @@ export default function Form(props) {
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <h1>Rick and Morty</h1>
-        <h2>¡Bienvenido de vuelta!</h2>
 
-        <p className={styles.subtitle}>Inicia sesión para continuar</p>
+        <p className={styles.subtitle}>¡Bienvenido! Inicia sesión para continuar</p>
 
         <div className={styles.inputGroup}>
           <label>Email</label>
