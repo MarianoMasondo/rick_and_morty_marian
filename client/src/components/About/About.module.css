@@ -91,24 +91,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.72);
-  border: 1px solid rgba(100, 255, 0, 0.45);
-  box-shadow: 0 0 10px rgba(100, 255, 0, 0.15);
+  background: #ffffff;
+  border: 1px solid rgba(100, 255, 0, 0.65);
+  box-shadow: 0 0 12px rgba(100, 255, 0, 0.22);
   transition: all 0.25s ease;
 }
 
 .child:hover {
-  background: rgba(100, 255, 0, 0.12);
-  box-shadow: 0 0 18px rgba(100, 255, 0, 0.38);
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(100, 255, 0, 0.55);
   transform: translateY(-3px);
 }
 
 .btn {
   border: none;
   background: transparent;
-  color: #64ff00;
+  color: inherit;
   font-size: 20px;
   cursor: pointer;
+}
+
+.child svg {
+  color: initial;
+}
+
+.child:nth-child(1) svg {
+  color: #181717;
+}
+
+.child:nth-child(2) svg {
+  color: #0a66c2;
 }
 
 @media (max-height: 760px) {
