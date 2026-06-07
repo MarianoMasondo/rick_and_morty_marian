@@ -1,129 +1,120 @@
 .backgroundImageContainer {
-  background-image: url("https://images8.alphacoders.com/998/998795.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; 
-  width: 100%;
-  height: auto;
   min-height: 100vh;
+  width: 100%;
+  padding: 110px 20px 50px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.92)),
+    url("https://images8.alphacoders.com/998/998795.jpg");
+  background-size: cover;
+  background-position: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .card {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(40, 33, 33, 0.8);
-  backdrop-filter: blur(1px);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  padding: 20px;
-  width: 80%;
-  max-width: 600px;
-  height: auto;
+  width: min(760px, 92%);
+  padding: 36px;
+  border-radius: 32px;
   text-align: center;
   color: whitesmoke;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.94)),
+    url("https://e1.pxfuel.com/desktop-wallpaper/806/465/desktop-wallpaper-rick-and-morty-phone-rick-and-morty-portal.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid rgba(100, 255, 0, 0.45);
+  box-shadow:
+    0 0 30px rgba(100, 255, 0, 0.25),
+    0 18px 45px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
 }
 
 .card h1 {
-  font-size: 30px;
-  margin-bottom: 20px;
+  margin: 0 0 24px;
+  color: #64ff00;
+  font-size: 34px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(100, 255, 0, 0.5);
 }
 
 .card p {
-  font-size: 16px;
-}
-
-.homeButton {
-  position: center;
-  margin-top: 10px;
-  cursor: pointer;
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 14px 0;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .buttonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: auto;
-  margin-top: 8%;
+  margin-top: 28px;
+}
+
+.homeButton {
+  padding: 12px 24px;
+  border-radius: 14px;
+  border: 1px solid rgba(100, 255, 0, 0.45);
+  background: rgba(0, 0, 0, 0.75);
+  color: #64ff00;
+  font-weight: 800;
   cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.homeButton:hover {
+  background: rgba(100, 255, 0, 0.16);
+  box-shadow: 0 0 25px rgba(100, 255, 0, 0.45);
+  transform: translateY(-2px);
 }
 
 .parent {
-  position: center;
   display: flex;
-  flex-direction: row;
-  margin-top: 3%;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 28px;
 }
 
 .child {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform-style: preserve-3d;
-  transition: all 0.5s ease-in-out;
-  border-radius: 50%;
-  margin: 1em;
-}
-
-.child:last-child {
-  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(100, 255, 0, 0.3);
+  transition: all 0.25s ease;
 }
 
 .child:hover {
-  background-color: white;
-  transform: rotate3d(0.1, 0, 0);
-  box-shadow: 0px 10px 10px rgb(216, 220, 230);
+  background: rgba(100, 255, 0, 0.16);
+  box-shadow: 0 0 18px rgba(100, 255, 0, 0.45);
+  transform: translateY(-4px);
 }
 
 .btn {
   border: none;
-  background-color: rgb(246, 246, 248);
-  font-size: 20px;
+  background: transparent;
+  color: #64ff00;
+  font-size: 22px;
   cursor: pointer;
 }
 
-.btn:hover {
-  width: inherit;
-  height: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translate3d(0px, 0px, 1px) perspective(80px) rotateX() translateY();
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-@media (max-width: 468px) {
-  .backgroundImageContainer {
-    height: auto;
-    min-height: 100vh;
-  }
-
+@media (max-width: 600px) {
   .card {
-    width: 100%;
+    padding: 26px 20px;
   }
 
-  .buttonContainer {
-    height: auto;
+  .card h1 {
+    font-size: 26px;
+  }
+
+  .card p {
+    font-size: 16px;
   }
 
   .parent {
-    flex-direction: row;
-  }
-
-  .child {
-    width: 40px;
-    height: 40px;
-  }
-
-  .homeButton {
-    position: static;
+    gap: 12px;
   }
 }
-
